@@ -1,8 +1,8 @@
 import { ShopHero, ShopCategories, Footer } from "@/components/sections";
 
 export const metadata = {
-    title: "Shop Categories | RoboCollective.ai",
-    description: "Explore our range of personal, educational, and industrial robotics solutions designed for real people.",
+    title: "Shop | RoboCollective.ai",
+    description: "Browse our full catalog of humanoid robots, robodogs, industrial arms, drones, and more.",
 };
 
 export default function ShopPage() {

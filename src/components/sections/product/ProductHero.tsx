@@ -237,11 +237,29 @@ function parseContent(raw: string): { videoId: string | null; html: string } {
   if (embedMatch) {
     videoId = getYouTubeId(embedMatch[1].trim());
   }
-  // Remove the [embed] block and any bare URLs at the start
+
+  // Fallback: handle legacy inline iframe embeds inside content blocks.
+  // Some product files contain raw <iframe> tags instead of [embed] tags.
+  if (!videoId) {
+    const iframeSrcMatch = raw.match(/<iframe[^>]*src=["']([^"']+)["'][^>]*>/i);
+    if (iframeSrcMatch) {
+      videoId = getYouTubeId(iframeSrcMatch[1].trim());
+    }
+  }
+
+  // Remove the [embed] block, raw iframes, and any bare URLs at the start.
   let html = raw
     .replace(/\[embed\].*?\[\/embed\]/s, "")
+    .replace(/<iframe[\s\S]*?<\/iframe>/gi, "")
     .replace(/^https?:\/\/\S+/m, "")
     .trim();
+
+  // Clean up empty headings/paragraphs left after removing old iframe tags.
+  html = html
+    .replace(/<h[1-6][^>]*>\s*(?:&nbsp;)?\s*<\/h[1-6]>/gi, "")
+    .replace(/<p[^>]*>\s*(?:&nbsp;)?\s*<\/p>/gi, "")
+    .trim();
+
   return { videoId, html };
 }
 
@@ -347,9 +365,9 @@ export function ProductHero({ product }: { product: ProductDetails }) {
 
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           {/* Back Navigation */}
-          <Link href="/products" className="inline-flex items-center gap-2 mb-12 text-sm font-bold tracking-widest uppercase text-neutral-400 hover:text-white transition-colors group">
+          <Link href="/shop" className="inline-flex items-center gap-2 mb-12 text-sm font-bold tracking-widest uppercase text-neutral-400 hover:text-white transition-colors group">
             <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
-            Back to Products
+            Back to Shop
           </Link>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">

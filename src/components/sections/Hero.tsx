@@ -1,16 +1,12 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function Hero() {
     const [isSlowConnection, setIsSlowConnection] = useState(false);
-
-    // Check scroll progress across the whole page to fade out near the bottom
-    const { scrollYProgress } = useScroll();
-    // Fade out completely when the scroll reaches 75% down the page (before footer)
-    const scrollIndicatorOpacity = useTransform(scrollYProgress, [0.6, 0.75], [1, 0]);
 
     useEffect(() => {
         if ("connection" in navigator) {
@@ -77,11 +73,11 @@ export function Hero() {
                         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                         className="flex flex-col sm:flex-row gap-4"
                     >
-                        <a href="#products" className="group relative flex items-center justify-center gap-3 px-8 py-4 bg-[#00DBFF] text-black font-bold uppercase tracking-wider rounded-none overflow-hidden transition-transform active:scale-95 text-sm md:text-base">
+                        <Link href="/shop" className="group relative flex items-center justify-center gap-3 px-8 py-4 bg-[#00DBFF] text-black font-bold uppercase tracking-wider rounded-none overflow-hidden transition-transform active:scale-95 text-sm md:text-base">
                             <span className="relative z-10">Explore Collection</span>
                             <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-2 transition-transform" />
                             <div className="absolute inset-0 bg-white translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
-                        </a>
+                        </Link>
 
                         <a href="/contact" className="px-8 py-4 bg-transparent border border-neutral-600 text-white font-bold uppercase tracking-wider rounded-none hover:bg-white hover:text-black transition-all active:scale-95 text-sm md:text-base">
                             Talk to an Expert
@@ -89,23 +85,6 @@ export function Hero() {
                     </motion.div>
                 </div>
             </div>
-
-            {/* Subtle Industrial Scroll Indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 1.5 }}
-                className="fixed right-10 bottom-10 z-50 hidden lg:flex items-center gap-4 rotate-90 origin-right mix-blend-difference text-white"
-            >
-                {/* Wrap the content in another motion.div that handles the scroll fade */}
-                <motion.div
-                    style={{ opacity: scrollIndicatorOpacity }}
-                    className="flex items-center gap-4"
-                >
-                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold">Scroll to Explore</span>
-                    <div className="w-12 h-[1px] bg-white opacity-30" />
-                </motion.div>
-            </motion.div>
         </section>
     );
 }

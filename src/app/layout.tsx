@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import { Nav } from "@/components/ui";
+import { Nav, ScrollToTopButton } from "@/components/ui";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${geistSans.className} bg-black`} suppressHydrationWarning>
         <Nav />
         {children}
+        <ScrollToTopButton />
       </body>
     </html>
   )

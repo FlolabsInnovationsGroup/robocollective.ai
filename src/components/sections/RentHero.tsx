@@ -42,7 +42,7 @@ export function RentHero() {
                         className={`${spaceGrotesk.className} text-6xl md:text-8xl lg:text-9xl font-black text-white leading-tight tracking-tighter mb-8 uppercase`}
                     >
                         Rent <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#00DBFF]">
+                        <span className="inline-block pr-[0.15em] text-transparent bg-clip-text bg-gradient-to-r from-white to-[#00DBFF]">
                             Robots
                         </span>
                     </motion.h1>

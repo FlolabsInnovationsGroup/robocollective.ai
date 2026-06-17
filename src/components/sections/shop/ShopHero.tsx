@@ -37,7 +37,7 @@ export function ShopHero() {
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 >
                     <p className="text-lg md:text-2xl text-neutral-400 font-medium leading-relaxed max-w-2xl mx-auto">
-                        Automate, educate, and innovate. Choose a category below to explore our curated selection of advanced robotics.
+                        Automate, educate, and innovate. Browse our full catalog below, or filter by category to find the right robotics solution.
                     </p>
                 </motion.div>
 
@@ -47,7 +47,7 @@ export function ShopHero() {
                     transition={{ delay: 1 }}
                     className="absolute -bottom-32 flex flex-col items-center gap-3"
                 >
-                    <span className="text-[10px] uppercase tracking-[0.3em] text-[#00DBFF] font-bold">Select Category</span>
+                    <span className="text-[10px] uppercase tracking-[0.3em] text-[#00DBFF] font-bold">Browse Catalog</span>
                     <div className="w-[1px] h-24 bg-gradient-to-b from-[#00DBFF]/50 to-transparent" />
                 </motion.div>
             </div>

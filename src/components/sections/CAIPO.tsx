@@ -21,7 +21,7 @@ export function CAIPO() {
                             CAIPO combines tactile sensors, gesture intelligence, and a holographic interface to help teams experience next-generation robotic presence.
                         </p>
                         <a
-                            href="https://caipo-new-website.vercel.app/"
+                            href="https://www.caipo.ai/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 mt-8 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black bg-[#00DBFF] rounded-full hover:bg-white transition-colors duration-300"

@@ -2,6 +2,7 @@
 
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import Image from "next/image";
+import Link from "next/link";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] });
@@ -29,8 +30,8 @@ export function Footer() {
                             Platform
                         </h4>
                         <ul className="space-y-4">
-                            <li><a href="/" className="text-neutral-400 hover:text-white transition-colors">Shop</a></li>
-                            <li><a href="https://caipo-new-website.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">CAIPO</a></li>
+                            <li><Link href="/shop" className="text-neutral-400 hover:text-white transition-colors">Shop</Link></li>
+                            <li><a href="https://www.caipo.ai/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">CAIPO</a></li>
                             <li><a href="/rent" className="text-neutral-400 hover:text-white transition-colors">Rentals</a></li>
                             <li><a href="/resell" className="text-neutral-400 hover:text-white transition-colors">Resell Program</a></li>
                         </ul>
@@ -44,7 +45,7 @@ export function Footer() {
                             <li><a href="/about" className="text-neutral-400 hover:text-white transition-colors">About</a></li>
                             <li><a href="/blog" className="text-neutral-400 hover:text-white transition-colors">Blog</a></li>
                             <li><a href="/contact" className="text-neutral-400 hover:text-white transition-colors">Contact</a></li>
-                            <li><a href="https://hephaestus.international/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">Internships</a></li>
+                            <li><a href="https://hephaestus.international/internships" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">Internships</a></li>
                         </ul>
                     </div>
                 </div>

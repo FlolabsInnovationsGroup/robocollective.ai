@@ -7,10 +7,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navLinks = [
+    { name: "Shop", href: "/shop" },
     { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
-    { name: "Internships", href: "https://hephaestus.international/", external: true },
+    { name: "Internships", href: "https://hephaestus.international/internships", external: true },
 ];
 
 export function Nav() {

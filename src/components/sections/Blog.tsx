@@ -44,8 +44,6 @@ export function Blog() {
                         <motion.a
                             key={index}
                             href={post.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
