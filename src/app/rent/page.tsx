@@ -5,7 +5,7 @@ import { RentProcess } from "@/components/sections/RentProcess";
 
 export default function RentPage() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-background">
       <Nav />
       <RentHero />
       <RentProcess />

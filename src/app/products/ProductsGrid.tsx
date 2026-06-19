@@ -220,7 +220,7 @@ function ProductCard({ product }: { product: any }) {
             <div
                 ref={cardRef}
                 onMouseMove={handleMouseMove}
-                className="group w-full relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#0a0a0a] border border-neutral-800 p-8 hover:border-neutral-700 transition-colors duration-500 cursor-pointer"
+                className="group w-full relative flex flex-col justify-between overflow-hidden rounded-2xl bg-card border border-border p-8 hover:border-brand/30 transition-colors duration-500 cursor-pointer"
             >
                 {/* Spotlight Hover Effect */}
                 <div
@@ -236,7 +236,7 @@ function ProductCard({ product }: { product: any }) {
                         const imgSrc = product.image || PRODUCT_IMAGE[product.id];
                         if (imgSrc) {
                             return (
-                                <div className="w-full h-40 sm:h-48 rounded-xl overflow-hidden mb-4 bg-neutral-900 flex-shrink-0">
+                                <div className="w-full h-40 sm:h-48 rounded-xl overflow-hidden mb-4 bg-surface flex-shrink-0">
                                     <img
                                         src={imgSrc}
                                         alt={product.name}
@@ -257,21 +257,21 @@ function ProductCard({ product }: { product: any }) {
                     })()}
 
                     <div className="flex justify-between items-start mb-3">
-                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full">
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground bg-surface border border-border px-3 py-1 rounded-full">
                             {product.subCategoryTitle}
                         </span>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#00DBFF] transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-[#00DBFF] transition-colors duration-300">
                         {product.name}
                     </h3>
-                    <p className="text-neutral-400 text-sm leading-relaxed flex-1">
+                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">
                         {product.description}
                     </p>
                 </div>
 
                 <div className="relative z-10 mt-8 flex justify-end">
-                    <Link href={product.href || `/products/${product.id}`} className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-neutral-500 group-hover:text-white transition-colors duration-300">
+                    <Link href={product.href || `/products/${product.id}`} className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-muted-foreground group-hover:text-brand transition-colors duration-300">
                         View Details <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </Link>
                 </div>
@@ -289,20 +289,20 @@ export function ProductsGrid() {
         : allProducts.filter(p => p.categoryId === activeFilter);
 
     return (
-        <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-black min-h-screen">
+        <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background min-h-screen">
             <div className="max-w-7xl mx-auto flex flex-col gap-12">
 
                 <div className="flex flex-col gap-4">
-                    <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight">
-                        Hardware <span className="text-neutral-500">Catalog</span>
+                    <h2 className="text-3xl md:text-5xl font-black text-foreground uppercase tracking-tight">
+                        Hardware <span className="text-muted-foreground">Catalog</span>
                     </h2>
-                    <p className="text-neutral-400 max-w-2xl">
+                    <p className="text-muted-foreground max-w-2xl">
                         Filter by category to explore specific robotics solutions ranging from educational kits to industrial arms.
                     </p>
                 </div>
 
                 {/* Filter Tabs */}
-                <div className="sticky top-[80px] z-40 bg-black/80 backdrop-blur-md py-4 px-6 -mx-6 md:px-12 md:-mx-12 lg:px-24 lg:-mx-24 flex flex-wrap items-center gap-3 border-b border-neutral-800 mb-8 shadow-2xl">
+                <div className="sticky top-[80px] z-40 bg-background/80 backdrop-blur-md py-4 px-6 -mx-6 md:px-12 md:-mx-12 lg:px-24 lg:-mx-24 flex flex-wrap items-center gap-3 border-b border-border mb-8 shadow-2xl">
                     {categories.map((category) => (
                         <button
                             key={category.id}
@@ -310,7 +310,7 @@ export function ProductsGrid() {
                             className={`px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 border
                                 ${activeFilter === category.id
                                     ? `bg-white text-black border-transparent shadow-[0_0_30px_rgba(255,255,255,0.1)]`
-                                    : 'bg-transparent text-neutral-400 border-neutral-800 hover:border-neutral-600 hover:text-white'
+                                    : 'bg-transparent text-muted-foreground border-border hover:border-border hover:text-brand'
                                 }
                             `}
                         >
@@ -329,7 +329,7 @@ export function ProductsGrid() {
                 </motion.div>
 
                 {filteredProducts.length === 0 && (
-                    <div className="py-20 text-center text-neutral-500">
+                    <div className="py-20 text-center text-muted-foreground">
                         No products found for this category.
                     </div>
                 )}

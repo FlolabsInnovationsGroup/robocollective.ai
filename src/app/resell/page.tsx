@@ -5,7 +5,7 @@ import { ResellContent } from "@/components/sections/ResellContent";
 
 export default function ResellPage() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-background">
       <Nav />
       <ResellHero />
       <ResellContent />

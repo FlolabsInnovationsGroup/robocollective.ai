@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function ProductsPage() {
     return (
-        <main className="bg-black min-h-screen">
+        <main className="bg-background min-h-screen">
             <ProductsGrid />
             <Footer />
         </main>

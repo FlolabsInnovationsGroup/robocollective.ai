@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function CAIPO() {
     return (
-        <section className="relative w-full min-h-screen bg-black flex items-center justify-center border-t border-neutral-800/50 overflow-hidden py-24 md:py-0">
+        <section className="relative w-full min-h-screen bg-background flex items-center justify-center border-t border-border/50 overflow-hidden py-24 md:py-0">
             <div className="w-full max-w-7xl mx-auto px-4 md:px-12 lg:px-24 flex flex-col md:flex-row items-center justify-between">
                 {/* Left Content */}
                 <div className="w-full md:w-1/2 z-10 space-y-6 pt-12 md:pt-0">
@@ -14,10 +14,10 @@ export function CAIPO() {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white mb-6">
+                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-foreground mb-6">
                             Meet <span className="text-[#00DBFF]">CAIPO</span>
                         </h2>
-                        <p className="text-lg text-neutral-400 max-w-xl">
+                        <p className="text-lg text-muted-foreground max-w-xl">
                             CAIPO combines tactile sensors, gesture intelligence, and a holographic interface to help teams experience next-generation robotic presence.
                         </p>
                         <a

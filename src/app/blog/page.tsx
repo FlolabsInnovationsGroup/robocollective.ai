@@ -27,7 +27,7 @@ const posts = [
 
 export default function BlogPage() {
     return (
-        <main className="bg-black min-h-screen text-white pt-32 selection:bg-[#00DBFF]/30 selection:text-white">
+        <main className="bg-background min-h-screen text-foreground pt-32 selection:bg-[#00DBFF]/30 selection:text-foreground">
             {/* Header Section */}
             <section className="relative overflow-hidden mb-16">
                 {/* Background Glow */}
@@ -43,7 +43,7 @@ export default function BlogPage() {
                         <h1 className={`${spaceGrotesk.className} text-5xl md:text-6xl lg:text-7xl font-black mb-6 uppercase tracking-tight`}>
                             Guides & <br /><span className="text-[#00DBFF]">Insights</span>
                         </h1>
-                        <p className="text-neutral-400 text-lg md:text-xl">
+                        <p className="text-muted-foreground text-lg md:text-xl">
                             Stories, lessons, and proof points from the RoboCollective.ai team.
                         </p>
                     </motion.div>
@@ -63,7 +63,7 @@ export default function BlogPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
-                                className="group block text-left bg-neutral-950 border border-white/5 rounded-3xl p-8 md:p-12 hover:border-[#00DBFF]/50 transition-all duration-500 relative overflow-hidden"
+                                className="group block text-left bg-surface-elevated border border-foreground/5 rounded-3xl p-8 md:p-12 hover:border-[#00DBFF]/50 transition-all duration-500 relative overflow-hidden"
                             >
                                 {/* Hover Gradient Effect */}
                                 <div className="absolute inset-0 bg-gradient-to-b from-[#00DBFF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -72,18 +72,18 @@ export default function BlogPage() {
                                     <div className={`${jetbrainsMono.className} flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-widest text-[#00DBFF] mb-6`}>
                                         <span>{post.category}</span>
                                         <span className="w-1.5 h-1.5 rounded-full bg-white/20" />
-                                        <span className="text-neutral-500">{post.date}</span>
+                                        <span className="text-muted-foreground">{post.date}</span>
                                     </div>
 
                                     <h3 className={`${spaceGrotesk.className} text-2xl md:text-3xl font-bold mb-6 group-hover:text-[#00DBFF] transition-colors line-clamp-2 md:line-clamp-3 leading-tight`}>
                                         {post.title}
                                     </h3>
 
-                                    <p className="text-neutral-400 leading-relaxed mb-10 line-clamp-3 md:line-clamp-4 flex-grow">
+                                    <p className="text-muted-foreground leading-relaxed mb-10 line-clamp-3 md:line-clamp-4 flex-grow">
                                         {post.excerpt}
                                     </p>
 
-                                    <div className="inline-flex w-fit items-center gap-2 text-sm font-bold uppercase tracking-widest text-white group-hover:text-[#00DBFF] transition-colors mt-auto pt-6 border-t border-white/5 group-hover:border-[#00DBFF]/20">
+                                    <div className="inline-flex w-fit items-center gap-2 text-sm font-bold uppercase tracking-widest text-foreground group-hover:text-[#00DBFF] transition-colors mt-auto pt-6 border-t border-foreground/5 group-hover:border-[#00DBFF]/20">
                                         Read more <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                     </div>
                                 </div>

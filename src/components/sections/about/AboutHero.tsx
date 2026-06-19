@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 
 export function AboutHero() {
     return (
-        <section className="relative h-screen min-h-[600px] w-full overflow-hidden bg-black flex items-end pb-16 pt-32 px-6 md:px-12 lg:px-24">
+        <section className="relative h-screen min-h-[600px] w-full overflow-hidden bg-background flex items-end pb-16 pt-32 px-6 md:px-12 lg:px-24">
             {/* Background Elements */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-neutral-900/50 to-black/80 opacity-90" />
+                <div className="absolute inset-0 hero-media-wash" />
+                <div className="absolute inset-0 hero-media-scrim opacity-90" />
                 <div
                     className="absolute inset-0 opacity-20 mix-blend-overlay"
                     style={{
@@ -23,7 +24,7 @@ export function AboutHero() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[1.1] mb-6 uppercase">
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-foreground tracking-tighter leading-[1.1] mb-6 uppercase">
                             Our Story.
                         </h1>
                     </motion.div>
@@ -33,7 +34,7 @@ export function AboutHero() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                     >
-                        <p className="text-xl md:text-2xl text-neutral-300 font-medium leading-relaxed max-w-2xl">
+                        <p className="text-xl md:text-2xl text-muted font-medium leading-relaxed max-w-2xl">
                             RoboCollective.ai, founded in 2024, was created with a simple belief: <br /><span className="text-[#00DBFF]">robotics should feel natural, useful, and supportive in everyday life.</span>
                         </p>
                     </motion.div>
@@ -45,10 +46,10 @@ export function AboutHero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
-                className="absolute right-10 bottom-10 hidden lg:flex items-center gap-4 rotate-90 origin-right text-white"
+                className="absolute right-10 bottom-10 hidden lg:flex items-center gap-4 rotate-90 origin-right text-foreground"
             >
                 <span className="text-[10px] uppercase tracking-[0.3em] font-bold">Discover our vision</span>
-                <div className="w-12 h-[1px] bg-white opacity-30" />
+                <div className="w-12 h-[1px] bg-foreground opacity-30" />
             </motion.div>
         </section>
     );

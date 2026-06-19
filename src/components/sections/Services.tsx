@@ -53,7 +53,7 @@ const itemVariants = {
 
 export function Services() {
     return (
-        <section id="services" className="py-24 bg-black relative border-t border-white/5">
+        <section id="services" className="py-24 bg-background relative border-t border-foreground/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <motion.div
                     variants={containerVariants}
@@ -68,7 +68,7 @@ export function Services() {
                             variants={itemVariants}
                             whileHover="hover"
                             initial="initial"
-                            className="relative group rounded-3xl p-8 border border-white/5 bg-neutral-900/50 backdrop-blur-md overflow-hidden transition-all duration-500 hover:border-white/20 flex flex-col items-start"
+                            className="relative group rounded-3xl p-8 border border-foreground/5 bg-surface/50 backdrop-blur-md overflow-hidden transition-all duration-500 hover:border-foreground/20 flex flex-col items-start"
                         >
                             {/* Radial Glow */}
                             <motion.div
@@ -84,19 +84,19 @@ export function Services() {
                             <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-10 mix-blend-overlay pointer-events-none z-0" />
 
                             <div className="relative z-10">
-                                <div className="w-16 h-16 rounded-2xl bg-black/50 border border-white/10 flex items-center justify-center mb-6 shadow-xl backdrop-blur-md">
+                                <div className="w-16 h-16 rounded-2xl bg-background/50 border border-foreground/10 flex items-center justify-center mb-6 shadow-xl backdrop-blur-md">
                                     {feature.icon}
                                 </div>
-                                <h3 className={`${spaceGrotesk.className} text-2xl font-bold text-white mb-4 tracking-tight`}>
+                                <h3 className={`${spaceGrotesk.className} text-2xl font-bold text-foreground mb-4 tracking-tight`}>
                                     {feature.title}
                                 </h3>
-                                <p className="text-neutral-400 leading-relaxed">
+                                <p className="text-muted-foreground leading-relaxed">
                                     {feature.description}
                                 </p>
                             </div>
 
                             {/* Decorative Line */}
-                            <div className="absolute top-0 right-8 w-px h-16 bg-gradient-to-b from-white/20 to-transparent" />
+                            <div className="absolute top-0 right-8 w-px h-16 bg-gradient-to-b from-foreground/20 to-transparent" />
                         </motion.div>
                     ))}
                 </motion.div>

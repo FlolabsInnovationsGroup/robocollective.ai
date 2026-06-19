@@ -35,12 +35,12 @@ const products = [
         icon: <Dog className="w-6 h-6 text-black" />,
         image: bentoCategoryImages["Quadruped Robots"],
         microCopy: "UNITREE_B2_REV4",
-        className: "bg-neutral-900 border-white/5",
+        className: "bg-surface border-foreground/5",
         glow: "from-cyan-500/20 to-transparent",
         largeText: true,
         specs: [
-            { label: "Terrain", value: "Any", icon: <Mountain className="w-4 h-4 text-neutral-400" /> },
-            { label: "Agility", value: "High", icon: <Zap className="w-4 h-4 text-neutral-400" /> },
+            { label: "Terrain", value: "Any", icon: <Mountain className="w-4 h-4 text-muted-foreground" /> },
+            { label: "Agility", value: "High", icon: <Zap className="w-4 h-4 text-muted-foreground" /> },
         ],
     },
     {
@@ -49,10 +49,10 @@ const products = [
         icon: <User className="w-6 h-6 text-black" />,
         image: bentoCategoryImages["Humanoid Robots"],
         microCopy: "BIPEDAL_CTRL_SYS",
-        className: "bg-neutral-900 border-white/5",
+        className: "bg-surface border-foreground/5",
         glow: "from-blue-500/20 to-transparent",
         specs: [
-            { label: "Platform", value: "Bipedal", icon: <Activity className="w-4 h-4 text-neutral-400" /> },
+            { label: "Platform", value: "Bipedal", icon: <Activity className="w-4 h-4 text-muted-foreground" /> },
         ],
     },
     {
@@ -61,10 +61,10 @@ const products = [
         icon: <Plane className="w-6 h-6 text-black" />,
         image: bentoCategoryImages["Nimble Drones"],
         microCopy: "AERIAL_INTEL_ON",
-        className: "bg-neutral-900 border-white/5",
+        className: "bg-surface border-foreground/5",
         glow: "from-white/10 to-transparent",
         specs: [
-            { label: "Flight", value: "45m", icon: <Battery className="w-4 h-4 text-neutral-400" /> },
+            { label: "Flight", value: "45m", icon: <Battery className="w-4 h-4 text-muted-foreground" /> },
         ],
     },
     {
@@ -73,10 +73,10 @@ const products = [
         icon: <ConciergeBell className="w-6 h-6 text-black" />,
         image: bentoCategoryImages["Service Robots"],
         microCopy: "LIDAR_NAV_OK",
-        className: "bg-neutral-900 border-white/5",
+        className: "bg-surface border-foreground/5",
         glow: "from-emerald-500/10 to-transparent",
         specs: [
-            { label: "Autonomy", value: "Lvl 4", icon: <Zap className="w-4 h-4 text-neutral-400" /> },
+            { label: "Autonomy", value: "Lvl 4", icon: <Zap className="w-4 h-4 text-muted-foreground" /> },
         ],
     },
     {
@@ -85,10 +85,10 @@ const products = [
         icon: <Truck className="w-6 h-6 text-black" />,
         image: bentoCategoryImages["AMRs & Chassis"],
         microCopy: "OMNI_WHEEL_DRV",
-        className: "bg-neutral-900 border-white/5",
+        className: "bg-surface border-foreground/5",
         glow: "from-orange-500/15 to-transparent",
         specs: [
-            { label: "Mobility", value: "Omni", icon: <Activity className="w-4 h-4 text-neutral-400" /> },
+            { label: "Mobility", value: "Omni", icon: <Activity className="w-4 h-4 text-muted-foreground" /> },
         ],
     },
     {
@@ -97,7 +97,7 @@ const products = [
         icon: <Factory className="w-6 h-6 text-black" />,
         image: bentoCategoryImages["Industrial Arms"],
         microCopy: "6_AXIS_PRECISION",
-        className: "bg-neutral-900 border-[#00DBFF]/20",
+        className: "bg-surface border-[#00DBFF]/20",
         glow: "from-[#00DBFF]/20 to-transparent",
         specs: [
             { label: "Payload", value: "12kg+", icon: <Weight className="w-4 h-4 text-[#00DBFF]" /> },
@@ -109,10 +109,10 @@ const products = [
         icon: <BookOpen className="w-6 h-6 text-black" />,
         image: bentoCategoryImages["Educational"],
         microCopy: "OPEN_API_READY",
-        className: "bg-neutral-900 border-white/5",
+        className: "bg-surface border-foreground/5",
         glow: "from-purple-500/15 to-transparent",
         specs: [
-            { label: "API", value: "Open", icon: <Cpu className="w-4 h-4 text-neutral-400" /> },
+            { label: "API", value: "Open", icon: <Cpu className="w-4 h-4 text-muted-foreground" /> },
         ],
     },
     {
@@ -121,10 +121,10 @@ const products = [
         icon: <Wrench className="w-6 h-6 text-black" />,
         image: bentoCategoryImages["Accessories"],
         microCopy: "UNIVERSAL_MNT",
-        className: "bg-neutral-900 border-white/5",
+        className: "bg-surface border-foreground/5",
         glow: "from-white/5 to-transparent",
         specs: [
-            { label: "Mount", value: "Universal", icon: <Shield className="w-4 h-4 text-neutral-400" /> },
+            { label: "Mount", value: "Universal", icon: <Shield className="w-4 h-4 text-muted-foreground" /> },
         ],
     }
 ];
@@ -136,7 +136,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 export function BentoProducts() {
     return (
-        <section className="py-24 bg-black text-white px-4 md:px-8 relative overflow-hidden">
+        <section className="py-24 bg-background text-foreground px-4 md:px-8 relative overflow-hidden">
             {/* Background Grid Pattern */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
 
@@ -147,7 +147,7 @@ export function BentoProducts() {
                             Browse Our <br />
                             <span className="text-[#00DBFF]">Products</span>
                         </h2>
-                        <p className="text-neutral-400 text-lg">
+                        <p className="text-muted-foreground text-lg">
                             Explore our interconnected hardware platforms. Designed to deploy individually or synchronize as a unified autonomous workforce. High-quality robots and accessories built for real work.
                         </p>
                     </div>
@@ -171,9 +171,9 @@ export function BentoProducts() {
                             initial="initial"
                             className={`
                                 group relative rounded-3xl
-                                border border-white/5 overflow-hidden
+                                border border-foreground/5 overflow-hidden
                                 transition-all duration-500 ease-out
-                                hover:border-white/20
+                                hover:border-foreground/20
                                 flex flex-col min-h-[450px] md:min-h-[500px]
                                 ${product.className}
                             `}
@@ -217,8 +217,8 @@ export function BentoProducts() {
                                 className="relative z-20 p-6 md:p-8 flex flex-col justify-between h-full"
                             >
                                 <div className="flex justify-between items-start mb-2 relative">
-                                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
-                                        <div className="text-white scale-90">
+                                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-foreground/20">
+                                        <div className="text-foreground scale-90">
                                             {product.icon}
                                         </div>
                                     </div>
@@ -238,26 +238,26 @@ export function BentoProducts() {
                                         </div>
                                     </motion.div>
 
-                                    <ArrowRight className="w-5 h-5 text-neutral-500 group-hover:text-white transition-colors transform group-hover:-rotate-45 duration-300" />
+                                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-brand transition-colors transform group-hover:-rotate-45 duration-300" />
                                 </div>
 
-                                <div className="mt-auto w-full transition-all duration-500 rounded-2xl p-5 border border-transparent group-hover:bg-black/60 group-hover:backdrop-blur-xl group-hover:border-white/10 group-hover:shadow-2xl">
-                                    <h3 className={`${spaceGrotesk.className} ${product.largeText ? 'text-2xl md:text-3xl lg:text-3xl' : 'text-xl md:text-2xl'} font-bold tracking-tight text-white drop-shadow-md`}>
+                                <div className="mt-auto w-full transition-all duration-500 rounded-2xl p-5 border border-transparent group-hover:bg-background/60 group-hover:backdrop-blur-xl group-hover:border-foreground/10 group-hover:shadow-2xl">
+                                    <h3 className={`${spaceGrotesk.className} ${product.largeText ? 'text-2xl md:text-3xl lg:text-3xl' : 'text-xl md:text-2xl'} font-bold tracking-tight text-foreground drop-shadow-md`}>
                                         {product.title}
                                     </h3>
 
                                     {/* Revealable Content */}
                                     <div className="max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-[500px] group-hover:opacity-100 group-hover:mt-4">
-                                        <p className="text-neutral-300 text-sm mb-4 leading-relaxed drop-shadow-md">
+                                        <p className="text-muted text-sm mb-4 leading-relaxed drop-shadow-md">
                                             {product.description}
                                         </p>
 
                                         {product.specs.length > 0 && (
                                             <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                                                 {product.specs.map((spec, idx) => (
-                                                    <div key={idx} className={`${jetbrainsMono.className} flex items-center gap-1 md:gap-2 bg-black/60 backdrop-blur-md px-2 md:px-3 py-1.5 rounded-full text-[10px] md:text-xs font-medium border border-white/10`}>
-                                                        <span className="text-white">{spec.icon}</span>
-                                                        <span className="text-neutral-400 hidden sm:inline">{spec.label}: </span><span className="text-white font-bold">{spec.value}</span>
+                                                    <div key={idx} className={`${jetbrainsMono.className} flex items-center gap-1 md:gap-2 bg-background/60 backdrop-blur-md px-2 md:px-3 py-1.5 rounded-full text-[10px] md:text-xs font-medium border border-foreground/10`}>
+                                                        <span className="text-foreground">{spec.icon}</span>
+                                                        <span className="text-muted-foreground hidden sm:inline">{spec.label}: </span><span className="text-foreground font-bold">{spec.value}</span>
                                                     </div>
                                                 ))}
                                             </div>
@@ -272,7 +272,7 @@ export function BentoProducts() {
                             </motion.div>
 
                             {product.microCopy && (
-                                <div className={`${jetbrainsMono.className} absolute bottom-4 right-4 text-[9px] md:text-[10px] text-white/30 tracking-widest z-30 uppercase pointer-events-none text-right max-w-[40%]`}>
+                                <div className={`${jetbrainsMono.className} absolute bottom-4 right-4 text-[9px] md:text-[10px] text-foreground/30 tracking-widest z-30 uppercase pointer-events-none text-right max-w-[40%]`}>
                                     {product.microCopy}
                                 </div>
                             )}
@@ -280,7 +280,7 @@ export function BentoProducts() {
                     ))}
                 </motion.div>
 
-                <a href="https://robocollective.ai/shop.html" className="w-full md:hidden mt-8 py-4 border border-neutral-800 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors text-center block">
+                <a href="https://robocollective.ai/shop.html" className="w-full md:hidden mt-8 py-4 border border-border rounded-full text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors text-center block">
                     View all products
                 </a>
             </div>

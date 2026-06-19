@@ -150,8 +150,8 @@ function CategoryTab({
             className={`
                 group relative overflow-hidden rounded-xl border p-4 text-left transition-all duration-300 flex-1 min-w-[200px]
                 ${isActive
-                    ? 'bg-neutral-800/80 border-white/20 shadow-lg'
-                    : 'bg-neutral-900/50 border-neutral-800 hover:border-neutral-600'
+                    ? 'bg-surface/80 border-foreground/20 shadow-lg'
+                    : 'bg-surface/50 border-border hover:border-border'
                 }
             `}
         >
@@ -167,7 +167,7 @@ function CategoryTab({
             <div className={`absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r ${category.color} ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'} transition-opacity duration-300`} />
 
             <div className="relative z-10 flex items-center justify-between">
-                <span className={`font-bold ${isActive ? 'text-white' : 'text-neutral-400 group-hover:text-neutral-200'} transition-colors duration-300`}>
+                <span className={`font-bold ${isActive ? 'text-foreground' : 'text-muted-foreground group-hover:text-muted'} transition-colors duration-300`}>
                     {category.title}
                 </span>
             </div>
@@ -201,7 +201,7 @@ function ProductCard({ product, colorClass }: { product: any, colorClass: string
             <div
                 ref={cardRef}
                 onMouseMove={handleMouseMove}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#0a0a0a] border border-neutral-800 p-8 h-full min-h-[320px] hover:border-neutral-700 transition-colors duration-500 cursor-pointer"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-card border border-border p-8 h-full min-h-[320px] hover:border-brand/30 transition-colors duration-500 cursor-pointer"
             >
                 {/* Spotlight Hover Effect */}
                 <div
@@ -213,7 +213,7 @@ function ProductCard({ product, colorClass }: { product: any, colorClass: string
 
                 <div className="relative z-10 flex flex-col h-full">
                     {PRODUCT_IMAGE[product.id] ? (
-                        <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-neutral-900 shrink-0">
+                        <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-surface shrink-0">
                             <img
                                 src={PRODUCT_IMAGE[product.id]}
                                 alt={product.name}
@@ -229,21 +229,21 @@ function ProductCard({ product, colorClass }: { product: any, colorClass: string
                     )}
 
                     <div className="flex justify-between items-start mb-3">
-                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full">
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground bg-surface border border-border px-3 py-1 rounded-full">
                             {product.subCategoryTitle}
                         </span>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#00DBFF] transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-[#00DBFF] transition-colors duration-300">
                         {product.name}
                     </h3>
-                    <p className="text-neutral-400 text-sm leading-relaxed flex-1">
+                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">
                         {product.description}
                     </p>
                 </div>
 
                 <div className="relative z-10 mt-8 flex justify-end">
-                    <Link href={product.href || `/products/${product.id}`} className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-neutral-500 group-hover:text-white transition-colors duration-300">
+                    <Link href={product.href || `/products/${product.id}`} className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-muted-foreground group-hover:text-brand transition-colors duration-300">
                         View Details <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </Link>
                 </div>
@@ -275,7 +275,7 @@ export function ShopCategories() {
     const currentProducts = currentSubCategory ? currentSubCategory.products : [];
 
     return (
-        <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-black min-h-screen">
+        <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background min-h-screen">
             <div className="max-w-7xl mx-auto flex flex-col gap-12">
 
                 {/* Main Category Tabs Array */}
@@ -292,10 +292,10 @@ export function ShopCategories() {
 
                 {/* Sub-Category section */}
                 {subCategories.length > 0 && (
-                    <div className="border border-neutral-800 rounded-2xl bg-neutral-900/40 p-6 backdrop-blur-sm">
+                    <div className="border border-border rounded-2xl bg-surface/40 p-6 backdrop-blur-sm">
 
                         <div className="flex flex-col md:flex-row md:items-center gap-6 mb-8 justify-between">
-                            <h2 className="text-2xl font-bold text-white uppercase tracking-tight">
+                            <h2 className="text-2xl font-bold text-foreground uppercase tracking-tight">
                                 {activeMainCategoryData?.title}
                             </h2>
 
@@ -308,7 +308,7 @@ export function ShopCategories() {
                                         className={`px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300
                                             ${activeSubTab === sub.id
                                                 ? 'bg-white text-black shadow-md'
-                                                : 'bg-neutral-800 text-neutral-400 hover:bg-neutral-700 hover:text-white'
+                                                : 'bg-surface text-muted-foreground hover:bg-surface hover:text-brand'
                                             }
                                         `}
                                     >

@@ -1,22 +1,62 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
+
 :root {
+  --brand-cyan: #00DBFF;
+}
+
+html.dark {
+  color-scheme: dark;
+  --background: #000000;
+  --foreground: #ffffff;
+  --muted: #d4d4d4;
+  --muted-foreground: #a3a3a3;
+  --border: #262626;
+  --surface: #171717;
+  --surface-elevated: #0a0a0a;
+  --card: #0a0a0a;
+  --input: #e5e5e5;
+  --overlay: #000000;
+  --hero-wash: transparent;
+  --hero-scrim: linear-gradient(to top, rgb(0 0 0), rgb(0 0 0 / 0.35), transparent);
+  --card-scrim: linear-gradient(to top, rgb(0 0 0), rgb(0 0 0 / 0.45), transparent);
+  --page-hero-scrim: linear-gradient(to bottom, transparent, rgb(0 0 0 / 0.75), var(--background));
+}
+
+html.light {
+  color-scheme: light;
   --background: #ffffff;
   --foreground: #171717;
+  --muted: #525252;
+  --muted-foreground: #737373;
+  --border: #e5e5e5;
+  --surface: #f5f5f5;
+  --surface-elevated: #fafafa;
+  --card: #ffffff;
+  --input: #f5f5f5;
+  --overlay: #000000;
+  --hero-wash: rgb(255 255 255 / 0.12);
+  --hero-scrim: linear-gradient(to top, rgb(255 255 255 / 0.82), rgb(255 255 255 / 0.35), transparent);
+  --card-scrim: linear-gradient(to top, rgb(245 245 245), rgb(245 245 245 / 0.35), transparent);
+  --page-hero-scrim: linear-gradient(to bottom, transparent, rgb(255 255 255 / 0.72), var(--background));
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-card: var(--card);
+  --color-input: var(--input);
+  --color-overlay: var(--overlay);
+  --color-brand: var(--brand-cyan);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -24,18 +64,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.hero-media-wash {
+  background: var(--hero-wash);
+}
+
+.hero-media-scrim {
+  background: var(--hero-scrim);
+}
+
+.card-content-scrim {
+  background: var(--card-scrim);
+}
+
+.page-hero-scrim {
+  background: var(--page-hero-scrim);
+}
+
 @plugin "@tailwindcss/typography";
 
-/* ── HubSpot form dark theme ── */
+/* ── HubSpot form theme ── */
 .hs-form .hs-input,
 .hs-form input[type="text"],
 .hs-form input[type="email"],
 .hs-form textarea,
 .hs-form select {
-  background-color: #111 !important;
-  border: 1px solid #333 !important;
+  background-color: var(--surface) !important;
+  border: 1px solid var(--border) !important;
   border-radius: 8px !important;
-  color: #fff !important;
+  color: var(--foreground) !important;
   padding: 12px 16px !important;
   font-size: 15px !important;
   width: 100% !important;
@@ -48,7 +105,7 @@ body {
   outline: none !important;
 }
 .hs-form label {
-  color: #aaa !important;
+  color: var(--muted-foreground) !important;
   font-size: 14px !important;
   margin-bottom: 6px !important;
   display: block !important;

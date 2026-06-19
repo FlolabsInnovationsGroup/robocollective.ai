@@ -14,7 +14,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = getBlogPost(slug);
   if (!post) notFound();
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-background">
       <Nav />
       <BlogPostHero post={post} />
       <BlogPostContent post={post} />

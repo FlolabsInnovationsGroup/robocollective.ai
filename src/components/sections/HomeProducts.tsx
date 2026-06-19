@@ -122,7 +122,7 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
-        className="group w-full relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#0a0a0a] border border-neutral-800 p-6 hover:border-neutral-700 transition-colors duration-500 cursor-pointer h-full"
+        className="group w-full relative flex flex-col justify-between overflow-hidden rounded-2xl bg-card border border-border p-6 hover:border-brand/30 transition-colors duration-500 cursor-pointer h-full"
       >
         <div
           className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -131,7 +131,7 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
 
         <div className="relative z-10 flex flex-col h-full">
           {product.image ? (
-            <div className="w-full h-40 rounded-xl overflow-hidden mb-4 bg-neutral-900 flex-shrink-0">
+            <div className="w-full h-40 rounded-xl overflow-hidden mb-4 bg-surface flex-shrink-0">
               <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
             </div>
           ) : (
@@ -142,14 +142,14 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
             </div>
           )}
 
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full w-fit mb-3">
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground bg-surface border border-border px-3 py-1 rounded-full w-fit mb-3">
             {product.subCategoryTitle}
           </span>
 
-          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#00DBFF] transition-colors duration-300">
+          <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-[#00DBFF] transition-colors duration-300">
             {product.name}
           </h3>
-          <p className="text-neutral-400 text-sm leading-relaxed flex-1">
+          <p className="text-muted-foreground text-sm leading-relaxed flex-1">
             {product.description}
           </p>
         </div>
@@ -157,7 +157,7 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
         <div className="relative z-10 mt-6 flex justify-end">
           <Link
             href={`/products/${product.id}`}
-            className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-neutral-500 group-hover:text-white transition-colors duration-300"
+            className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-muted-foreground group-hover:text-brand transition-colors duration-300"
           >
             View Details <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </Link>
@@ -172,14 +172,14 @@ export function HomeProducts() {
   const visible = showAll ? allProducts : allProducts.slice(0, INITIAL_COUNT);
 
   return (
-    <section id="products" className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-black">
+    <section id="products" className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background">
       <div className="max-w-7xl mx-auto flex flex-col gap-12">
         <div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground uppercase tracking-tight mb-4">
             Browse Our <br />
             <span className="text-[#00DBFF]">Products</span>
           </h2>
-          <p className="text-neutral-400 text-lg max-w-2xl">
+          <p className="text-muted-foreground text-lg max-w-2xl">
             High-quality robots and accessories built for real work and deploy individually or as a unified autonomous workforce.
           </p>
         </div>
@@ -196,7 +196,7 @@ export function HomeProducts() {
           <div className="flex justify-center">
             <button
               onClick={() => setShowAll(true)}
-              className="flex items-center gap-3 px-10 py-4 rounded-full border border-neutral-700 text-sm font-bold uppercase tracking-widest text-neutral-300 hover:bg-white hover:text-black hover:border-white transition-all duration-300"
+              className="flex items-center gap-3 px-10 py-4 rounded-full border border-border text-sm font-bold uppercase tracking-widest text-muted hover:bg-white hover:text-black hover:border-white transition-all duration-300"
             >
               View More <ChevronDown className="w-4 h-4" />
             </button>

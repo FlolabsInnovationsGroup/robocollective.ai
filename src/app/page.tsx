@@ -2,12 +2,12 @@ import { Hero, HomeProducts, CAIPO, Services, RentResell, Blog, Footer } from "@
 
 export default function Home() {
   return (
-    <main className="bg-black">
+    <main className="bg-background">
       <Hero />
-      <CAIPO />
       <HomeProducts />
       <Services />
       <RentResell />
+      <CAIPO />
       <Blog />
       <Footer />
     </main>

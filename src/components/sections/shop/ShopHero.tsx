@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 
 export function ShopHero() {
     return (
-        <section className="relative h-screen min-h-[600px] max-h-[800px] w-full overflow-hidden bg-black flex items-center justify-center pt-24 px-6 md:px-12 lg:px-24">
+        <section className="relative h-screen min-h-[600px] max-h-[800px] w-full overflow-hidden bg-background flex items-center justify-center pt-24 px-6 md:px-12 lg:px-24">
             {/* Background Atmosphere */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-black opacity-90" />
+                <div className="absolute inset-0 hero-media-wash" />
+                <div className="absolute inset-0 hero-media-scrim opacity-90" />
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00DBFF]/5 rounded-full blur-[120px]" />
                 <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px]" />
                 <div
@@ -24,7 +25,7 @@ export function ShopHero() {
                     animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-500 tracking-tighter leading-none mb-6 p-2">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-foreground tracking-tighter leading-none mb-6 p-2">
                         Robotics for
                         <br />
                         Every Reality.
@@ -36,7 +37,7 @@ export function ShopHero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 >
-                    <p className="text-lg md:text-2xl text-neutral-400 font-medium leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-lg md:text-2xl text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto">
                         Automate, educate, and innovate. Choose a category below to explore our curated selection of advanced robotics.
                     </p>
                 </motion.div>
