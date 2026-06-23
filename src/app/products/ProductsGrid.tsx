@@ -314,20 +314,20 @@ export function ProductsGrid() {
     const activeCategory = categories.find((category) => category.id === activeFilter);
 
     return (
-        <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-black min-h-screen">
-            <div className="max-w-7xl mx-auto flex flex-col gap-12">
+        <section className="relative w-full py-24 bg-black min-h-screen">
+            <div className="site-container flex flex-col gap-12">
 
                 <div className="flex flex-col gap-4">
                     <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight">
                         Hardware <span className="text-neutral-500">Catalog</span>
                     </h2>
-                    <p className="text-neutral-400 max-w-2xl">
+                    <p className="text-neutral-400 w-full">
                         Filter by category to explore specific robotics solutions ranging from educational kits to industrial arms.
                     </p>
                 </div>
 
                 {/* Filter Tabs */}
-                <div className="sticky top-[80px] z-40 bg-black/80 backdrop-blur-md py-4 px-6 -mx-6 md:px-12 md:-mx-12 lg:px-24 lg:-mx-24 flex flex-wrap items-center gap-3 border-b border-neutral-800 mb-8 shadow-2xl">
+                <div className="sticky top-[80px] z-40 bg-black/80 backdrop-blur-md py-4 flex flex-wrap items-center gap-3 border-b border-neutral-800 mb-8 shadow-2xl">
                     {categories.map((category) => (
                         <button
                             key={category.id}

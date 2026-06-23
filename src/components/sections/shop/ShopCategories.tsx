@@ -3,10 +3,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { useRef, MouseEvent, useState, useEffect, useMemo, useDeferredValue } from "react";
+import { useRef, MouseEvent } from "react";
 import { catalogData, categories } from "@/data/catalog";
-import { ProductSearchBar } from "@/components/ui/ProductSearchBar";
-import { filterProductsBySearch } from "@/lib/productSearch";
 
 const PRODUCT_IMAGE: Record<string, string> = {
     d1: "/assets/products/flapper-nimble-base-kit_1.png",
@@ -77,12 +75,6 @@ const PRODUCT_IMAGE: Record<string, string> = {
     sp1: "/assets/products/Tron_1_1.png",
 };
 
-const BATCH_SIZE = 12;
-
-const shopCategories = categories.filter(
-    (category) => category.id === "all" || Boolean(catalogData[category.id]?.length)
-);
-
 const allProducts = Object.entries(catalogData).flatMap(([categoryId, subCategories]) =>
     subCategories.flatMap((sub) =>
         sub.products.map((product) => ({
@@ -94,67 +86,6 @@ const allProducts = Object.entries(catalogData).flatMap(([categoryId, subCategor
         }))
     )
 );
-
-// --- Spotlight Main Tab Component ---
-function CategoryTab({
-    category,
-    isActive,
-    onClick,
-}: {
-    category: (typeof shopCategories)[0];
-    isActive: boolean;
-    onClick: () => void;
-}) {
-    const tabRef = useRef<HTMLButtonElement>(null);
-    const mouseX = useRef(0);
-    const mouseY = useRef(0);
-
-    const handleMouseMove = ({ clientX, clientY }: MouseEvent) => {
-        if (!tabRef.current) return;
-        const { left, top } = tabRef.current.getBoundingClientRect();
-        mouseX.current = clientX - left;
-        mouseY.current = clientY - top;
-        tabRef.current.style.setProperty("--mouse-x", `${mouseX.current}px`);
-        tabRef.current.style.setProperty("--mouse-y", `${mouseY.current}px`);
-    };
-
-    return (
-        <motion.button
-            ref={tabRef}
-            onClick={onClick}
-            onMouseMove={handleMouseMove}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className={`
-                group relative overflow-hidden rounded-xl border p-4 text-left transition-all duration-300 flex-1 min-w-[200px]
-                ${isActive
-                    ? "bg-neutral-800/80 border-white/20 shadow-lg"
-                    : "bg-neutral-900/50 border-neutral-800 hover:border-neutral-600"
-                }
-            `}
-        >
-            <div
-                className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                    background:
-                        "radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.08), transparent 40%)",
-                }}
-            />
-
-            <div
-                className={`absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r ${category.color} ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-50"} transition-opacity duration-300`}
-            />
-
-            <div className="relative z-10 flex items-center justify-between">
-                <span
-                    className={`font-bold ${isActive ? "text-white" : "text-neutral-400 group-hover:text-neutral-200"} transition-colors duration-300`}
-                >
-                    {category.title}
-                </span>
-            </div>
-        </motion.button>
-    );
-}
 
 // --- Product Card Component ---
 function ProductCard({ product, colorClass }: { product: (typeof allProducts)[0]; colorClass: string }) {
@@ -239,90 +170,26 @@ function ProductCard({ product, colorClass }: { product: (typeof allProducts)[0]
 
 // --- Main Container ---
 export function ShopCategories() {
-    const [activeFilter, setActiveFilter] = useState("all");
-    const [searchQuery, setSearchQuery] = useState("");
-    const deferredSearchQuery = useDeferredValue(searchQuery);
-    const [isExpanded, setIsExpanded] = useState(false);
-    const productsTopRef = useRef<HTMLDivElement>(null);
-
-    const categoryTitles = useMemo(
-        () => Object.fromEntries(categories.map((category) => [category.id, category.title])),
-        []
-    );
-
-    const categoryFilteredProducts = useMemo(
-        () =>
-            activeFilter === "all"
-                ? allProducts
-                : allProducts.filter((product) => product.categoryId === activeFilter),
-        [activeFilter]
-    );
-
-    const filteredProducts = useMemo(
-        () =>
-            filterProductsBySearch(categoryFilteredProducts, deferredSearchQuery, (product) => [
-                categoryTitles[product.categoryId],
-            ]),
-        [categoryFilteredProducts, deferredSearchQuery, categoryTitles]
-    );
-
-    const visibleProducts = isExpanded ? filteredProducts : filteredProducts.slice(0, BATCH_SIZE);
-    const hasMore = filteredProducts.length > BATCH_SIZE;
-    const activeCategory = shopCategories.find((category) => category.id === activeFilter);
-
-    useEffect(() => {
-        setIsExpanded(false);
-    }, [activeFilter, deferredSearchQuery]);
-
     return (
-        <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-black min-h-screen">
-            <div className="max-w-7xl mx-auto flex flex-col gap-12">
+        <section className="relative w-full py-24 bg-black min-h-screen">
+            <div className="site-container flex flex-col gap-12">
                 <div className="flex flex-col gap-4">
                     <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight">
                         Full <span className="text-neutral-500">Catalog</span>
                     </h2>
-                    <p className="text-neutral-400 max-w-2xl">
-                        Browse the entire shop below. Filter by category to narrow down robotics solutions for your
-                        needs.
+                    <p className="text-neutral-400 w-full">
+                        Browse the entire shop below — every robotics solution in one place.
                     </p>
                 </div>
 
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                    {shopCategories.map((category) => (
-                        <CategoryTab
-                            key={category.id}
-                            category={category}
-                            isActive={activeFilter === category.id}
-                            onClick={() => setActiveFilter(category.id)}
-                        />
-                    ))}
-                </div>
-
                 <div className="border border-neutral-800 rounded-2xl bg-neutral-900/40 p-6 backdrop-blur-sm">
-                    <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-                        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-                            <h2 className="text-2xl font-bold uppercase tracking-tight text-white shrink-0">
-                                {activeCategory?.title ?? "All Products"}
-                            </h2>
-                            <ProductSearchBar
-                                value={searchQuery}
-                                onChange={setSearchQuery}
-                                placeholder="Search by name, type, or keyword..."
-                            />
-                        </div>
-                        <p className="text-sm text-neutral-500 shrink-0">
-                            Showing {visibleProducts.length} of {filteredProducts.length} products
-                        </p>
-                    </div>
-
-                    <motion.div ref={productsTopRef} layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <AnimatePresence mode="popLayout">
-                            {visibleProducts.map((product) => (
+                            {allProducts.map((product) => (
                                 <ProductCard
                                     key={product.id}
                                     product={product}
                                     colorClass={
-                                        activeCategory?.color ||
                                         categories.find((c) => c.id === product.categoryId)?.color ||
                                         "from-neutral-400 to-neutral-600"
                                     }
@@ -330,36 +197,6 @@ export function ShopCategories() {
                             ))}
                         </AnimatePresence>
                     </motion.div>
-
-                    {filteredProducts.length === 0 && (
-                        <div className="py-20 text-center text-neutral-500">
-                            {deferredSearchQuery.trim()
-                                ? `No products match "${deferredSearchQuery.trim()}".`
-                                : "No products found for this category."}
-                        </div>
-                    )}
-
-                    {hasMore && (
-                        <div className="mt-8 flex justify-center">
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    if (isExpanded) {
-                                        setIsExpanded(false);
-                                        productsTopRef.current?.scrollIntoView({
-                                            behavior: "smooth",
-                                            block: "start",
-                                        });
-                                        return;
-                                    }
-                                    setIsExpanded(true);
-                                }}
-                                className="rounded-full border border-neutral-700 bg-neutral-900 px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors duration-200 hover:border-neutral-500 hover:bg-neutral-800"
-                            >
-                                {isExpanded ? "View Less" : "View More"}
-                            </button>
-                        </div>
-                    )}
                 </div>
             </div>
         </section>

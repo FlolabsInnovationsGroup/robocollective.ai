@@ -52,7 +52,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     );
 
     return (
-        <main className="bg-black min-h-screen">
+        <main className="product-page bg-white min-h-screen">
             <ProductHero product={productDetails} />
             <ProductSpecs product={productDetails} />
             <Footer />

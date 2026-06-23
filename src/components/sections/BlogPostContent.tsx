@@ -11,7 +11,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 export function BlogPostContent({ post }: { post: BlogPost }) {
     return (
         <article className="py-20 bg-black relative">
-            <div className="max-w-3xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="site-container relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -99,7 +99,7 @@ export function BlogPostContent({ post }: { post: BlogPost }) {
                         <h3 className={`${spaceGrotesk.className} text-2xl font-bold text-white mb-4 uppercase`}>
                             Ready to transform your business?
                         </h3>
-                        <p className="text-neutral-400 mb-8 max-w-xl mx-auto">
+                        <p className="text-neutral-400 mb-8 w-full">
                             Connect with our team of specialists to find the perfect robotic solutions for your specific operational needs.
                         </p>
                         <a href="/contact" className={`${jetbrainsMono.className} inline-flex items-center gap-2 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black bg-[#00DBFF] rounded-full hover:bg-white transition-colors duration-300`}>

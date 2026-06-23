@@ -1,4 +1,4 @@
-import { ShopHero, ShopCategories, Footer } from "@/components/sections";
+import { ShopHero, ShopCategories, ShopScrollRestoration, Footer } from "@/components/sections";
 
 export const metadata = {
     title: "Shop | RoboCollective.ai",
@@ -8,6 +8,7 @@ export const metadata = {
 export default function ShopPage() {
     return (
         <main className="bg-black min-h-screen selection:bg-[#00DBFF]/30 selection:text-white">
+            <ShopScrollRestoration />
             <ShopHero />
             <ShopCategories />
             <Footer />

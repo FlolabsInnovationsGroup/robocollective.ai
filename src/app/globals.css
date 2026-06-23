@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 :root {
+  --background: #000000;
+  --foreground: #ffffff;
+  color-scheme: dark;
+}
+
+html.light {
   --background: #ffffff;
   --foreground: #171717;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -12,17 +19,16 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.site-container {
+  width: 90%;
+  margin-inline: auto;
 }
 @plugin "@tailwindcss/typography";
 
@@ -116,3 +122,258 @@ body {
 
 /* HubSpot no-iframe override */
 .hs-form-iframe { display: none !important; }
+
+/* ── Light mode: invert dark ↔ light surfaces sitewide ── */
+html.light body {
+  background-color: #ffffff !important;
+  color: #171717 !important;
+}
+
+html.light .bg-black { background-color: #ffffff !important; }
+html.light .bg-black\/60 { background-color: rgb(255 255 255 / 0.85) !important; }
+html.light .bg-black\/95 { background-color: rgb(255 255 255 / 0.97) !important; }
+html.light .bg-\[\#0a0a0a\] { background-color: #fafafa !important; }
+html.light .bg-neutral-950 { background-color: #fafafa !important; }
+html.light .bg-neutral-900,
+html.light .bg-neutral-900\/40,
+html.light .bg-neutral-900\/50 { background-color: #f5f5f5 !important; }
+html.light .bg-neutral-800,
+html.light .bg-neutral-800\/50 { background-color: #e5e5e5 !important; }
+html.light .hover\:bg-neutral-800:hover,
+html.light .hover\:bg-neutral-900:hover { background-color: #e5e5e5 !important; }
+html.light .bg-white\/10 { background-color: rgb(0 0 0 / 0.06) !important; }
+html.light .bg-white\/20,
+html.light .hover\:bg-white\/20:hover { background-color: rgb(0 0 0 / 0.1) !important; }
+html.light .bg-white { background-color: #f5f5f5 !important; }
+html.light .hover\:bg-white:hover { background-color: #171717 !important; }
+html.light .group .bg-white.translate-x-\[-100\%\],
+html.light .cta-primary-sweep {
+  background-color: #171717 !important;
+}
+
+html.light [data-cta-primary]:hover .cta-primary-label,
+html.light [data-cta-primary]:hover .cta-primary-icon {
+  color: #ffffff !important;
+}
+
+html.light .text-white,
+html.light .group-hover\:text-white:hover,
+html.light .group:hover .group-hover\:text-white { color: #171717 !important; }
+html.light .text-neutral-300 { color: #404040 !important; }
+html.light .text-neutral-400 { color: #525252 !important; }
+html.light .text-neutral-500 { color: #737373 !important; }
+html.light .hover\:text-white:hover { color: #171717 !important; }
+html.light .bg-\[\#00DBFF\].text-black,
+html.light a.bg-\[\#00DBFF\],
+html.light button.bg-\[\#00DBFF\] { color: #000000 !important; }
+html.light .text-black { color: #171717 !important; }
+html.light .hover\:bg-white:hover.hover\:text-black:hover,
+html.light .hover\:bg-white:hover { color: #ffffff !important; }
+html.light .hover\:text-black:hover { color: #ffffff !important; }
+html.light a.bg-\[\#00DBFF\].hover\:bg-white:hover,
+html.light .bg-\[\#00DBFF\].hover\:bg-white:hover,
+html.light a.bg-emerald-400.hover\:bg-white:hover,
+html.light a.bg-yellow-400.hover\:bg-white:hover,
+html.light .group.bg-\[\#00DBFF\]:hover,
+html.light .group.bg-\[\#00DBFF\]:hover .relative.z-10,
+html.light .group.bg-\[\#00DBFF\]:hover svg { color: #ffffff !important; }
+html.light .border-neutral-600.text-white { color: #171717 !important; border-color: #a3a3a3 !important; }
+html.light .border-neutral-600.text-white.hover\:bg-white:hover { background-color: #171717 !important; color: #ffffff !important; }
+
+html.light .border-neutral-900,
+html.light .border-neutral-800,
+html.light .border-neutral-800\/50 { border-color: #e5e5e5 !important; }
+html.light .border-neutral-700,
+html.light .hover\:border-neutral-700:hover,
+html.light .hover\:border-neutral-500:hover { border-color: #d4d4d4 !important; }
+html.light .border-white\/5,
+html.light .border-white\/10,
+html.light .border-white\/20 { border-color: rgb(0 0 0 / 0.1) !important; }
+
+html.light .from-black {
+  --tw-gradient-from: #ffffff var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+html.light .via-black\/20 {
+  --tw-gradient-via: rgb(255 255 255 / 0.35) var(--tw-gradient-via-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to);
+}
+html.light .from-neutral-900 {
+  --tw-gradient-from: #f5f5f5 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(245 245 245 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+html.light .to-black { --tw-gradient-to: #ffffff var(--tw-gradient-to-position); }
+html.light .from-white {
+  --tw-gradient-from: #171717 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(23 23 23 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+html.light .rounded-full.bg-white,
+html.light .bg-white.opacity-90 { background-color: #171717 !important; }
+html.light .bg-white\/20.rounded-full { background-color: rgb(0 0 0 / 0.15) !important; }
+
+html.light [data-theme-toggle] {
+  border-color: #d4d4d4 !important;
+  background-color: #f5f5f5 !important;
+  color: #171717 !important;
+}
+html.light [data-theme-toggle]:hover {
+  border-color: #a3a3a3 !important;
+  background-color: #e5e5e5 !important;
+}
+
+html.light .border-neutral-700.bg-neutral-900\/90.text-white {
+  border-color: #d4d4d4 !important;
+  background-color: rgb(245 245 245 / 0.95) !important;
+  color: #171717 !important;
+}
+
+html.light .prose-invert {
+  --tw-prose-body: #404040;
+  --tw-prose-headings: #171717;
+  --tw-prose-lead: #525252;
+  --tw-prose-links: #0891b2;
+  --tw-prose-bold: #171717;
+  --tw-prose-counters: #737373;
+  --tw-prose-bullets: #a3a3a3;
+  --tw-prose-hr: #e5e5e5;
+  --tw-prose-quotes: #171717;
+  --tw-prose-quote-borders: #e5e5e5;
+  --tw-prose-captions: #737373;
+  color: #404040;
+}
+
+html.light .shadow-\[0_20px_60px_rgba\(0\,0\,0\,0\.35\)\] {
+  box-shadow: 0 20px 60px rgb(0 0 0 / 0.08) !important;
+}
+
+html.light .group-hover\:bg-black\/60:hover,
+html.light .group:hover .group-hover\:bg-black\/60 {
+  background-color: rgb(255 255 255 / 0.9) !important;
+}
+
+html.light .bg-black\/60:not(header *) {
+  background-color: rgb(245 245 245 / 0.95) !important;
+}
+
+html.light .text-white\/30 { color: rgb(0 0 0 / 0.35) !important; }
+
+html.light input.border-neutral-800.bg-neutral-900\/80.text-white {
+  background-color: #ffffff !important;
+  color: #171717 !important;
+  border-color: #d4d4d4 !important;
+}
+
+html.light input.border-neutral-800.bg-neutral-900\/80.text-white::placeholder {
+  color: #737373 !important;
+}
+
+/* Homepage hero: preserve dark-mode palette in light theme */
+html.light .homepage-hero.bg-black {
+  background-color: #000000 !important;
+}
+
+html.light .homepage-hero .text-white {
+  color: #ffffff !important;
+}
+
+html.light .homepage-hero .text-neutral-300 {
+  color: #d4d4d4 !important;
+}
+
+html.light .homepage-hero .from-black {
+  --tw-gradient-from: #000000 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+html.light .homepage-hero .via-black\/20 {
+  --tw-gradient-via: rgb(0 0 0 / 0.2) var(--tw-gradient-via-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to);
+}
+
+html.light .homepage-hero .bg-\[\#00DBFF\].text-black,
+html.light .homepage-hero a.bg-\[\#00DBFF\] {
+  color: #000000 !important;
+}
+
+html.light .homepage-hero .group .bg-white.translate-x-\[-100\%\],
+html.light .homepage-hero .cta-primary-sweep {
+  background-color: #ffffff !important;
+}
+
+html.light .homepage-hero .group.bg-\[\#00DBFF\]:hover,
+html.light .homepage-hero .group.bg-\[\#00DBFF\]:hover .relative.z-10,
+html.light .homepage-hero .group.bg-\[\#00DBFF\]:hover svg,
+html.light .homepage-hero [data-cta-primary]:hover .cta-primary-label,
+html.light .homepage-hero [data-cta-primary]:hover .cta-primary-icon {
+  color: #000000 !important;
+}
+
+html.light .homepage-hero .border-neutral-600.text-white {
+  color: #ffffff !important;
+  border-color: #525252 !important;
+}
+
+html.light .homepage-hero .border-neutral-600.text-white.hover\:bg-white:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.light .homepage-hero .hover\:bg-white:hover {
+  background-color: #ffffff !important;
+}
+
+html.light .homepage-hero .hover\:text-black:hover {
+  color: #000000 !important;
+}
+
+/* Product detail pages: keep clean white layout in light mode */
+html.light .product-page,
+html.light .product-page .bg-white {
+  background-color: #ffffff !important;
+}
+
+html.light .product-page .text-black,
+html.light .product-page .font-black,
+html.light .product-page .font-bold.text-black,
+html.light .product-page h1,
+html.light .product-page h2 {
+  color: #000000 !important;
+}
+
+html.light .product-page .text-neutral-700 {
+  color: #404040 !important;
+}
+
+html.light .product-page .text-neutral-600 {
+  color: #525252 !important;
+}
+
+html.light .product-page .text-neutral-800 {
+  color: #262626 !important;
+}
+
+html.light .product-page .bg-neutral-50 {
+  background-color: #fafafa !important;
+}
+
+html.light .product-page .bg-neutral-100 {
+  background-color: #f5f5f5 !important;
+}
+
+html.light .product-page .border-neutral-100,
+html.light .product-page .border-neutral-200 {
+  border-color: #e5e5e5 !important;
+}
+
+html.light .product-page .prose {
+  --tw-prose-body: #404040;
+  --tw-prose-headings: #000000;
+  --tw-prose-bold: #000000;
+  --tw-prose-links: #0284c7;
+  color: #404040;
+}

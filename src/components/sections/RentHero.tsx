@@ -10,7 +10,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 export function RentHero() {
     return (
-        <section className="relative w-full pt-40 pb-20 px-6 md:px-12 lg:px-24 bg-black overflow-hidden flex flex-col justify-end min-h-[60vh]">
+        <section className="relative w-full pt-40 pb-20 bg-black overflow-hidden flex flex-col justify-end min-h-[60vh]">
 
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
@@ -20,8 +20,8 @@ export function RentHero() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/80 to-black pointer-events-none" />
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto w-full">
-                <div className="max-w-4xl">
+            <div className="relative z-10 site-container">
+                <div className="w-full">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export function RentHero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                        className="text-lg md:text-2xl text-neutral-400 max-w-2xl leading-relaxed mb-10"
+                        className="text-lg md:text-2xl text-neutral-400 w-full leading-relaxed mb-10"
                     >
                         Deploy advanced hardware for events, temporary projects, or pilot programs without the capital investment.
                     </motion.p>

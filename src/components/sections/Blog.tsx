@@ -27,13 +27,13 @@ const posts = [
 export function Blog() {
     return (
         <section id="case-studies" className="py-24 bg-neutral-950 text-white relative">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="site-container">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-                    <div className="max-w-2xl">
+                    <div>
                         <h2 className={`${spaceGrotesk.className} text-4xl lg:text-5xl font-black mb-4 tracking-tight uppercase`}>
                             Read our latest posts
                         </h2>
-                        <p className="text-neutral-400 text-lg">
+                        <p className="text-neutral-400 text-lg w-full">
                             Guides & insights for choosing the right robot, delivered with customer research and product direction.
                         </p>
                     </div>

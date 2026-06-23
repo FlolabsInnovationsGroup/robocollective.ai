@@ -44,7 +44,7 @@ const resellerAudience = [
 export function ResellContent() {
     return (
         <section className="py-24 bg-black relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="site-container relative z-10">
 
                 {/* 1. Resale Process */}
                 <div className="mb-32">
@@ -57,7 +57,7 @@ export function ResellContent() {
                         <h2 className={`${spaceGrotesk.className} text-3xl md:text-5xl font-black text-white mb-4 uppercase tracking-tight`}>
                             Resale Process
                         </h2>
-                        <p className="text-xl text-neutral-400 max-w-2xl">
+                        <p className="text-xl text-neutral-400 w-full">
                             Fair valuations, vetted buyers, and smooth handoffs.
                         </p>
                     </motion.div>
@@ -105,7 +105,7 @@ export function ResellContent() {
                                 <h2 className={`${spaceGrotesk.className} text-3xl md:text-4xl font-black text-white mb-6 uppercase tracking-tight`}>
                                     Not ready to sell? <br /><span className="text-emerald-400">Rent out your robots</span>
                                 </h2>
-                                <p className="text-neutral-300 text-lg mb-8 leading-relaxed max-w-xl">
+                                <p className="text-neutral-300 text-lg mb-8 leading-relaxed w-full">
                                     Sometimes it makes more sense to keep a robot in your fleet and let it earn money between projects. If you have platforms that sit idle part of the year, you can list them for rentals on RoboCollective.ai instead of selling them outright.
                                 </p>
                                 <Link href="/contact" className={`${jetbrainsMono.className} inline-flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-widest text-black bg-emerald-400 rounded-full hover:bg-white transition-colors duration-300`}>
@@ -143,7 +143,7 @@ export function ResellContent() {
                         <h2 className={`${spaceGrotesk.className} text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight`}>
                             Become a RoboCollective reseller
                         </h2>
-                        <p className="text-xl text-neutral-400 max-w-3xl leading-relaxed">
+                        <p className="text-xl text-neutral-400 w-full leading-relaxed">
                             If you work with clients who are looking for robotics solutions, you can also join our reseller program. Instead of only reselling your own hardware, you can offer robots from our wider catalog while we support you with specs, sourcing, and delivery.
                         </p>
                     </motion.div>

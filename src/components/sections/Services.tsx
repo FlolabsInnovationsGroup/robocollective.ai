@@ -54,7 +54,7 @@ const itemVariants = {
 export function Services() {
     return (
         <section id="services" className="py-24 bg-black relative border-t border-white/5">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="site-container relative z-10">
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"

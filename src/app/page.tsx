@@ -4,10 +4,10 @@ export default function Home() {
   return (
     <main className="bg-black">
       <Hero />
-      <CAIPO />
       <HomeProducts />
       <Services />
       <RentResell />
+      <CAIPO />
       <Blog />
       <Footer />
     </main>

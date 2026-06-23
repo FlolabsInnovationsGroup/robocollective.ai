@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { ThemeToggle } from "./ThemeToggle";
+import { useTheme } from "@/components/providers/ThemeProvider";
 
 const navLinks = [
     { name: "Shop", href: "/shop" },
@@ -17,6 +19,8 @@ const navLinks = [
 export function Nav() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const { theme } = useTheme();
+    const logoSrc = theme === "light" ? "/assets/logo-light.png" : "/assets/logo-dark.png";
 
     // Handle scroll effect for glassmorphism background
     useEffect(() => {
@@ -39,18 +43,18 @@ export function Nav() {
                 : "bg-transparent border-transparent py-6"
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+            <div className="site-container flex items-center justify-between">
 
                 {/* Logo */}
                 <Link href="/" className="relative z-50 flex items-center gap-2 group">
-                    <Image src="/assets/logo-dark.png" alt="RoboCollective Logo" width={32} height={32} className="w-8 h-8 object-contain transform group-hover:rotate-12 transition-transform duration-300" />
+                    <Image src={logoSrc} alt="RoboCollective Logo" width={32} height={32} className="w-8 h-8 object-contain transform group-hover:rotate-12 transition-transform duration-300" />
                     <span className="text-xl font-bold tracking-tight text-white uppercase">
                         Robo<span className="text-neutral-400">Collective</span>
                     </span>
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-8">
+                <nav className="hidden md:flex items-center gap-6">
                     {navLinks.map((link) =>
                         link.external ? (
                             <a
@@ -74,16 +78,20 @@ export function Nav() {
                             </Link>
                         )
                     )}
+                    <ThemeToggle />
                 </nav>
 
-                {/* Mobile Menu Toggle Button */}
-                <button
+                <div className="md:hidden flex items-center gap-2">
+                    <ThemeToggle />
+                    {/* Mobile Menu Toggle Button */}
+                    <button
                     className="md:hidden relative z-50 p-2 text-white"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     aria-label="Toggle Menu"
                 >
                     {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                </button>
+                    </button>
+                </div>
 
             </div>
 

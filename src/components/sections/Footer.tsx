@@ -3,21 +3,25 @@
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "@/components/providers/ThemeProvider";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 export function Footer() {
+    const { theme } = useTheme();
+    const logoSrc = theme === "light" ? "/assets/logo-light.png" : "/assets/logo-dark.png";
+
     return (
         <footer className="bg-black text-white pt-24 pb-8 border-t border-white/10 relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="site-container relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     <div className="md:col-span-2">
                         <div className="flex items-center gap-2 mb-6">
-                            <Image src="/assets/logo-dark.png" alt="RoboCollective Logo" width={32} height={32} className="w-8 h-8 object-contain" />
+                            <Image src={logoSrc} alt="RoboCollective Logo" width={32} height={32} className="w-8 h-8 object-contain" />
                             <span className={`${spaceGrotesk.className} text-xl font-bold tracking-tight`}>ROBOCOLLECTIVE</span>
                         </div>
                         <p className="text-neutral-400 max-w-sm mb-8">

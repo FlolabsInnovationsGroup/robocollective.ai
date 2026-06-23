@@ -5,6 +5,7 @@ import { ArrowLeft, Zap, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect, useRef, MouseEvent } from "react";
 import { ProductDetails } from "@/data/products";
+import { markShopScrollRestorePending } from "@/lib/shopScrollRestoration";
 
 // ─── Image gallery map: product id → ordered image paths ──────────────────────
 const PRODUCT_IMAGES: Record<string, string[]> = {
@@ -164,7 +165,7 @@ function ImageCarousel({ images, themeColor }: { images: string[]; themeColor: s
   return (
     <div className="flex flex-col gap-4">
       {/* Main image */}
-      <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800">
+      <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-50 border border-neutral-200">
         <AnimatePresence mode="wait" initial={false} custom={direction}>
           <motion.img
             key={current}
@@ -183,22 +184,22 @@ function ImageCarousel({ images, themeColor }: { images: string[]; themeColor: s
           <>
             <button
               onClick={() => go(-1)}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 border border-neutral-700 flex items-center justify-center hover:bg-black transition-colors z-10"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 border border-neutral-200 flex items-center justify-center hover:bg-white transition-colors z-10 shadow-sm"
             >
-              <ChevronLeft className="w-4 h-4 text-white" />
+              <ChevronLeft className="w-4 h-4 text-neutral-800" />
             </button>
             <button
               onClick={() => go(1)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 border border-neutral-700 flex items-center justify-center hover:bg-black transition-colors z-10"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 border border-neutral-200 flex items-center justify-center hover:bg-white transition-colors z-10 shadow-sm"
             >
-              <ChevronRight className="w-4 h-4 text-white" />
+              <ChevronRight className="w-4 h-4 text-neutral-800" />
             </button>
           </>
         )}
 
         {/* Image counter */}
         {images.length > 1 && (
-          <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-neutral-400 font-mono">
+          <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-neutral-600 font-mono border border-neutral-200">
             {current + 1} / {images.length}
           </div>
         )}
@@ -212,9 +213,9 @@ function ImageCarousel({ images, themeColor }: { images: string[]; themeColor: s
               key={i}
               onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
               className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200"
-              style={{ borderColor: i === current ? themeAccent : "rgba(255,255,255,0.1)" }}
+              style={{ borderColor: i === current ? themeAccent : "rgba(0,0,0,0.1)" }}
             >
-              <img src={src} alt={`Thumb ${i + 1}`} className="w-full h-full object-contain bg-neutral-900 p-1" />
+              <img src={src} alt={`Thumb ${i + 1}`} className="w-full h-full object-contain bg-neutral-50 p-1" />
             </button>
           ))}
         </div>
@@ -279,13 +280,13 @@ function ProductDescription({ productId }: { productId: string }) {
   if (!content) return null;
 
   return (
-    <section className="relative w-full px-6 md:px-12 lg:px-24 py-16 bg-black">
-      <div className="max-w-4xl mx-auto">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent mb-16" />
+    <section className="relative w-full py-16 bg-white">
+      <div className="site-container">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent mb-16" />
 
         {/* YouTube Embed */}
         {content.videoId && (
-          <div className="w-full mb-16 rounded-2xl overflow-hidden aspect-video bg-neutral-900">
+          <div className="w-full mb-16 rounded-2xl overflow-hidden aspect-video bg-neutral-100 border border-neutral-200">
             <iframe
               src={`https://www.youtube.com/embed/${content.videoId}`}
               title="Product video"
@@ -299,14 +300,14 @@ function ProductDescription({ productId }: { productId: string }) {
         {/* Rich HTML Content */}
         {content.html && (
           <div
-            className="prose prose-invert prose-lg max-w-none
+            className="prose prose-lg max-w-none
               prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight
-              prose-h2:text-3xl prose-h2:text-white prose-h2:mb-4
-              prose-h3:text-xl prose-h3:text-neutral-200 prose-h3:mb-3
-              prose-p:text-neutral-400 prose-p:leading-relaxed
-              prose-strong:text-white prose-strong:font-bold
-              prose-ul:text-neutral-400 prose-li:marker:text-neutral-600
-              prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline"
+              prose-h2:text-3xl prose-h2:text-black prose-h2:mb-4
+              prose-h3:text-xl prose-h3:text-neutral-800 prose-h3:mb-3
+              prose-p:text-neutral-700 prose-p:leading-relaxed
+              prose-strong:text-black prose-strong:font-bold
+              prose-ul:text-neutral-700 prose-li:marker:text-neutral-500
+              prose-a:text-sky-600 prose-a:no-underline hover:prose-a:underline"
             dangerouslySetInnerHTML={{ __html: content.html }}
           />
         )}
@@ -345,27 +346,21 @@ export function ProductHero({ product }: { product: ProductDetails }) {
 
   return (
     <>
-      <section className="relative w-full pt-40 pb-24 px-6 md:px-12 lg:px-24 bg-black overflow-hidden">
+      <section className="relative w-full pt-40 pb-24 bg-white overflow-hidden">
         {/* Background Effects */}
-        <div className="absolute inset-0 z-0">
-          <div className={`absolute top-1/4 right-1/4 w-[800px] h-[800px] ${themeShadowClass} rounded-full blur-[120px] opacity-40 mix-blend-screen`} />
-          <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-neutral-600/10 rounded-full blur-[100px] opacity-30 mix-blend-screen" />
-          <div className="absolute inset-0 bg-[url('/assets/noise.png')] opacity-10 mix-blend-overlay" />
-          <div
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
-              backgroundSize: "50px 50px",
-              transform: "perspective(1000px) rotateX(60deg) translateY(100px) scale(2)",
-              transformOrigin: "bottom",
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black pointer-events-none" />
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className={`absolute top-1/4 right-1/4 w-[800px] h-[800px] ${themeShadowClass} rounded-full blur-[120px] opacity-30`} />
+          <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-neutral-200/40 rounded-full blur-[100px] opacity-40" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full">
+        <div className="relative z-10 site-container">
           {/* Back Navigation */}
-          <Link href="/shop" className="inline-flex items-center gap-2 mb-12 text-sm font-bold tracking-widest uppercase text-neutral-400 hover:text-white transition-colors group">
+          <Link
+            href="/shop"
+            scroll={false}
+            onClick={markShopScrollRestorePending}
+            className="inline-flex items-center gap-2 mb-12 text-sm font-bold tracking-widest uppercase text-neutral-600 hover:text-black transition-colors group"
+          >
             <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
             Back to Shop
           </Link>
@@ -388,7 +383,7 @@ export function ProductHero({ product }: { product: ProductDetails }) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tighter mb-6 uppercase"
+                className="text-5xl md:text-6xl lg:text-7xl font-black text-black leading-tight tracking-tighter mb-6 uppercase"
               >
                 {product.name}
                 {product.subtitle && (
@@ -405,7 +400,7 @@ export function ProductHero({ product }: { product: ProductDetails }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-lg md:text-xl text-neutral-400 max-w-xl leading-relaxed mb-10"
+                className="text-lg md:text-xl text-neutral-700 w-full leading-relaxed mb-10"
               >
                 {product.description}
               </motion.p>
@@ -427,11 +422,11 @@ export function ProductHero({ product }: { product: ProductDetails }) {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <Link href="/contact" className="inline-block relative overflow-hidden group bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm transition-transform hover:scale-105">
+                <Link href="/contact" className="inline-block relative overflow-hidden group bg-black text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm transition-transform hover:scale-105">
                   <span className="relative z-10">Request a Quote</span>
-                  <div className="absolute inset-0 bg-neutral-200 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
+                  <div className="absolute inset-0 bg-neutral-800 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
                 </Link>
-                <Link href="#specs" className="inline-block px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm text-neutral-300 border border-neutral-700 hover:border-neutral-500 transition-colors text-center">
+                <Link href="#specs" className="inline-block px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm text-neutral-700 border border-neutral-300 hover:border-neutral-500 hover:text-black transition-colors text-center">
                   View Full Specs
                 </Link>
               </motion.div>
@@ -450,7 +445,7 @@ export function ProductHero({ product }: { product: ProductDetails }) {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-neutral-200 to-transparent" />
       </section>
 
       {/* Rich HTML Description */}

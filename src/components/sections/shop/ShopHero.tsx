@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function ShopHero() {
     return (
-        <section className="relative h-screen min-h-[600px] max-h-[800px] w-full overflow-hidden bg-black flex items-center justify-center pt-24 px-6 md:px-12 lg:px-24">
+        <section className="relative h-screen min-h-[600px] max-h-[800px] w-full overflow-hidden bg-black flex items-center justify-center pt-24">
             {/* Background Atmosphere */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-black opacity-90" />
@@ -18,7 +18,7 @@ export function ShopHero() {
                 />
             </div>
 
-            <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center">
+            <div className="relative z-10 site-container flex flex-col items-center text-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
                     animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -36,8 +36,8 @@ export function ShopHero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 >
-                    <p className="text-lg md:text-2xl text-neutral-400 font-medium leading-relaxed max-w-2xl mx-auto">
-                        Automate, educate, and innovate. Browse our full catalog below, or filter by category to find the right robotics solution.
+                    <p className="text-lg md:text-2xl text-neutral-400 font-medium leading-relaxed w-full">
+                        Automate, educate, and innovate. Browse our full catalog of robotics solutions below.
                     </p>
                 </motion.div>
 

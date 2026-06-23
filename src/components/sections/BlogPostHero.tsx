@@ -11,7 +11,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 export function BlogPostHero({ post }: { post: BlogPost }) {
     return (
-        <section className="relative w-full pt-40 pb-24 px-6 md:px-12 lg:px-24 bg-black overflow-hidden flex flex-col justify-end min-h-[60vh]">
+        <section className="relative w-full pt-40 pb-24 bg-black overflow-hidden flex flex-col justify-end min-h-[60vh]">
 
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
@@ -21,7 +21,7 @@ export function BlogPostHero({ post }: { post: BlogPost }) {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/80 to-black pointer-events-none" />
             </div>
 
-            <div className="relative z-10 max-w-4xl mx-auto w-full">
+            <div className="relative z-10 site-container">
 
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
