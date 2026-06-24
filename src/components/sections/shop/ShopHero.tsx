@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function ShopHero() {
     return (
-        <section className="relative h-screen min-h-[600px] max-h-[800px] w-full overflow-hidden bg-black flex items-center justify-center pt-24">
+        <section className="shop-hero relative h-screen min-h-[600px] max-h-[800px] w-full overflow-hidden bg-black flex items-center justify-center pt-24">
             {/* Background Atmosphere */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-black opacity-90" />

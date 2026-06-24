@@ -331,49 +331,83 @@ html.light .homepage-hero .hover\:text-black:hover {
   color: #000000 !important;
 }
 
-/* Product detail pages: keep clean white layout in light mode */
+/* Shop hero: dark text on light background */
+html.light .shop-hero h1 {
+  color: #171717 !important;
+  -webkit-text-fill-color: #171717 !important;
+  background-image: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+}
+
+/* Product detail pages: invert dark-first layout in light mode */
 html.light .product-page,
-html.light .product-page .bg-white {
+html.light .product-page .bg-black {
   background-color: #ffffff !important;
 }
 
-html.light .product-page .text-black,
-html.light .product-page .font-black,
-html.light .product-page .font-bold.text-black,
+html.light .product-page .text-white,
+html.light .product-page .font-bold.text-white,
 html.light .product-page h1,
-html.light .product-page h2 {
+html.light .product-page h2,
+html.light .product-page h3 {
   color: #000000 !important;
 }
 
-html.light .product-page .text-neutral-700 {
+html.light .product-page .text-neutral-300 {
   color: #404040 !important;
 }
 
-html.light .product-page .text-neutral-600 {
+html.light .product-page .text-neutral-400 {
   color: #525252 !important;
 }
 
-html.light .product-page .text-neutral-800 {
+html.light .product-page .text-neutral-500 {
+  color: #737373 !important;
+}
+
+html.light .product-page .text-neutral-200 {
   color: #262626 !important;
 }
 
-html.light .product-page .bg-neutral-50 {
-  background-color: #fafafa !important;
-}
-
-html.light .product-page .bg-neutral-100 {
+html.light .product-page .bg-neutral-900,
+html.light .product-page .bg-neutral-900\/90 {
   background-color: #f5f5f5 !important;
 }
 
-html.light .product-page .border-neutral-100,
-html.light .product-page .border-neutral-200 {
+html.light .product-page .hover\:bg-neutral-800:hover {
+  background-color: #e5e5e5 !important;
+}
+
+html.light .product-page .border-neutral-900,
+html.light .product-page .border-neutral-800,
+html.light .product-page .border-neutral-700 {
   border-color: #e5e5e5 !important;
 }
 
-html.light .product-page .prose {
+html.light .product-page .prose.prose-invert {
   --tw-prose-body: #404040;
   --tw-prose-headings: #000000;
   --tw-prose-bold: #000000;
   --tw-prose-links: #0284c7;
+  --tw-prose-bullets: #a3a3a3;
   color: #404040;
+}
+
+html.light .product-page .prose h2 {
+  color: #000000 !important;
+}
+
+html.light .product-page .prose h3 {
+  color: #262626 !important;
+}
+
+html.light .product-page .prose p,
+html.light .product-page .prose ul,
+html.light .product-page .prose li {
+  color: #404040 !important;
+}
+
+html.light .product-page .prose strong {
+  color: #000000 !important;
 }
