@@ -6,15 +6,17 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "./ThemeToggle";
+import { CtaPrimary } from "./CtaButton";
 import { useTheme } from "@/components/providers/ThemeProvider";
 
 const navLinks = [
     { name: "Shop", href: "/shop" },
     { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
     { name: "Internships", href: "https://hephaestus.international/internships", external: true },
 ];
+
+const contactCtaClassName = "!px-5 !py-2 !text-xs !tracking-wide";
 
 export function Nav() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -43,10 +45,10 @@ export function Nav() {
                 : "bg-transparent border-transparent py-6"
                 }`}
         >
-            <div className="site-container flex items-center justify-between">
+            <div className="site-container grid grid-cols-[1fr_auto_1fr] items-center">
 
                 {/* Logo */}
-                <Link href="/" className="relative z-50 flex items-center gap-2 group">
+                <Link href="/" className="relative z-50 flex items-center gap-2 group justify-self-start">
                     <Image src={logoSrc} alt="RoboCollective Logo" width={32} height={32} className="w-8 h-8 object-contain transform group-hover:rotate-12 transition-transform duration-300" />
                     <span className="text-xl font-bold tracking-tight text-white uppercase">
                         Robo<span className="text-neutral-400">Collective</span>
@@ -54,7 +56,7 @@ export function Nav() {
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-6">
+                <nav className="hidden md:flex items-center gap-6 justify-self-center">
                     {navLinks.map((link) =>
                         link.external ? (
                             <a
@@ -78,18 +80,20 @@ export function Nav() {
                             </Link>
                         )
                     )}
-                    <ThemeToggle />
+                    <CtaPrimary href="/contact" className={contactCtaClassName}>
+                        Contact
+                    </CtaPrimary>
                 </nav>
 
-                <div className="md:hidden flex items-center gap-2">
+                <div className="flex items-center gap-2 justify-self-end">
                     <ThemeToggle />
                     {/* Mobile Menu Toggle Button */}
                     <button
-                    className="md:hidden relative z-50 p-2 text-white"
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    aria-label="Toggle Menu"
-                >
-                    {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                        className="md:hidden relative z-50 p-2 text-white"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle Menu"
+                    >
+                        {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                     </button>
                 </div>
 
@@ -128,6 +132,13 @@ export function Nav() {
                                 </Link>
                             )
                         ))}
+                        <CtaPrimary
+                            href="/contact"
+                            className={`${contactCtaClassName} w-fit`}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Contact
+                        </CtaPrimary>
                     </motion.div>
                 )}
             </AnimatePresence>
