@@ -1,0 +1,30 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "checkup-branch",
+    "dependabot/npm_and_yarn/js-yaml-4.3.1",
+    "dependabot/npm_and_yarn/multi-4b10dec7ea",
+    "dependabot/npm_and_yarn/nanoid-3.3.18",
+    "main",
+    "marketing-feedback",
+    "sandeep-updates"
+  ],
+  "parent": {
+    "checkup-branch": "main",
+    "dependabot/npm_and_yarn/js-yaml-4.3.1": "main",
+    "dependabot/npm_and_yarn/multi-4b10dec7ea": "main",
+    "dependabot/npm_and_yarn/nanoid-3.3.18": "main",
+    "main": null,
+    "marketing-feedback": "main",
+    "sandeep-updates": "main"
+  },
+  "order": [
+    "main",
+    "checkup-branch",
+    "dependabot/npm_and_yarn/js-yaml-4.3.1",
+    "dependabot/npm_and_yarn/multi-4b10dec7ea",
+    "dependabot/npm_and_yarn/nanoid-3.3.18",
+    "marketing-feedback",
+    "sandeep-updates"
+  ]
+}

@@ -7,6 +7,7 @@ type CtaButtonProps = {
   showArrow?: boolean;
   external?: boolean;
   className?: string;
+  onClick?: () => void;
 };
 
 const primaryClasses =
@@ -21,6 +22,7 @@ export function CtaPrimary({
   showArrow = false,
   external = false,
   className = "",
+  onClick,
 }: CtaButtonProps) {
   const classes = `${primaryClasses} ${className}`.trim();
 
@@ -39,14 +41,14 @@ export function CtaPrimary({
 
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={classes} data-cta-primary>
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes} data-cta-primary onClick={onClick}>
         {content}
       </a>
     );
   }
 
   return (
-    <Link href={href} className={classes} data-cta-primary>
+    <Link href={href} className={classes} data-cta-primary onClick={onClick}>
       {content}
     </Link>
   );
