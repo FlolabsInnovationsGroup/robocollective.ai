@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo, useDeferredValue } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { useRef, MouseEvent } from "react";
+import { ProductSearchBar } from "@/components/ui/ProductSearchBar";
+import { filterProductsBySearch } from "@/lib/productSearch";
 
 // Product images: short paths under public/images/products/ (e.g. /images/products/d1.png)
 const PRODUCT_IMAGE: Record<string, string> = {
@@ -195,9 +197,10 @@ const allProducts = Object.entries(catalogData).flatMap(([categoryId, subCategor
 );
 
 function ProductCard({ product }: { product: any }) {
-    const cardRef = useRef<HTMLDivElement>(null);
+    const cardRef = useRef<HTMLAnchorElement>(null);
     const mouseX = useRef(0);
     const mouseY = useRef(0);
+    const productHref = product.href || `/products/${product.id}`;
 
     const handleMouseMove = ({ clientX, clientY }: MouseEvent) => {
         if (!cardRef.current) return;
@@ -217,10 +220,16 @@ function ProductCard({ product }: { product: any }) {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="flex"
         >
-            <div
+            <Link
                 ref={cardRef}
+                href={productHref}
                 onMouseMove={handleMouseMove}
+<<<<<<< HEAD
                 className="group w-full relative flex flex-col justify-between overflow-hidden rounded-2xl bg-card border border-border p-8 hover:border-brand/30 transition-colors duration-500 cursor-pointer"
+=======
+                aria-label={`View details for ${product.name}`}
+                className="group w-full relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#0a0a0a] border border-neutral-800 p-8 hover:border-neutral-700 transition-colors duration-500 cursor-pointer no-underline"
+>>>>>>> origin/checkup-branch
             >
                 {/* Spotlight Hover Effect */}
                 <div
@@ -271,38 +280,75 @@ function ProductCard({ product }: { product: any }) {
                 </div>
 
                 <div className="relative z-10 mt-8 flex justify-end">
+<<<<<<< HEAD
                     <Link href={product.href || `/products/${product.id}`} className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-muted-foreground group-hover:text-brand transition-colors duration-300">
+=======
+                    <span className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-neutral-500 group-hover:text-white transition-colors duration-300">
+>>>>>>> origin/checkup-branch
                         View Details <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </Link>
+                    </span>
                 </div>
-            </div>
+            </Link>
         </motion.div>
     );
 }
 
 export function ProductsGrid() {
     const [activeFilter, setActiveFilter] = useState("all");
+    const [searchQuery, setSearchQuery] = useState("");
+    const deferredSearchQuery = useDeferredValue(searchQuery);
 
-    // Filter products based on selected tab
-    const filteredProducts = activeFilter === "all"
-        ? allProducts
-        : allProducts.filter(p => p.categoryId === activeFilter);
+    const categoryTitles = useMemo(
+        () => Object.fromEntries(categories.map((category) => [category.id, category.title])),
+        []
+    );
+
+    const categoryFilteredProducts = useMemo(
+        () =>
+            activeFilter === "all"
+                ? allProducts
+                : allProducts.filter((product) => product.categoryId === activeFilter),
+        [activeFilter]
+    );
+
+    const filteredProducts = useMemo(
+        () =>
+            filterProductsBySearch(categoryFilteredProducts, deferredSearchQuery, (product) => [
+                categoryTitles[product.categoryId],
+            ]),
+        [categoryFilteredProducts, deferredSearchQuery, categoryTitles]
+    );
+
+    const activeCategory = categories.find((category) => category.id === activeFilter);
 
     return (
+<<<<<<< HEAD
         <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background min-h-screen">
             <div className="max-w-7xl mx-auto flex flex-col gap-12">
+=======
+        <section className="relative w-full py-24 bg-black min-h-screen">
+            <div className="site-container flex flex-col gap-12">
+>>>>>>> origin/checkup-branch
 
                 <div className="flex flex-col gap-4">
                     <h2 className="text-3xl md:text-5xl font-black text-foreground uppercase tracking-tight">
                         Hardware <span className="text-muted-foreground">Catalog</span>
                     </h2>
+<<<<<<< HEAD
                     <p className="text-muted-foreground max-w-2xl">
+=======
+                    <p className="text-neutral-400 w-full">
+>>>>>>> origin/checkup-branch
                         Filter by category to explore specific robotics solutions ranging from educational kits to industrial arms.
                     </p>
                 </div>
 
                 {/* Filter Tabs */}
+<<<<<<< HEAD
                 <div className="sticky top-[80px] z-40 bg-background/80 backdrop-blur-md py-4 px-6 -mx-6 md:px-12 md:-mx-12 lg:px-24 lg:-mx-24 flex flex-wrap items-center gap-3 border-b border-border mb-8 shadow-2xl">
+=======
+                <div className="sticky top-[80px] z-40 bg-black/80 backdrop-blur-md py-4 flex flex-wrap items-center gap-3 border-b border-neutral-800 mb-8 shadow-2xl">
+>>>>>>> origin/checkup-branch
                     {categories.map((category) => (
                         <button
                             key={category.id}
@@ -319,6 +365,22 @@ export function ProductsGrid() {
                     ))}
                 </div>
 
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+                        <h3 className="text-2xl font-bold uppercase tracking-tight text-white shrink-0">
+                            {activeCategory?.title ?? "All Products"}
+                        </h3>
+                        <ProductSearchBar
+                            value={searchQuery}
+                            onChange={setSearchQuery}
+                            placeholder="Search by name, type, or keyword..."
+                        />
+                    </div>
+                    <p className="text-sm text-neutral-500 shrink-0">
+                        {filteredProducts.length} {filteredProducts.length === 1 ? "product" : "products"}
+                    </p>
+                </div>
+
                 {/* Products Grid */}
                 <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <AnimatePresence mode="popLayout">
@@ -329,8 +391,15 @@ export function ProductsGrid() {
                 </motion.div>
 
                 {filteredProducts.length === 0 && (
+<<<<<<< HEAD
                     <div className="py-20 text-center text-muted-foreground">
                         No products found for this category.
+=======
+                    <div className="py-20 text-center text-neutral-500">
+                        {deferredSearchQuery.trim()
+                            ? `No products match "${deferredSearchQuery.trim()}".`
+                            : "No products found for this category."}
+>>>>>>> origin/checkup-branch
                     </div>
                 )}
             </div>

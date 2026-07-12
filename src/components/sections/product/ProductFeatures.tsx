@@ -58,8 +58,13 @@ export function ProductFeatures({ product }: { product: ProductDetails }) {
     };
 
     return (
+<<<<<<< HEAD
         <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background">
             <div className="max-w-7xl mx-auto flex flex-col gap-24">
+=======
+        <section className="relative w-full py-24 bg-black">
+            <div className="site-container flex flex-col gap-24">
+>>>>>>> origin/checkup-branch
                 {product.features.map((feature, index) => {
                     const isEven = index % 2 === 0;
 

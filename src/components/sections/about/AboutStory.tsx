@@ -4,8 +4,13 @@ import { motion } from "framer-motion";
 
 export function AboutStory() {
     return (
+<<<<<<< HEAD
         <section className="relative w-full py-32 px-6 md:px-12 lg:px-24 bg-background">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 items-start">
+=======
+        <section className="relative w-full py-32 bg-black">
+            <div className="site-container flex flex-col md:flex-row gap-16 md:gap-24 items-start">
+>>>>>>> origin/checkup-branch
 
                 {/* Left Column - Heading */}
                 <div className="w-full md:w-1/3">

@@ -4,7 +4,11 @@ import { motion } from "framer-motion";
 
 export function ShopHero() {
     return (
+<<<<<<< HEAD
         <section className="relative h-screen min-h-[600px] max-h-[800px] w-full overflow-hidden bg-background flex items-center justify-center pt-24 px-6 md:px-12 lg:px-24">
+=======
+        <section className="shop-hero relative h-screen min-h-[600px] max-h-[800px] w-full overflow-hidden bg-black flex items-center justify-center pt-24">
+>>>>>>> origin/checkup-branch
             {/* Background Atmosphere */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 hero-media-wash" />
@@ -19,7 +23,7 @@ export function ShopHero() {
                 />
             </div>
 
-            <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center">
+            <div className="relative z-10 site-container flex flex-col items-center text-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
                     animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -37,8 +41,13 @@ export function ShopHero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 >
+<<<<<<< HEAD
                     <p className="text-lg md:text-2xl text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto">
                         Automate, educate, and innovate. Choose a category below to explore our curated selection of advanced robotics.
+=======
+                    <p className="text-lg md:text-2xl text-neutral-400 font-medium leading-relaxed w-full">
+                        Automate, educate, and innovate. Browse our full catalog of robotics solutions below.
+>>>>>>> origin/checkup-branch
                     </p>
                 </motion.div>
 
@@ -48,7 +57,7 @@ export function ShopHero() {
                     transition={{ delay: 1 }}
                     className="absolute -bottom-32 flex flex-col items-center gap-3"
                 >
-                    <span className="text-[10px] uppercase tracking-[0.3em] text-[#00DBFF] font-bold">Select Category</span>
+                    <span className="text-[10px] uppercase tracking-[0.3em] text-[#00DBFF] font-bold">Browse Catalog</span>
                     <div className="w-[1px] h-24 bg-gradient-to-b from-[#00DBFF]/50 to-transparent" />
                 </motion.div>
             </div>

@@ -27,8 +27,13 @@ export function AboutFeatures() {
     ];
 
     return (
+<<<<<<< HEAD
         <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background border-t border-border">
             <div className="max-w-7xl mx-auto">
+=======
+        <section className="relative w-full py-24 bg-black border-t border-neutral-900">
+            <div className="site-container">
+>>>>>>> origin/checkup-branch
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

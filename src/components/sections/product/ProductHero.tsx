@@ -5,6 +5,7 @@ import { ArrowLeft, Zap, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect, useRef, MouseEvent } from "react";
 import { ProductDetails } from "@/data/products";
+import { markShopScrollRestorePending } from "@/lib/shopScrollRestoration";
 
 // ─── Image gallery map: product id → ordered image paths ──────────────────────
 const PRODUCT_IMAGES: Record<string, string[]> = {
@@ -183,6 +184,7 @@ function ImageCarousel({ images, themeColor }: { images: string[]; themeColor: s
           <>
             <button
               onClick={() => go(-1)}
+<<<<<<< HEAD
               className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-background/60 border border-border flex items-center justify-center hover:bg-background transition-colors z-10"
             >
               <ChevronLeft className="w-4 h-4 text-foreground" />
@@ -192,13 +194,28 @@ function ImageCarousel({ images, themeColor }: { images: string[]; themeColor: s
               className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-background/60 border border-border flex items-center justify-center hover:bg-background transition-colors z-10"
             >
               <ChevronRight className="w-4 h-4 text-foreground" />
+=======
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-neutral-900/90 border border-neutral-700 flex items-center justify-center hover:bg-neutral-800 transition-colors z-10 shadow-sm"
+            >
+              <ChevronLeft className="w-4 h-4 text-neutral-200" />
+            </button>
+            <button
+              onClick={() => go(1)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-neutral-900/90 border border-neutral-700 flex items-center justify-center hover:bg-neutral-800 transition-colors z-10 shadow-sm"
+            >
+              <ChevronRight className="w-4 h-4 text-neutral-200" />
+>>>>>>> origin/checkup-branch
             </button>
           </>
         )}
 
         {/* Image counter */}
         {images.length > 1 && (
+<<<<<<< HEAD
           <div className="absolute bottom-3 right-3 bg-background/60 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-muted-foreground font-mono">
+=======
+          <div className="absolute bottom-3 right-3 bg-neutral-900/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-neutral-400 font-mono border border-neutral-700">
+>>>>>>> origin/checkup-branch
             {current + 1} / {images.length}
           </div>
         )}
@@ -237,11 +254,29 @@ function parseContent(raw: string): { videoId: string | null; html: string } {
   if (embedMatch) {
     videoId = getYouTubeId(embedMatch[1].trim());
   }
-  // Remove the [embed] block and any bare URLs at the start
+
+  // Fallback: handle legacy inline iframe embeds inside content blocks.
+  // Some product files contain raw <iframe> tags instead of [embed] tags.
+  if (!videoId) {
+    const iframeSrcMatch = raw.match(/<iframe[^>]*src=["']([^"']+)["'][^>]*>/i);
+    if (iframeSrcMatch) {
+      videoId = getYouTubeId(iframeSrcMatch[1].trim());
+    }
+  }
+
+  // Remove the [embed] block, raw iframes, and any bare URLs at the start.
   let html = raw
     .replace(/\[embed\].*?\[\/embed\]/s, "")
+    .replace(/<iframe[\s\S]*?<\/iframe>/gi, "")
     .replace(/^https?:\/\/\S+/m, "")
     .trim();
+
+  // Clean up empty headings/paragraphs left after removing old iframe tags.
+  html = html
+    .replace(/<h[1-6][^>]*>\s*(?:&nbsp;)?\s*<\/h[1-6]>/gi, "")
+    .replace(/<p[^>]*>\s*(?:&nbsp;)?\s*<\/p>/gi, "")
+    .trim();
+
   return { videoId, html };
 }
 
@@ -261,6 +296,7 @@ function ProductDescription({ productId }: { productId: string }) {
   if (!content) return null;
 
   return (
+<<<<<<< HEAD
     <section className="relative w-full px-6 md:px-12 lg:px-24 py-16 bg-background">
       <div className="max-w-4xl mx-auto">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent mb-16" />
@@ -268,6 +304,15 @@ function ProductDescription({ productId }: { productId: string }) {
         {/* YouTube Embed */}
         {content.videoId && (
           <div className="w-full mb-16 rounded-2xl overflow-hidden aspect-video bg-surface">
+=======
+    <section className="relative w-full py-16 bg-black">
+      <div className="site-container">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent mb-16" />
+
+        {/* YouTube Embed */}
+        {content.videoId && (
+          <div className="w-full mb-16 rounded-2xl overflow-hidden aspect-video bg-neutral-900 border border-neutral-800">
+>>>>>>> origin/checkup-branch
             <iframe
               src={`https://www.youtube.com/embed/${content.videoId}`}
               title="Product video"
@@ -281,6 +326,7 @@ function ProductDescription({ productId }: { productId: string }) {
         {/* Rich HTML Content */}
         {content.html && (
           <div
+<<<<<<< HEAD
             className="prose dark:prose-invert prose-lg max-w-none
               prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight
               prose-h2:text-3xl prose-h2:text-foreground prose-h2:mb-4
@@ -288,6 +334,15 @@ function ProductDescription({ productId }: { productId: string }) {
               prose-p:text-muted-foreground prose-p:leading-relaxed
               prose-strong:text-foreground prose-strong:font-bold
               prose-ul:text-muted-foreground prose-li:marker:text-muted-foreground
+=======
+            className="prose prose-lg prose-invert max-w-none
+              prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight
+              prose-h2:text-3xl prose-h2:text-white prose-h2:mb-4
+              prose-h3:text-xl prose-h3:text-neutral-200 prose-h3:mb-3
+              prose-p:text-neutral-300 prose-p:leading-relaxed
+              prose-strong:text-white prose-strong:font-bold
+              prose-ul:text-neutral-300 prose-li:marker:text-neutral-500
+>>>>>>> origin/checkup-branch
               prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline"
             dangerouslySetInnerHTML={{ __html: content.html }}
           />
@@ -327,6 +382,7 @@ export function ProductHero({ product }: { product: ProductDetails }) {
 
   return (
     <>
+<<<<<<< HEAD
       <section className="relative w-full pt-40 pb-24 px-6 md:px-12 lg:px-24 bg-background overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 z-0">
@@ -343,13 +399,29 @@ export function ProductHero({ product }: { product: ProductDetails }) {
             }}
           />
           <div className="absolute inset-0 page-hero-scrim pointer-events-none" />
+=======
+      <section className="relative w-full pt-40 pb-24 bg-black overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className={`absolute top-1/4 right-1/4 w-[800px] h-[800px] ${themeShadowClass} rounded-full blur-[120px] opacity-30`} />
+          <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-neutral-800/40 rounded-full blur-[100px] opacity-40" />
+>>>>>>> origin/checkup-branch
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full">
+        <div className="relative z-10 site-container">
           {/* Back Navigation */}
+<<<<<<< HEAD
           <Link href="/products" className="inline-flex items-center gap-2 mb-12 text-sm font-bold tracking-widest uppercase text-muted-foreground hover:text-brand transition-colors group">
+=======
+          <Link
+            href="/shop"
+            scroll={false}
+            onClick={markShopScrollRestorePending}
+            className="inline-flex items-center gap-2 mb-12 text-sm font-bold tracking-widest uppercase text-neutral-400 hover:text-white transition-colors group"
+          >
+>>>>>>> origin/checkup-branch
             <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
-            Back to Products
+            Back to Shop
           </Link>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -387,7 +459,11 @@ export function ProductHero({ product }: { product: ProductDetails }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
+<<<<<<< HEAD
                 className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed mb-10"
+=======
+                className="text-lg md:text-xl text-neutral-300 w-full leading-relaxed mb-10"
+>>>>>>> origin/checkup-branch
               >
                 {product.description}
               </motion.p>
@@ -409,11 +485,17 @@ export function ProductHero({ product }: { product: ProductDetails }) {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <Link href="/contact" className="inline-block relative overflow-hidden group bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm transition-transform hover:scale-105">
+                <Link href="/contact" className="inline-block relative overflow-hidden group bg-[#00DBFF] text-black px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm transition-transform hover:scale-105">
                   <span className="relative z-10">Request a Quote</span>
+<<<<<<< HEAD
                   <div className="absolute inset-0 bg-input transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
                 </Link>
                 <Link href="#specs" className="inline-block px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm text-muted border border-border hover:border-border transition-colors text-center">
+=======
+                  <div className="absolute inset-0 bg-white transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
+                </Link>
+                <Link href="#specs" className="inline-block px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm text-neutral-300 border border-neutral-700 hover:border-neutral-500 hover:text-white transition-colors text-center">
+>>>>>>> origin/checkup-branch
                   View Full Specs
                 </Link>
               </motion.div>
@@ -432,7 +514,7 @@ export function ProductHero({ product }: { product: ProductDetails }) {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-neutral-800 to-transparent" />
       </section>
 
       {/* Rich HTML Description */}

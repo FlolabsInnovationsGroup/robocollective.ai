@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useRef, MouseEvent } from "react";
+import { useRef, MouseEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { CtaPrimary, CtaSecondary } from "@/components/ui";
 import { catalogData, categories } from "@/data/catalog";
 
 const PRODUCT_IMAGE: Record<string, string> = {
@@ -99,9 +100,11 @@ const allProducts = Object.entries(catalogData).flatMap(([categoryId, subs]) =>
 );
 
 const INITIAL_COUNT = 9;
+const previewProducts = allProducts.slice(0, INITIAL_COUNT);
 
 function ProductCard({ product }: { product: typeof allProducts[0] }) {
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLAnchorElement>(null);
+  const productHref = `/products/${product.id}`;
 
   const handleMouseMove = ({ clientX, clientY }: MouseEvent) => {
     if (!cardRef.current) return;
@@ -119,10 +122,16 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="h-full"
     >
-      <div
+      <Link
         ref={cardRef}
+        href={productHref}
         onMouseMove={handleMouseMove}
+<<<<<<< HEAD
         className="group w-full relative flex flex-col justify-between overflow-hidden rounded-2xl bg-card border border-border p-6 hover:border-brand/30 transition-colors duration-500 cursor-pointer h-full"
+=======
+        aria-label={`View details for ${product.name}`}
+        className="group w-full relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#0a0a0a] border border-neutral-800 p-6 hover:border-neutral-700 transition-colors duration-500 cursor-pointer h-full no-underline"
+>>>>>>> origin/checkup-branch
       >
         <div
           className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -155,23 +164,25 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
         </div>
 
         <div className="relative z-10 mt-6 flex justify-end">
+<<<<<<< HEAD
           <Link
             href={`/products/${product.id}`}
             className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-muted-foreground group-hover:text-brand transition-colors duration-300"
           >
+=======
+          <span className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-neutral-500 group-hover:text-white transition-colors duration-300">
+>>>>>>> origin/checkup-branch
             View Details <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </Link>
+          </span>
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 }
 
 export function HomeProducts() {
-  const [showAll, setShowAll] = useState(false);
-  const visible = showAll ? allProducts : allProducts.slice(0, INITIAL_COUNT);
-
   return (
+<<<<<<< HEAD
     <section id="products" className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background">
       <div className="max-w-7xl mx-auto flex flex-col gap-12">
         <div>
@@ -182,24 +193,46 @@ export function HomeProducts() {
           <p className="text-muted-foreground text-lg max-w-2xl">
             High-quality robots and accessories built for real work and deploy individually or as a unified autonomous workforce.
           </p>
+=======
+    <section id="products" className="relative w-full py-24 bg-black">
+      <div className="site-container flex flex-col gap-12">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div className="flex-1 min-w-0 lg:pr-12">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4">
+              Browse Our <span className="text-[#00DBFF]">Products</span>
+            </h2>
+            <p className="text-neutral-400 text-lg w-full">
+              A curated preview of our catalog. Visit the shop to browse every robot, filter by category, and find the right hardware for your project.
+            </p>
+          </div>
+          <CtaSecondary href="/shop">
+            Go to Shop
+          </CtaSecondary>
+>>>>>>> origin/checkup-branch
         </div>
 
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
-            {visible.map(product => (
+            {previewProducts.map(product => (
               <ProductCard key={product.id} product={product} />
             ))}
           </AnimatePresence>
         </motion.div>
 
-        {!showAll && allProducts.length > INITIAL_COUNT && (
+        {allProducts.length > INITIAL_COUNT && (
           <div className="flex justify-center">
+<<<<<<< HEAD
             <button
               onClick={() => setShowAll(true)}
               className="flex items-center gap-3 px-10 py-4 rounded-full border border-border text-sm font-bold uppercase tracking-widest text-muted hover:bg-white hover:text-black hover:border-white transition-all duration-300"
             >
               View More <ChevronDown className="w-4 h-4" />
             </button>
+=======
+            <CtaPrimary href="/shop" showArrow>
+              Browse Full Shop
+            </CtaPrimary>
+>>>>>>> origin/checkup-branch
           </div>
         )}
       </div>

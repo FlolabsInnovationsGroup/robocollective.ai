@@ -26,14 +26,23 @@ const posts = [
 
 export function Blog() {
     return (
+<<<<<<< HEAD
         <section id="case-studies" className="py-24 bg-surface-elevated text-foreground relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+=======
+        <section id="case-studies" className="py-24 bg-neutral-950 text-white relative">
+            <div className="site-container">
+>>>>>>> origin/checkup-branch
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-                    <div className="max-w-2xl">
+                    <div>
                         <h2 className={`${spaceGrotesk.className} text-4xl lg:text-5xl font-black mb-4 tracking-tight uppercase`}>
                             Read our latest posts
                         </h2>
+<<<<<<< HEAD
                         <p className="text-muted-foreground text-lg">
+=======
+                        <p className="text-neutral-400 text-lg w-full">
+>>>>>>> origin/checkup-branch
                             Guides & insights for choosing the right robot, delivered with customer research and product direction.
                         </p>
                     </div>
@@ -44,8 +53,6 @@ export function Blog() {
                         <motion.a
                             key={index}
                             href={post.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}

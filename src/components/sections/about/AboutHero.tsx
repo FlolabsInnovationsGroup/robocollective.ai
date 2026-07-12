@@ -4,7 +4,11 @@ import { motion } from "framer-motion";
 
 export function AboutHero() {
     return (
+<<<<<<< HEAD
         <section className="relative h-screen min-h-[600px] w-full overflow-hidden bg-background flex items-end pb-16 pt-32 px-6 md:px-12 lg:px-24">
+=======
+        <section className="relative h-screen min-h-[600px] w-full overflow-hidden bg-black flex items-end pb-16 pt-32">
+>>>>>>> origin/checkup-branch
             {/* Background Elements */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 hero-media-wash" />
@@ -17,8 +21,8 @@ export function AboutHero() {
                 />
             </div>
 
-            <div className="relative z-10 w-full max-w-7xl mx-auto pb-8">
-                <div className="max-w-3xl text-left">
+            <div className="relative z-10 site-container pb-8">
+                <div className="w-full text-left">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -34,7 +38,11 @@ export function AboutHero() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                     >
+<<<<<<< HEAD
                         <p className="text-xl md:text-2xl text-muted font-medium leading-relaxed max-w-2xl">
+=======
+                        <p className="text-xl md:text-2xl text-neutral-300 font-medium leading-relaxed w-full">
+>>>>>>> origin/checkup-branch
                             RoboCollective.ai, founded in 2024, was created with a simple belief: <br /><span className="text-[#00DBFF]">robotics should feel natural, useful, and supportive in everyday life.</span>
                         </p>
                     </motion.div>

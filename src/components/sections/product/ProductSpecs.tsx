@@ -24,8 +24,13 @@ export function ProductSpecs({ product }: { product: ProductDetails }) {
                     : "group-hover:text-pink-400";
 
     return (
+<<<<<<< HEAD
         <section id="specs" className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-surface-elevated">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
+=======
+        <section id="specs" className="relative w-full py-24 bg-black border-t border-neutral-900">
+            <div className="site-container flex flex-col lg:flex-row gap-16">
+>>>>>>> origin/checkup-branch
 
                 {/* Header Column */}
                 <div className="w-full lg:w-1/3">

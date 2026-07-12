@@ -1,16 +1,11 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { CtaPrimary, CtaSecondary } from "@/components/ui";
 
 export function Hero() {
     const [isSlowConnection, setIsSlowConnection] = useState(false);
-
-    // Check scroll progress across the whole page to fade out near the bottom
-    const { scrollYProgress } = useScroll();
-    // Fade out completely when the scroll reaches 75% down the page (before footer)
-    const scrollIndicatorOpacity = useTransform(scrollYProgress, [0.6, 0.75], [1, 0]);
 
     useEffect(() => {
         if ("connection" in navigator) {
@@ -23,7 +18,11 @@ export function Hero() {
     }, []);
 
     return (
+<<<<<<< HEAD
         <section className="relative h-screen min-h-[600px] w-full overflow-hidden bg-background flex items-end pb-16 pt-32 px-6 md:px-12 lg:px-24">
+=======
+        <section className="homepage-hero relative h-screen min-h-[600px] w-full overflow-hidden bg-black flex items-end pb-16 pt-32">
+>>>>>>> origin/checkup-branch
             {/* 1. Immersive Video Background */}
             <div className="absolute inset-0 z-0">
                 {!isSlowConnection ? (
@@ -51,8 +50,8 @@ export function Hero() {
             </div>
 
             {/* 3. Left-Aligned, Bottom-Weighted Content */}
-            <div className="relative z-20 w-full max-w-7xl mx-auto pb-8">
-                <div className="max-w-2xl text-left">
+            <div className="relative z-20 site-container pb-8">
+                <div className="text-left">
                     <motion.h1
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -68,7 +67,11 @@ export function Hero() {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+<<<<<<< HEAD
                         className="text-lg md:text-xl text-muted dark:text-white/80 max-w-xl mb-10 font-medium leading-relaxed"
+=======
+                        className="text-lg md:text-xl text-neutral-300 w-full mb-10 font-medium leading-relaxed"
+>>>>>>> origin/checkup-branch
                     >
                         Discover, deploy, and scale the world's most advanced robots. Expertly delivered and fully supported worldwide.
                     </motion.p>
@@ -79,18 +82,21 @@ export function Hero() {
                         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                         className="flex flex-col sm:flex-row gap-4"
                     >
-                        <a href="#products" className="group relative flex items-center justify-center gap-3 px-8 py-4 bg-[#00DBFF] text-black font-bold uppercase tracking-wider rounded-none overflow-hidden transition-transform active:scale-95 text-sm md:text-base">
-                            <span className="relative z-10">Explore Collection</span>
-                            <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-2 transition-transform" />
-                            <div className="absolute inset-0 bg-white translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
-                        </a>
+                        <CtaPrimary href="/shop" showArrow>
+                            Explore Collection
+                        </CtaPrimary>
 
+<<<<<<< HEAD
                         <a href="/contact" className="px-8 py-4 bg-transparent border border-foreground/25 text-foreground font-bold uppercase tracking-wider rounded-none hover:bg-foreground hover:text-background dark:border-white/40 dark:text-white dark:hover:bg-white dark:hover:text-black transition-all active:scale-95 text-sm md:text-base">
+=======
+                        <CtaSecondary href="/contact">
+>>>>>>> origin/checkup-branch
                             Talk to an Expert
-                        </a>
+                        </CtaSecondary>
                     </motion.div>
                 </div>
             </div>
+<<<<<<< HEAD
 
             {/* Subtle Industrial Scroll Indicator */}
             <motion.div
@@ -108,6 +114,8 @@ export function Hero() {
                     <div className="w-12 h-[1px] bg-foreground/30 dark:bg-white/40" />
                 </motion.div>
             </motion.div>
+=======
+>>>>>>> origin/checkup-branch
         </section>
     );
 }

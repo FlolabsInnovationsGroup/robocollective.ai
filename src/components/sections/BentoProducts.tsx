@@ -136,18 +136,26 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 export function BentoProducts() {
     return (
+<<<<<<< HEAD
         <section className="py-24 bg-background text-foreground px-4 md:px-8 relative overflow-hidden">
+=======
+        <section className="py-24 bg-black text-white relative overflow-hidden">
+>>>>>>> origin/checkup-branch
             {/* Background Grid Pattern */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto relative z-10">
-                <div className="mb-16 md:flex md:items-end md:justify-between">
-                    <div className="max-w-2xl">
+            <div className="site-container relative z-10">
+                <div className="mb-16 md:flex md:items-end md:justify-between gap-6">
+                    <div className="flex-1 min-w-0 md:pr-12">
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 uppercase tracking-tight">
                             Browse Our <br />
                             <span className="text-[#00DBFF]">Products</span>
                         </h2>
+<<<<<<< HEAD
                         <p className="text-muted-foreground text-lg">
+=======
+                        <p className="text-neutral-400 text-lg w-full">
+>>>>>>> origin/checkup-branch
                             Explore our interconnected hardware platforms. Designed to deploy individually or synchronize as a unified autonomous workforce. High-quality robots and accessories built for real work.
                         </p>
                     </div>

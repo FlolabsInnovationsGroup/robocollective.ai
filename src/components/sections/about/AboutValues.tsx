@@ -21,8 +21,13 @@ export function AboutValues() {
     ];
 
     return (
+<<<<<<< HEAD
         <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-surface-elevated">
             <div className="max-w-7xl mx-auto">
+=======
+        <section className="relative w-full py-24 bg-neutral-950">
+            <div className="site-container">
+>>>>>>> origin/checkup-branch
                 <div className="mb-20">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -32,7 +37,11 @@ export function AboutValues() {
                     >
                         <h2 className="text-3xl md:text-5xl font-black text-foreground uppercase tracking-tighter mb-4">Values & Vision</h2>
                         <div className="w-20 h-1 bg-[#00DBFF] mb-8" />
+<<<<<<< HEAD
                         <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+=======
+                        <p className="text-lg text-neutral-400 w-full leading-relaxed">
+>>>>>>> origin/checkup-branch
                             From families to entrepreneurs, our solutions already help people save time, reduce stress, and focus on what matters most. We design personal robotics solutions with care, built around trust, safety, and transparency.
                         </p>
                     </motion.div>
@@ -69,9 +78,15 @@ export function AboutValues() {
                 >
                     <div className="absolute top-0 right-0 w-64 h-64 bg-[#00DBFF]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
+<<<<<<< HEAD
                     <div className="relative z-10 max-w-xl">
                         <h3 className="text-3xl md:text-4xl font-black text-foreground tracking-tighter uppercase mb-4">What's Next?</h3>
                         <p className="text-muted-foreground text-lg">
+=======
+                    <div className="relative z-10 w-full">
+                        <h3 className="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase mb-4">What's Next?</h3>
+                        <p className="text-neutral-400 text-lg">
+>>>>>>> origin/checkup-branch
                             This is just the beginning of our story. Discover how robotics can enhance your life today and evolve with your future.
                         </p>
                     </div>

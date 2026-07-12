@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist } from "next/font/google";
+<<<<<<< HEAD
 import { Nav } from "@/components/ui";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+=======
+import { Nav, ScrollToTopButton } from "@/components/ui";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { THEME_STORAGE_KEY } from "@/lib/theme";
+>>>>>>> origin/checkup-branch
 import "./globals.css";
 
 const geistSans = Geist({
@@ -43,13 +50,28 @@ export const metadata: Metadata = {
   },
 };
 
+const themeInitScript = `(function(){try{var t=localStorage.getItem("${THEME_STORAGE_KEY}");if(t==="light"){document.documentElement.classList.add("light");document.documentElement.dataset.theme="light";}else{document.documentElement.dataset.theme=t==="dark"?t:"dark";}}catch(e){}})();`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+<<<<<<< HEAD
       <body className={`${geistSans.className} bg-background text-foreground antialiased`} suppressHydrationWarning>
         <ThemeProvider>
           <Nav />
           {children}
+=======
+      <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themeInitScript}
+        </Script>
+      </head>
+      <body className={`${geistSans.className} bg-black`} suppressHydrationWarning>
+        <ThemeProvider>
+          <Nav />
+          {children}
+          <ScrollToTopButton />
+>>>>>>> origin/checkup-branch
         </ThemeProvider>
       </body>
     </html>

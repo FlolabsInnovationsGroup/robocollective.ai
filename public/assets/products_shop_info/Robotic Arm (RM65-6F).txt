@@ -1,51 +1,36 @@
-https://youtu.be/xOnmtF-Bd8g?si=xqhAgRD5unlhsxJp
+[embed]https://youtu.be/xOnmtF-Bd8g[/embed]
 
-The RM65-6F, a 6-axis-force version of the 6-dof robotic arm, is self-developed and produced by RealMan. The robotic arm integrating the controller weighs 7.3KG in total, with a payload of 5KG, a peak load of 9KG, and a working radius of 638.5mm
+<h2>RM65-6F Robotic Arm: 6-Axis Force-Sensing 6-DOF Precision</h2>
+<p>The <strong>RM65-6F</strong>, a 6-axis-force version of the 6-DOF robotic arm, is self-developed and produced by RealMan. The robotic arm integrating the controller weighs <strong>7.3 kg</strong> in total, with a payload of <strong>5 kg</strong>, a peak load of <strong>9 kg</strong>, and a working radius of <strong>638.5 mm</strong>.</p>
 
-<strong>Degree of freedom</strong>
-6
+<h3>Force Sensing and Precision</h3>
+<p>Equipped with integrated <strong>six-axis force sensing</strong>, the RM65-6F delivers a force range of <strong>200 N / 7 Nm</strong> with accuracy better than <strong>&lt;0.1% FS</strong>. Combined with <strong>±0.05 mm repeatability</strong>, it excels at delicate assembly, quality inspection, and tasks requiring tactile feedback.</p>
 
-<strong>Payload</strong>
-5kg
+<h3>Compact and Durable Build</h3>
+<p>Built from <strong>aluminum alloy</strong> with an <strong>IP54-rated body</strong>, the RM65-6F withstands industrial environments while remaining lightweight. Its integrated controller simplifies deployment, and the arm runs on <strong>DC 24V</strong> with a maximum power consumption of <strong>200 W</strong>.</p>
 
-<strong>Body weight</strong>
-7.3kg
+<h3>Flexible Control and Connectivity</h3>
+<p>The RM65-6F supports <strong>Wi-Fi, network port, Bluetooth, USB serial port, and RS485</strong> communication. Programming is available through <strong>drag-and-drop teaching, teaching pendant, API, and JSON</strong> control modes, making integration straightforward for both operators and developers.</p>
 
-<strong>Repeatability</strong>
-±0.05mm
+<h3>Motion Performance</h3>
+<p>With joint motion ranges from <strong>±128° to ±360°</strong> across all six axes and maximum speeds of <strong>180°/s (J1–J2)</strong> and <strong>225°/s (J3–J6)</strong>, the RM65-6F balances speed and accuracy for demanding automation workflows.</p>
 
-<strong>Working radius</strong>
-638.5mm
-
-<strong>Six-axis force range</strong>
-200N/7Nm
-
-<strong>Six-axis force accuracy</strong>
-&lt;0.1% FS
-
-<strong>Power supply voltage</strong>
-DC24V
-
-<strong>Power consumption</strong>
-Maximum power consumption 200W, comprehensive power consumption 100W
-
-<strong>Protection level</strong>
-IP54 (robotic arm body)
-
-<strong>Material</strong>
-Aluminum alloy
-
-<strong>Controller</strong>
-Integrated
-
-<strong>Communication mode</strong>
-WIFI/network port/Bluetooth/USB serial port/RS485
-
-<strong>Control mode</strong>
-Drag and drop teaching/Teaching pendant/API/JSON
-
-<strong>Joint motion range</strong>
-J1 ±178°、J2 ±130°、J3 ±135°、J4 ±178°、J5 ±128°、J6 ±360°
-
-<strong>Joint maximum speed</strong>
-J1-J2 180°/s、J3-J6 225°/s
+<h3>Key Specifications</h3>
+<ul>
+<li><p>Degree of freedom: <strong>6</strong></p></li>
+<li><p>Payload: <strong>5 kg</strong></p></li>
+<li><p>Body weight: <strong>7.3 kg</strong></p></li>
+<li><p>Repeatability: <strong>±0.05 mm</strong></p></li>
+<li><p>Working radius: <strong>638.5 mm</strong></p></li>
+<li><p>Six-axis force range: <strong>200 N / 7 Nm</strong></p></li>
+<li><p>Six-axis force accuracy: <strong>&lt;0.1% FS</strong></p></li>
+<li><p>Power supply voltage: <strong>DC 24V</strong></p></li>
+<li><p>Power consumption: <strong>Maximum 200 W, comprehensive 100 W</strong></p></li>
+<li><p>Protection level: <strong>IP54 (robotic arm body)</strong></p></li>
+<li><p>Material: <strong>Aluminum alloy</strong></p></li>
+<li><p>Controller: <strong>Integrated</strong></p></li>
+<li><p>Communication mode: <strong>Wi-Fi / network port / Bluetooth / USB serial port / RS485</strong></p></li>
+<li><p>Control mode: <strong>Drag and drop teaching / Teaching pendant / API / JSON</strong></p></li>
+<li><p>Joint motion range: <strong>J1 ±178°, J2 ±130°, J3 ±135°, J4 ±178°, J5 ±128°, J6 ±360°</strong></p></li>
+<li><p>Joint maximum speed: <strong>J1–J2 180°/s, J3–J6 225°/s</strong></p></li>
+</ul>
