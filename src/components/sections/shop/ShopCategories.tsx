@@ -75,164 +75,6 @@ const PRODUCT_IMAGE: Record<string, string> = {
     sp1: "/assets/products/Tron_1_1.png",
 };
 
-<<<<<<< HEAD
-// --- Categories (Tabs) Data ---
-const categories = [
-    { id: "drones", title: "Nimble Drones", color: "from-sky-400 to-blue-600" },
-    { id: "educational", title: "Educational Robots", color: "from-emerald-400 to-teal-600" },
-    { id: "industrial", title: "Industrial Robots", color: "from-orange-400 to-red-600" },
-    { id: "service", title: "Service Robots", color: "from-purple-400 to-indigo-600" },
-    { id: "specialty", title: "Specialty Robots", color: "from-pink-400 to-rose-600" }
-];
-
-// --- Mock Product Data organized by Sub-categories ---
-const catalogData: Record<string, { id: string, title: string, products: any[] }[]> = {
-    drones: [
-        {
-            id: "kits", title: "Kits & Bundles", products: [
-                { id: "d1", name: "Nimble Base Kit", description: "Flight-ready Nimble drone with charger and spare wings. Perfect for live demos, outreach, and immediate takeoff. Includes charger, spare set of wings, and protective shells; factory tuned hover with minimal setup.", price: "$350" },
-                { id: "d2", name: "Nimble Starter Kit", description: "Everything in the base kit plus more wings and shells so teams can experiment longer between maintenance cycles. Extra wing set and body shells included; ready for campus demos and small swarm pilots.", price: "$500" },
-                { id: "d3", name: "Nimble Lighthouse Bundle", description: "Complete bundle with Lighthouse deck and base stations for precise indoor positioning and repeatable trajectories. Includes Lighthouse deck and dual base stations; great for swarm coordination and waypoint flight.", price: "$850" }
-            ]
-        },
-        {
-            id: "fleets", title: "Scale to Fleets and Teaching Labs", products: [
-                { id: "d4", name: "Base Multi Kit (2x)", description: "Two flight-ready Nimbles with spare wings, chargers, and shells so pairs can prototype quickly. Matched pair for mirrored experiments; includes shared tools for fast turnaround.", price: "$650" },
-                { id: "d9", name: "Base Multi Kit (3x)", description: "Three drones, spare wings, and chargers for small teams and formation trials. Great starter pack for lab courses; ships with extra wings and shells.", price: "$950" },
-                { id: "d5", name: "Nimble Swarm Bundle (x4)", description: "Four Nimbles, Lighthouse positioning gear, radios, and spares for swarm choreographies and indoor fleets. Includes Lighthouse positioning stack; four Crazyradio 2.0 links for multi-operator control.", price: "$1,200" }
-            ]
-        },
-        {
-            id: "spares", title: "Accessories and Spares", products: [
-                { id: "d6", name: "Crazyradio 2.0", description: "Low-latency radio link for commanding single drones or swarms.", price: "$40" },
-                { id: "d10", name: "Lighthouse Base Station", description: "Indoor positioning beacons for centimeter-level tracking." },
-                { id: "d11", name: "Lighthouse Support Kit", description: "Mounts, plates, and wiring to attach Lighthouse decks securely." },
-                { id: "d7", name: "Nimble Battery", description: "Stock up on extra flight packs to extend sorties.", price: "$15" },
-                { id: "d8", name: "Wing Set", description: "Replacement wings to keep every airframe ready for flight.", price: "$20" },
-                { id: "d12", name: "2.4 GHz Transmitter", description: "EdgeTX handheld transmitter for manual flight and training." },
-                { id: "d13", name: "FrSky Receiver", description: "Bind to your preferred transmitter for manual modes." },
-                { id: "d14", name: "Nimble Shells", description: "Fresh shells to refresh fleets after heavy use." }
-            ]
-        }
-    ],
-    educational: [
-        {
-            id: "robots", title: "Robots", products: [
-                { id: "e1", name: "STEM Rover Starter", description: "An introductory autonomous vehicle kit that teaches basic Python programming." },
-                { id: "e2", name: "Advanced Research Arm", description: "A highly articulated 6-axis robotic arm with open-source firmware for university research." },
-                { id: "g1", name: "Humanoid G1 (Base/EDU)", description: "The Unitree G1 humanoid robot is a next-generation bipedal robotics platform with up to 43 DOF.", href: "/humanoid-g1-base-edu" }
-            ]
-        },
-        {
-            id: "bundles", title: "Classroom Bundles", products: [
-                { id: "e3", name: "EduBot Classroom Kit (10x)", description: "A comprehensive classroom solution featuring modular robotics components for 10 groups.", price: "$2,499" },
-                { id: "e4", name: "Research Lab Starter", description: "Two advanced arms and a central compute node for AI kinematics research.", price: "$6,000" }
-            ]
-        },
-        {
-            id: "spares", title: "Spare Parts", products: [
-                { id: "e5", name: "Sensor Expansion Pack", description: "Lidar, ultrasonic, and infrared sensors to upgrade basic rovers.", price: "$150" }
-            ]
-        }
-    ],
-    industrial: [
-        {
-            id: "robots", title: "Industrial Arms & Crawlers", products: [
-                { id: "i1", name: "HeavyDuty Arm X1", description: "A robust industrial robotic arm capable of precision material handling and welding.", price: "Quote" },
-                { id: "i2", name: "Inspection Crawler", description: "Magnetic crawler robot equipped with high-def cameras for pipeline inspections.", price: "Quote" }
-            ]
-        },
-        {
-            id: "logistics", title: "Logistics", products: [
-                { id: "i3", name: "Logistics Carrier Pro", description: "Autonomous mobile robot (AMR) designed for heavy payload transport in warehouses.", price: "Quote" }
-            ]
-        }
-    ],
-    service: [
-        {
-            id: "hospitality", title: "Hospitality & Delivery", products: [
-                { id: "s1", name: "Hospitality Bot-S", description: "Friendly, interactive robot optimized for greeting guests and providing directions.", price: "$8,500" },
-                { id: "s2", name: "Delivery Rover Waiter", description: "Multi-tiered autonomous delivery robot designed to serve food and drinks in restaurants.", price: "$6,200" }
-            ]
-        },
-        {
-            id: "sanitation", title: "Cleaning & Sanitation", products: [
-                { id: "s3", name: "Sanitation Sentinel", description: "Autonomous UV-C disinfecting robot formulated to sanitize hospital rooms safely.", price: "$12,000" }
-            ]
-        }
-    ],
-    specialty: [
-        {
-            id: "marine", title: "Marine Exploration", products: [
-                { id: "sp1", name: "AquaBot Submarine", description: "Tethered underwater ROV engineered for deep-sea exploration and marine biology.", price: "$5,400" }
-            ]
-        },
-        {
-            id: "space", title: "Extreme Environments", products: [
-                { id: "sp2", name: "AstroRover Explorer", description: "Extreme-environment wheeled rover featuring radiation-hardened components.", price: "Quote" }
-            ]
-        }
-    ]
-};
-
-// --- Spotlight Main Tab Component ---
-function CategoryTab({
-    category,
-    isActive,
-    onClick
-}: {
-    category: typeof categories[0],
-    isActive: boolean,
-    onClick: () => void
-}) {
-    const tabRef = useRef<HTMLButtonElement>(null);
-    const mouseX = useRef(0);
-    const mouseY = useRef(0);
-
-    const handleMouseMove = ({ clientX, clientY }: MouseEvent) => {
-        if (!tabRef.current) return;
-        const { left, top } = tabRef.current.getBoundingClientRect();
-        mouseX.current = clientX - left;
-        mouseY.current = clientY - top;
-        tabRef.current.style.setProperty("--mouse-x", `${mouseX.current}px`);
-        tabRef.current.style.setProperty("--mouse-y", `${mouseY.current}px`);
-    };
-
-    return (
-        <motion.button
-            ref={tabRef}
-            onClick={onClick}
-            onMouseMove={handleMouseMove}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className={`
-                group relative overflow-hidden rounded-xl border p-4 text-left transition-all duration-300 flex-1 min-w-[200px]
-                ${isActive
-                    ? 'bg-surface/80 border-foreground/20 shadow-lg'
-                    : 'bg-surface/50 border-border hover:border-border'
-                }
-            `}
-        >
-            {/* Spotlight Hover Effect */}
-            <div
-                className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                    background: "radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.08), transparent 40%)"
-                }}
-            />
-
-            {/* Glowing Accent Line */}
-            <div className={`absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r ${category.color} ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'} transition-opacity duration-300`} />
-
-            <div className="relative z-10 flex items-center justify-between">
-                <span className={`font-bold ${isActive ? 'text-foreground' : 'text-muted-foreground group-hover:text-muted'} transition-colors duration-300`}>
-                    {category.title}
-                </span>
-            </div>
-        </motion.button>
-    );
-}
-=======
 const allProducts = Object.entries(catalogData).flatMap(([categoryId, subCategories]) =>
     subCategories.flatMap((sub) =>
         sub.products.map((product) => ({
@@ -244,7 +86,6 @@ const allProducts = Object.entries(catalogData).flatMap(([categoryId, subCategor
         }))
     )
 );
->>>>>>> origin/checkup-branch
 
 // --- Product Card Component ---
 function ProductCard({ product, colorClass }: { product: (typeof allProducts)[0]; colorClass: string }) {
@@ -274,12 +115,8 @@ function ProductCard({ product, colorClass }: { product: (typeof allProducts)[0]
                 ref={cardRef}
                 href={productHref}
                 onMouseMove={handleMouseMove}
-<<<<<<< HEAD
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-card border border-border p-8 h-full min-h-[320px] hover:border-brand/30 transition-colors duration-500 cursor-pointer"
-=======
                 aria-label={`View details for ${product.name}`}
                 className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#0a0a0a] border border-neutral-800 p-8 h-full min-h-[320px] hover:border-neutral-700 transition-colors duration-500 cursor-pointer no-underline"
->>>>>>> origin/checkup-branch
             >
                 <div
                     className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -290,13 +127,8 @@ function ProductCard({ product, colorClass }: { product: (typeof allProducts)[0]
                 />
 
                 <div className="relative z-10 flex flex-col h-full">
-<<<<<<< HEAD
-                    {PRODUCT_IMAGE[product.id] ? (
-                        <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-surface shrink-0">
-=======
                     {product.image ? (
                         <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-4 bg-neutral-900 shrink-0">
->>>>>>> origin/checkup-branch
                             <img
                                 src={product.image}
                                 alt={product.name}
@@ -314,25 +146,14 @@ function ProductCard({ product, colorClass }: { product: (typeof allProducts)[0]
                     )}
 
                     <div className="flex justify-between items-start mb-3">
-                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground bg-surface border border-border px-3 py-1 rounded-full">
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full">
                             {product.subCategoryTitle}
                         </span>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-[#00DBFF] transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#00DBFF] transition-colors duration-300">
                         {product.name}
                     </h3>
-<<<<<<< HEAD
-                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">
-                        {product.description}
-                    </p>
-                </div>
-
-                <div className="relative z-10 mt-8 flex justify-end">
-                    <Link href={product.href || `/products/${product.id}`} className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-muted-foreground group-hover:text-brand transition-colors duration-300">
-                        View Details <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </Link>
-=======
                     <p className="text-neutral-400 text-sm leading-relaxed flex-1">{product.description}</p>
                 </div>
 
@@ -341,7 +162,6 @@ function ProductCard({ product, colorClass }: { product: (typeof allProducts)[0]
                         View Details{" "}
                         <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </span>
->>>>>>> origin/checkup-branch
                 </div>
             </Link>
         </motion.div>
@@ -351,66 +171,6 @@ function ProductCard({ product, colorClass }: { product: (typeof allProducts)[0]
 // --- Main Container ---
 export function ShopCategories() {
     return (
-<<<<<<< HEAD
-        <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background min-h-screen">
-            <div className="max-w-7xl mx-auto flex flex-col gap-12">
-
-                {/* Main Category Tabs Array */}
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-4">
-                    {categories.map((category) => (
-                        <CategoryTab
-                            key={category.id}
-                            category={category}
-                            isActive={activeMainTab === category.id}
-                            onClick={() => setActiveMainTab(category.id)}
-                        />
-                    ))}
-                </div>
-
-                {/* Sub-Category section */}
-                {subCategories.length > 0 && (
-                    <div className="border border-border rounded-2xl bg-surface/40 p-6 backdrop-blur-sm">
-
-                        <div className="flex flex-col md:flex-row md:items-center gap-6 mb-8 justify-between">
-                            <h2 className="text-2xl font-bold text-foreground uppercase tracking-tight">
-                                {activeMainCategoryData?.title}
-                            </h2>
-
-                            {/* Sub-category Pills */}
-                            <div className="flex flex-wrap gap-2">
-                                {subCategories.map((sub) => (
-                                    <button
-                                        key={sub.id}
-                                        onClick={() => setActiveSubTab(sub.id)}
-                                        className={`px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300
-                                            ${activeSubTab === sub.id
-                                                ? 'bg-white text-black shadow-md'
-                                                : 'bg-surface text-muted-foreground hover:bg-surface hover:text-brand'
-                                            }
-                                        `}
-                                    >
-                                        {sub.title}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Animated Products Display */}
-                        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <AnimatePresence mode="popLayout">
-                                {currentProducts.map((product) => (
-                                    <ProductCard
-                                        key={product.id}
-                                        product={{ ...product, subCategoryTitle: currentSubCategory?.title }}
-                                        colorClass={activeMainCategoryData?.color || "from-neutral-400 to-neutral-600"}
-                                    />
-                                ))}
-                            </AnimatePresence>
-                        </motion.div>
-
-                    </div>
-                )}
-=======
         <section className="relative w-full py-24 bg-black min-h-screen">
             <div className="site-container flex flex-col gap-12">
                 <div className="flex flex-col gap-4">
@@ -438,7 +198,6 @@ export function ShopCategories() {
                         </AnimatePresence>
                     </motion.div>
                 </div>
->>>>>>> origin/checkup-branch
             </div>
         </section>
     );

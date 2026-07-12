@@ -58,13 +58,8 @@ export function ProductFeatures({ product }: { product: ProductDetails }) {
     };
 
     return (
-<<<<<<< HEAD
-        <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background">
-            <div className="max-w-7xl mx-auto flex flex-col gap-24">
-=======
         <section className="relative w-full py-24 bg-black">
             <div className="site-container flex flex-col gap-24">
->>>>>>> origin/checkup-branch
                 {product.features.map((feature, index) => {
                     const isEven = index % 2 === 0;
 
@@ -82,17 +77,17 @@ export function ProductFeatures({ product }: { product: ProductDetails }) {
                                 transition={{ duration: 0.8, ease: "easeOut" }}
                             >
                                 <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-16 h-16 rounded-2xl bg-surface border border-border flex items-center justify-center flex-shrink-0">
+                                    <div className="w-16 h-16 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center flex-shrink-0">
                                         {getIcon(feature.icon, `w-8 h-8 ${themeTextClass}`)}
                                     </div>
                                     <div className={`h-[2px] w-12 ${bgDividerClass}`} />
                                 </div>
 
-                                <h3 className="text-3xl lg:text-4xl font-black text-foreground uppercase tracking-tight mb-6">
+                                <h3 className="text-3xl lg:text-4xl font-black text-white uppercase tracking-tight mb-6">
                                     {feature.title}
                                 </h3>
 
-                                <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                                <p className="text-neutral-400 text-lg leading-relaxed mb-8">
                                     {feature.description}
                                 </p>
 
@@ -109,7 +104,7 @@ export function ProductFeatures({ product }: { product: ProductDetails }) {
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                             >
-                                <div className="absolute inset-0 bg-surface/50 border border-border rounded-3xl overflow-hidden group">
+                                <div className="absolute inset-0 bg-neutral-900/50 border border-neutral-800 rounded-3xl overflow-hidden group">
                                     {/* Subtle hover environment */}
                                     <div className={`absolute inset-0 bg-gradient-to-br ${bgGradientHoverClass} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
 
@@ -125,16 +120,16 @@ export function ProductFeatures({ product }: { product: ProductDetails }) {
                                     {/* Center abstract shape representing the feature */}
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <div className={`w-48 h-48 rounded-full border ${bgOpacityClass} backdrop-blur-sm flex items-center justify-center relative ${themeShadowClass} transition-shadow duration-700`}>
-                                            <div className="w-32 h-32 rounded-full border border-border/50 flex items-center justify-center relative animate-[spin_10s_linear_infinite]" />
+                                            <div className="w-32 h-32 rounded-full border border-neutral-700/50 flex items-center justify-center relative animate-[spin_10s_linear_infinite]" />
                                             <div className={`w-16 h-16 rounded-full ${bgCenterAccentClass} absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`} />
                                         </div>
                                     </div>
 
                                     {/* Corner Accents */}
-                                    <div className="absolute top-4 left-4 w-2 h-2 rounded-full bg-surface" />
-                                    <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-surface" />
-                                    <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-surface" />
-                                    <div className="absolute bottom-4 right-4 w-2 h-2 rounded-full bg-surface" />
+                                    <div className="absolute top-4 left-4 w-2 h-2 rounded-full bg-neutral-700" />
+                                    <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-neutral-700" />
+                                    <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-neutral-700" />
+                                    <div className="absolute bottom-4 right-4 w-2 h-2 rounded-full bg-neutral-700" />
                                 </div>
                             </motion.div>
                         </div>

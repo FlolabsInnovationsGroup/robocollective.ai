@@ -224,12 +224,8 @@ function ProductCard({ product }: { product: any }) {
                 ref={cardRef}
                 href={productHref}
                 onMouseMove={handleMouseMove}
-<<<<<<< HEAD
-                className="group w-full relative flex flex-col justify-between overflow-hidden rounded-2xl bg-card border border-border p-8 hover:border-brand/30 transition-colors duration-500 cursor-pointer"
-=======
                 aria-label={`View details for ${product.name}`}
                 className="group w-full relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#0a0a0a] border border-neutral-800 p-8 hover:border-neutral-700 transition-colors duration-500 cursor-pointer no-underline"
->>>>>>> origin/checkup-branch
             >
                 {/* Spotlight Hover Effect */}
                 <div
@@ -245,7 +241,7 @@ function ProductCard({ product }: { product: any }) {
                         const imgSrc = product.image || PRODUCT_IMAGE[product.id];
                         if (imgSrc) {
                             return (
-                                <div className="w-full h-40 sm:h-48 rounded-xl overflow-hidden mb-4 bg-surface flex-shrink-0">
+                                <div className="w-full h-40 sm:h-48 rounded-xl overflow-hidden mb-4 bg-neutral-900 flex-shrink-0">
                                     <img
                                         src={imgSrc}
                                         alt={product.name}
@@ -266,25 +262,21 @@ function ProductCard({ product }: { product: any }) {
                     })()}
 
                     <div className="flex justify-between items-start mb-3">
-                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground bg-surface border border-border px-3 py-1 rounded-full">
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full">
                             {product.subCategoryTitle}
                         </span>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-[#00DBFF] transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#00DBFF] transition-colors duration-300">
                         {product.name}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">
+                    <p className="text-neutral-400 text-sm leading-relaxed flex-1">
                         {product.description}
                     </p>
                 </div>
 
                 <div className="relative z-10 mt-8 flex justify-end">
-<<<<<<< HEAD
-                    <Link href={product.href || `/products/${product.id}`} className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-muted-foreground group-hover:text-brand transition-colors duration-300">
-=======
                     <span className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-neutral-500 group-hover:text-white transition-colors duration-300">
->>>>>>> origin/checkup-branch
                         View Details <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </span>
                 </div>
@@ -322,33 +314,20 @@ export function ProductsGrid() {
     const activeCategory = categories.find((category) => category.id === activeFilter);
 
     return (
-<<<<<<< HEAD
-        <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background min-h-screen">
-            <div className="max-w-7xl mx-auto flex flex-col gap-12">
-=======
         <section className="relative w-full py-24 bg-black min-h-screen">
             <div className="site-container flex flex-col gap-12">
->>>>>>> origin/checkup-branch
 
                 <div className="flex flex-col gap-4">
-                    <h2 className="text-3xl md:text-5xl font-black text-foreground uppercase tracking-tight">
-                        Hardware <span className="text-muted-foreground">Catalog</span>
+                    <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight">
+                        Hardware <span className="text-neutral-500">Catalog</span>
                     </h2>
-<<<<<<< HEAD
-                    <p className="text-muted-foreground max-w-2xl">
-=======
                     <p className="text-neutral-400 w-full">
->>>>>>> origin/checkup-branch
                         Filter by category to explore specific robotics solutions ranging from educational kits to industrial arms.
                     </p>
                 </div>
 
                 {/* Filter Tabs */}
-<<<<<<< HEAD
-                <div className="sticky top-[80px] z-40 bg-background/80 backdrop-blur-md py-4 px-6 -mx-6 md:px-12 md:-mx-12 lg:px-24 lg:-mx-24 flex flex-wrap items-center gap-3 border-b border-border mb-8 shadow-2xl">
-=======
                 <div className="sticky top-[80px] z-40 bg-black/80 backdrop-blur-md py-4 flex flex-wrap items-center gap-3 border-b border-neutral-800 mb-8 shadow-2xl">
->>>>>>> origin/checkup-branch
                     {categories.map((category) => (
                         <button
                             key={category.id}
@@ -356,7 +335,7 @@ export function ProductsGrid() {
                             className={`px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 border
                                 ${activeFilter === category.id
                                     ? `bg-white text-black border-transparent shadow-[0_0_30px_rgba(255,255,255,0.1)]`
-                                    : 'bg-transparent text-muted-foreground border-border hover:border-border hover:text-brand'
+                                    : 'bg-transparent text-neutral-400 border-neutral-800 hover:border-neutral-600 hover:text-white'
                                 }
                             `}
                         >
@@ -391,15 +370,10 @@ export function ProductsGrid() {
                 </motion.div>
 
                 {filteredProducts.length === 0 && (
-<<<<<<< HEAD
-                    <div className="py-20 text-center text-muted-foreground">
-                        No products found for this category.
-=======
                     <div className="py-20 text-center text-neutral-500">
                         {deferredSearchQuery.trim()
                             ? `No products match "${deferredSearchQuery.trim()}".`
                             : "No products found for this category."}
->>>>>>> origin/checkup-branch
                     </div>
                 )}
             </div>

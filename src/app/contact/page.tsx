@@ -10,17 +10,12 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
     return (
-        <main className="min-h-screen bg-background overflow-x-hidden selection:bg-[#00DBFF]/30 selection:text-foreground pb-32">
+        <main className="min-h-screen bg-black overflow-x-hidden selection:bg-[#00DBFF]/30 selection:text-white pb-32">
             <Nav />
             <ContactHero />
 
-<<<<<<< HEAD
-            <section className="relative w-full py-16 px-6 md:px-12 lg:px-24 bg-background">
-                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 relative z-10">
-=======
             <section className="relative w-full py-16 bg-black">
                 <div className="site-container flex flex-col lg:flex-row gap-16 lg:gap-24 relative z-10">
->>>>>>> origin/checkup-branch
                     <ContactForm />
                     <ContactInfo />
                 </div>

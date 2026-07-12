@@ -7,12 +7,8 @@ export const metadata = {
 
 export default function ShopPage() {
     return (
-<<<<<<< HEAD
-        <main className="bg-background min-h-screen selection:bg-[#00DBFF]/30 selection:text-foreground">
-=======
         <main className="bg-black min-h-screen selection:bg-[#00DBFF]/30 selection:text-white">
             <ShopScrollRestoration />
->>>>>>> origin/checkup-branch
             <ShopHero />
             <ShopCategories />
             <Footer />

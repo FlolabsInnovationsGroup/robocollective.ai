@@ -11,18 +11,14 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 export function BlogPostHero({ post }: { post: BlogPost }) {
     return (
-<<<<<<< HEAD
-        <section className="relative w-full pt-40 pb-24 px-6 md:px-12 lg:px-24 bg-background overflow-hidden flex flex-col justify-end min-h-[60vh]">
-=======
         <section className="relative w-full pt-40 pb-24 bg-black overflow-hidden flex flex-col justify-end min-h-[60vh]">
->>>>>>> origin/checkup-branch
 
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#00DBFF]/10 rounded-full blur-[120px] opacity-40" />
                 <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[100px] opacity-20" />
                 <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
-                <div className="absolute inset-0 page-hero-scrim pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/80 to-black pointer-events-none" />
             </div>
 
             <div className="relative z-10 site-container">
@@ -33,7 +29,7 @@ export function BlogPostHero({ post }: { post: BlogPost }) {
                     transition={{ duration: 0.6 }}
                     className="mb-12"
                 >
-                    <Link href="/blog" className="inline-flex items-center gap-2 text-muted-foreground hover:text-[#00DBFF] transition-colors group">
+                    <Link href="/blog" className="inline-flex items-center gap-2 text-neutral-400 hover:text-[#00DBFF] transition-colors group">
                         <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
                         <span className={`${jetbrainsMono.className} text-sm font-bold uppercase tracking-widest`}>Back to Blog</span>
                     </Link>
@@ -49,7 +45,7 @@ export function BlogPostHero({ post }: { post: BlogPost }) {
                     <div className={`${jetbrainsMono.className} flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-[#00DBFF]`}>
                         <span>{post.category}</span>
                         <span className="w-1.5 h-1.5 rounded-full bg-white/20" />
-                        <span className="text-muted-foreground">{post.date}</span>
+                        <span className="text-neutral-500">{post.date}</span>
                     </div>
                 </motion.div>
 
@@ -57,7 +53,7 @@ export function BlogPostHero({ post }: { post: BlogPost }) {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    className={`${spaceGrotesk.className} text-4xl md:text-6xl lg:text-7xl font-black text-foreground leading-tight tracking-tight mb-8`}
+                    className={`${spaceGrotesk.className} text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight mb-8`}
                 >
                     {post.title}
                 </motion.h1>

@@ -24,13 +24,8 @@ export function ProductSpecs({ product }: { product: ProductDetails }) {
                     : "group-hover:text-pink-400";
 
     return (
-<<<<<<< HEAD
-        <section id="specs" className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-surface-elevated">
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
-=======
         <section id="specs" className="relative w-full py-24 bg-black border-t border-neutral-900">
             <div className="site-container flex flex-col lg:flex-row gap-16">
->>>>>>> origin/checkup-branch
 
                 {/* Header Column */}
                 <div className="w-full lg:w-1/3">
@@ -40,11 +35,11 @@ export function ProductSpecs({ product }: { product: ProductDetails }) {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-4xl lg:text-5xl font-black text-foreground uppercase tracking-tight mb-6">
+                        <h2 className="text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mb-6">
                             Technical <br /> Specifications
                         </h2>
                         <div className={`w-16 h-[2px] bg-gradient-to-r ${gradientHeaderClass} mb-8`} />
-                        <p className="text-muted-foreground leading-relaxed max-w-sm">
+                        <p className="text-neutral-400 leading-relaxed max-w-sm">
                             Engineered for high performance, the Unitree G1 defines the modern standard for affordable, robust humanoid research platforms.
                         </p>
                     </motion.div>
@@ -62,11 +57,11 @@ export function ProductSpecs({ product }: { product: ProductDetails }) {
                                 transition={{ duration: 0.4, delay: index * 0.05 }}
                                 className="group relative"
                             >
-                                <div className={`flex flex-col gap-2 pb-4 border-b border-border transition-colors duration-300 ${hoverBorderClass}`}>
-                                    <span className={`text-xs font-mono font-bold tracking-widest uppercase text-muted-foreground transition-colors ${hoverTextClass}`}>
+                                <div className={`flex flex-col gap-2 pb-4 border-b border-neutral-800 transition-colors duration-300 ${hoverBorderClass}`}>
+                                    <span className={`text-xs font-mono font-bold tracking-widest uppercase text-neutral-500 transition-colors ${hoverTextClass}`}>
                                         {spec.label}
                                     </span>
-                                    <span className="text-lg font-bold text-foreground">
+                                    <span className="text-lg font-bold text-white">
                                         {spec.value}
                                     </span>
                                 </div>

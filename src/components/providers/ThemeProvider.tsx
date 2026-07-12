@@ -1,15 +1,5 @@
 "use client";
 
-<<<<<<< HEAD
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-    return (
-        <NextThemesProvider attribute="class" defaultTheme="dark" enableSystem={false} themes={["light", "dark"]}>
-            {children}
-        </NextThemesProvider>
-    );
-=======
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import {
   applyTheme,
@@ -77,5 +67,4 @@ export function useTheme() {
     throw new Error("useTheme must be used within ThemeProvider");
   }
   return context;
->>>>>>> origin/checkup-branch
 }

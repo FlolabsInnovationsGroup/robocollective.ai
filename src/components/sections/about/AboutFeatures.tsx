@@ -27,13 +27,8 @@ export function AboutFeatures() {
     ];
 
     return (
-<<<<<<< HEAD
-        <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background border-t border-border">
-            <div className="max-w-7xl mx-auto">
-=======
         <section className="relative w-full py-24 bg-black border-t border-neutral-900">
             <div className="site-container">
->>>>>>> origin/checkup-branch
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +36,7 @@ export function AboutFeatures() {
                     transition={{ duration: 0.6 }}
                     className="mb-16"
                 >
-                    <h2 className="text-3xl md:text-5xl font-black text-foreground uppercase tracking-tighter mb-4">What We Build</h2>
+                    <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">What We Build</h2>
                     <div className="w-20 h-1 bg-[#00DBFF]" />
                 </motion.div>
 
@@ -53,10 +48,10 @@ export function AboutFeatures() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.6, delay: feature.delay }}
-                            className="bg-surface/40 border border-border p-10 hover:bg-surface/50 transition-colors duration-300 group"
+                            className="bg-neutral-900/40 border border-neutral-800 p-10 hover:bg-neutral-800/50 transition-colors duration-300 group"
                         >
-                            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 group-hover:text-[#00DBFF] transition-colors">{feature.title}</h3>
-                            <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                            <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-[#00DBFF] transition-colors">{feature.title}</h3>
+                            <p className="text-neutral-400 leading-relaxed text-sm md:text-base">
                                 {feature.description}
                             </p>
                         </motion.div>

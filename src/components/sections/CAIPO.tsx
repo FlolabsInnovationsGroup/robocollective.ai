@@ -5,13 +5,8 @@ import { CtaPrimary } from "@/components/ui";
 
 export function CAIPO() {
     return (
-<<<<<<< HEAD
-        <section className="relative w-full min-h-screen bg-background flex items-center justify-center border-t border-border/50 overflow-hidden py-24 md:py-0">
-            <div className="w-full max-w-7xl mx-auto px-4 md:px-12 lg:px-24 flex flex-col md:flex-row items-center justify-between">
-=======
         <section className="relative w-full min-h-screen bg-black flex items-center justify-center border-t border-neutral-800/50 overflow-hidden py-24 md:py-0">
             <div className="site-container flex flex-col md:flex-row items-center justify-between">
->>>>>>> origin/checkup-branch
                 {/* Left Content */}
                 <div className="w-full md:w-1/2 z-10 space-y-6 pt-12 md:pt-0">
                     <motion.div
@@ -20,14 +15,10 @@ export function CAIPO() {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-foreground mb-6">
+                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white mb-6">
                             Meet <span className="text-[#00DBFF]">CAIPO</span>
                         </h2>
-<<<<<<< HEAD
-                        <p className="text-lg text-muted-foreground max-w-xl">
-=======
                         <p className="text-lg text-neutral-400 w-full">
->>>>>>> origin/checkup-branch
                             CAIPO combines tactile sensors, gesture intelligence, and a holographic interface to help teams experience next-generation robotic presence.
                         </p>
                         <CtaPrimary

@@ -18,11 +18,7 @@ export function Hero() {
     }, []);
 
     return (
-<<<<<<< HEAD
-        <section className="relative h-screen min-h-[600px] w-full overflow-hidden bg-background flex items-end pb-16 pt-32 px-6 md:px-12 lg:px-24">
-=======
         <section className="homepage-hero relative h-screen min-h-[600px] w-full overflow-hidden bg-black flex items-end pb-16 pt-32">
->>>>>>> origin/checkup-branch
             {/* 1. Immersive Video Background */}
             <div className="absolute inset-0 z-0">
                 {!isSlowConnection ? (
@@ -31,7 +27,7 @@ export function Hero() {
                         loop
                         muted
                         playsInline
-                        className="object-cover w-full h-full brightness-110 contrast-[0.92] dark:brightness-100 dark:contrast-100"
+                        className="object-cover w-full h-full opacity-100"
                     >
                         {/* Ensure file name matches exactly: hero-futuristic-quadrup.mp4 */}
                         <source src="/assets/hero.mp4" type="video/mp4" />
@@ -39,14 +35,12 @@ export function Hero() {
                     </video>
                 ) : (
                     <div
-                        className="w-full h-full bg-cover bg-center brightness-110 contrast-[0.92] dark:brightness-100 dark:contrast-100 dark:opacity-70"
+                        className="w-full h-full bg-cover bg-center opacity-70"
                         style={{ backgroundImage: "url('/assets/hero-poster.jpg')" }}
                     />
                 )}
-                <div className="absolute inset-0 z-10 hero-media-wash" />
-                <div className="absolute inset-0 z-10 hero-media-scrim" />
-                <div className="absolute inset-0 z-10 hidden dark:block bg-black/35" />
-                <div className="absolute inset-0 z-10 hidden dark:block bg-gradient-to-t from-black/90 via-black/45 to-black/20" />
+                {/* 2. Professional Gradient Mask: Darkens the bottom for left-aligned text readability */}
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/20 to-transparent" />
             </div>
 
             {/* 3. Left-Aligned, Bottom-Weighted Content */}
@@ -56,7 +50,7 @@ export function Hero() {
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-5xl md:text-6xl lg:text-7xl font-black text-foreground dark:text-white tracking-tighter leading-[1.1] mb-6 uppercase"
+                        className="text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[1.1] mb-6 uppercase"
                     >
                         The Future of Robotics.
                         <br />
@@ -67,11 +61,7 @@ export function Hero() {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-<<<<<<< HEAD
-                        className="text-lg md:text-xl text-muted dark:text-white/80 max-w-xl mb-10 font-medium leading-relaxed"
-=======
                         className="text-lg md:text-xl text-neutral-300 w-full mb-10 font-medium leading-relaxed"
->>>>>>> origin/checkup-branch
                     >
                         Discover, deploy, and scale the world's most advanced robots. Expertly delivered and fully supported worldwide.
                     </motion.p>
@@ -86,36 +76,12 @@ export function Hero() {
                             Explore Collection
                         </CtaPrimary>
 
-<<<<<<< HEAD
-                        <a href="/contact" className="px-8 py-4 bg-transparent border border-foreground/25 text-foreground font-bold uppercase tracking-wider rounded-none hover:bg-foreground hover:text-background dark:border-white/40 dark:text-white dark:hover:bg-white dark:hover:text-black transition-all active:scale-95 text-sm md:text-base">
-=======
                         <CtaSecondary href="/contact">
->>>>>>> origin/checkup-branch
                             Talk to an Expert
                         </CtaSecondary>
                     </motion.div>
                 </div>
             </div>
-<<<<<<< HEAD
-
-            {/* Subtle Industrial Scroll Indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 1.5 }}
-                className="fixed right-10 bottom-10 z-50 hidden lg:flex items-center gap-4 rotate-90 origin-right text-muted dark:text-white/70"
-            >
-                {/* Wrap the content in another motion.div that handles the scroll fade */}
-                <motion.div
-                    style={{ opacity: scrollIndicatorOpacity }}
-                    className="flex items-center gap-4"
-                >
-                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold">Scroll to Explore</span>
-                    <div className="w-12 h-[1px] bg-foreground/30 dark:bg-white/40" />
-                </motion.div>
-            </motion.div>
-=======
->>>>>>> origin/checkup-branch
         </section>
     );
 }

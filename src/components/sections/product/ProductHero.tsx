@@ -165,7 +165,7 @@ function ImageCarousel({ images, themeColor }: { images: string[]; themeColor: s
   return (
     <div className="flex flex-col gap-4">
       {/* Main image */}
-      <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-surface border border-border">
+      <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-900 border border-neutral-800">
         <AnimatePresence mode="wait" initial={false} custom={direction}>
           <motion.img
             key={current}
@@ -184,17 +184,6 @@ function ImageCarousel({ images, themeColor }: { images: string[]; themeColor: s
           <>
             <button
               onClick={() => go(-1)}
-<<<<<<< HEAD
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-background/60 border border-border flex items-center justify-center hover:bg-background transition-colors z-10"
-            >
-              <ChevronLeft className="w-4 h-4 text-foreground" />
-            </button>
-            <button
-              onClick={() => go(1)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-background/60 border border-border flex items-center justify-center hover:bg-background transition-colors z-10"
-            >
-              <ChevronRight className="w-4 h-4 text-foreground" />
-=======
               className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-neutral-900/90 border border-neutral-700 flex items-center justify-center hover:bg-neutral-800 transition-colors z-10 shadow-sm"
             >
               <ChevronLeft className="w-4 h-4 text-neutral-200" />
@@ -204,18 +193,13 @@ function ImageCarousel({ images, themeColor }: { images: string[]; themeColor: s
               className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-neutral-900/90 border border-neutral-700 flex items-center justify-center hover:bg-neutral-800 transition-colors z-10 shadow-sm"
             >
               <ChevronRight className="w-4 h-4 text-neutral-200" />
->>>>>>> origin/checkup-branch
             </button>
           </>
         )}
 
         {/* Image counter */}
         {images.length > 1 && (
-<<<<<<< HEAD
-          <div className="absolute bottom-3 right-3 bg-background/60 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-muted-foreground font-mono">
-=======
           <div className="absolute bottom-3 right-3 bg-neutral-900/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs text-neutral-400 font-mono border border-neutral-700">
->>>>>>> origin/checkup-branch
             {current + 1} / {images.length}
           </div>
         )}
@@ -231,7 +215,7 @@ function ImageCarousel({ images, themeColor }: { images: string[]; themeColor: s
               className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200"
               style={{ borderColor: i === current ? themeAccent : "rgba(255,255,255,0.1)" }}
             >
-              <img src={src} alt={`Thumb ${i + 1}`} className="w-full h-full object-contain bg-surface p-1" />
+              <img src={src} alt={`Thumb ${i + 1}`} className="w-full h-full object-contain bg-neutral-900 p-1" />
             </button>
           ))}
         </div>
@@ -296,15 +280,6 @@ function ProductDescription({ productId }: { productId: string }) {
   if (!content) return null;
 
   return (
-<<<<<<< HEAD
-    <section className="relative w-full px-6 md:px-12 lg:px-24 py-16 bg-background">
-      <div className="max-w-4xl mx-auto">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent mb-16" />
-
-        {/* YouTube Embed */}
-        {content.videoId && (
-          <div className="w-full mb-16 rounded-2xl overflow-hidden aspect-video bg-surface">
-=======
     <section className="relative w-full py-16 bg-black">
       <div className="site-container">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent mb-16" />
@@ -312,7 +287,6 @@ function ProductDescription({ productId }: { productId: string }) {
         {/* YouTube Embed */}
         {content.videoId && (
           <div className="w-full mb-16 rounded-2xl overflow-hidden aspect-video bg-neutral-900 border border-neutral-800">
->>>>>>> origin/checkup-branch
             <iframe
               src={`https://www.youtube.com/embed/${content.videoId}`}
               title="Product video"
@@ -326,15 +300,6 @@ function ProductDescription({ productId }: { productId: string }) {
         {/* Rich HTML Content */}
         {content.html && (
           <div
-<<<<<<< HEAD
-            className="prose dark:prose-invert prose-lg max-w-none
-              prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight
-              prose-h2:text-3xl prose-h2:text-foreground prose-h2:mb-4
-              prose-h3:text-xl prose-h3:text-muted prose-h3:mb-3
-              prose-p:text-muted-foreground prose-p:leading-relaxed
-              prose-strong:text-foreground prose-strong:font-bold
-              prose-ul:text-muted-foreground prose-li:marker:text-muted-foreground
-=======
             className="prose prose-lg prose-invert max-w-none
               prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight
               prose-h2:text-3xl prose-h2:text-white prose-h2:mb-4
@@ -342,7 +307,6 @@ function ProductDescription({ productId }: { productId: string }) {
               prose-p:text-neutral-300 prose-p:leading-relaxed
               prose-strong:text-white prose-strong:font-bold
               prose-ul:text-neutral-300 prose-li:marker:text-neutral-500
->>>>>>> origin/checkup-branch
               prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline"
             dangerouslySetInnerHTML={{ __html: content.html }}
           />
@@ -382,44 +346,21 @@ export function ProductHero({ product }: { product: ProductDetails }) {
 
   return (
     <>
-<<<<<<< HEAD
-      <section className="relative w-full pt-40 pb-24 px-6 md:px-12 lg:px-24 bg-background overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 z-0">
-          <div className={`absolute top-1/4 right-1/4 w-[800px] h-[800px] ${themeShadowClass} rounded-full blur-[120px] opacity-40 mix-blend-screen`} />
-          <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-neutral-600/10 rounded-full blur-[100px] opacity-30 mix-blend-screen" />
-          <div className="absolute inset-0 bg-[url('/assets/noise.png')] opacity-10 mix-blend-overlay" />
-          <div
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
-              backgroundSize: "50px 50px",
-              transform: "perspective(1000px) rotateX(60deg) translateY(100px) scale(2)",
-              transformOrigin: "bottom",
-            }}
-          />
-          <div className="absolute inset-0 page-hero-scrim pointer-events-none" />
-=======
       <section className="relative w-full pt-40 pb-24 bg-black overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className={`absolute top-1/4 right-1/4 w-[800px] h-[800px] ${themeShadowClass} rounded-full blur-[120px] opacity-30`} />
           <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-neutral-800/40 rounded-full blur-[100px] opacity-40" />
->>>>>>> origin/checkup-branch
         </div>
 
         <div className="relative z-10 site-container">
           {/* Back Navigation */}
-<<<<<<< HEAD
-          <Link href="/products" className="inline-flex items-center gap-2 mb-12 text-sm font-bold tracking-widest uppercase text-muted-foreground hover:text-brand transition-colors group">
-=======
           <Link
             href="/shop"
             scroll={false}
             onClick={markShopScrollRestorePending}
             className="inline-flex items-center gap-2 mb-12 text-sm font-bold tracking-widest uppercase text-neutral-400 hover:text-white transition-colors group"
           >
->>>>>>> origin/checkup-branch
             <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
             Back to Shop
           </Link>
@@ -442,7 +383,7 @@ export function ProductHero({ product }: { product: ProductDetails }) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-black text-foreground leading-tight tracking-tighter mb-6 uppercase"
+                className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tighter mb-6 uppercase"
               >
                 {product.name}
                 {product.subtitle && (
@@ -459,11 +400,7 @@ export function ProductHero({ product }: { product: ProductDetails }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-<<<<<<< HEAD
-                className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed mb-10"
-=======
                 className="text-lg md:text-xl text-neutral-300 w-full leading-relaxed mb-10"
->>>>>>> origin/checkup-branch
               >
                 {product.description}
               </motion.p>
@@ -487,15 +424,9 @@ export function ProductHero({ product }: { product: ProductDetails }) {
               >
                 <Link href="/contact" className="inline-block relative overflow-hidden group bg-[#00DBFF] text-black px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm transition-transform hover:scale-105">
                   <span className="relative z-10">Request a Quote</span>
-<<<<<<< HEAD
-                  <div className="absolute inset-0 bg-input transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
-                </Link>
-                <Link href="#specs" className="inline-block px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm text-muted border border-border hover:border-border transition-colors text-center">
-=======
                   <div className="absolute inset-0 bg-white transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
                 </Link>
                 <Link href="#specs" className="inline-block px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm text-neutral-300 border border-neutral-700 hover:border-neutral-500 hover:text-white transition-colors text-center">
->>>>>>> origin/checkup-branch
                   View Full Specs
                 </Link>
               </motion.div>

@@ -126,12 +126,8 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
         ref={cardRef}
         href={productHref}
         onMouseMove={handleMouseMove}
-<<<<<<< HEAD
-        className="group w-full relative flex flex-col justify-between overflow-hidden rounded-2xl bg-card border border-border p-6 hover:border-brand/30 transition-colors duration-500 cursor-pointer h-full"
-=======
         aria-label={`View details for ${product.name}`}
         className="group w-full relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#0a0a0a] border border-neutral-800 p-6 hover:border-neutral-700 transition-colors duration-500 cursor-pointer h-full no-underline"
->>>>>>> origin/checkup-branch
       >
         <div
           className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -140,7 +136,7 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
 
         <div className="relative z-10 flex flex-col h-full">
           {product.image ? (
-            <div className="w-full h-40 rounded-xl overflow-hidden mb-4 bg-surface flex-shrink-0">
+            <div className="w-full h-40 rounded-xl overflow-hidden mb-4 bg-neutral-900 flex-shrink-0">
               <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
             </div>
           ) : (
@@ -151,27 +147,20 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
             </div>
           )}
 
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground bg-surface border border-border px-3 py-1 rounded-full w-fit mb-3">
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full w-fit mb-3">
             {product.subCategoryTitle}
           </span>
 
-          <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-[#00DBFF] transition-colors duration-300">
+          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#00DBFF] transition-colors duration-300">
             {product.name}
           </h3>
-          <p className="text-muted-foreground text-sm leading-relaxed flex-1">
+          <p className="text-neutral-400 text-sm leading-relaxed flex-1">
             {product.description}
           </p>
         </div>
 
         <div className="relative z-10 mt-6 flex justify-end">
-<<<<<<< HEAD
-          <Link
-            href={`/products/${product.id}`}
-            className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-muted-foreground group-hover:text-brand transition-colors duration-300"
-          >
-=======
           <span className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-neutral-500 group-hover:text-white transition-colors duration-300">
->>>>>>> origin/checkup-branch
             View Details <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </span>
         </div>
@@ -182,18 +171,6 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
 
 export function HomeProducts() {
   return (
-<<<<<<< HEAD
-    <section id="products" className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background">
-      <div className="max-w-7xl mx-auto flex flex-col gap-12">
-        <div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground uppercase tracking-tight mb-4">
-            Browse Our <br />
-            <span className="text-[#00DBFF]">Products</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl">
-            High-quality robots and accessories built for real work and deploy individually or as a unified autonomous workforce.
-          </p>
-=======
     <section id="products" className="relative w-full py-24 bg-black">
       <div className="site-container flex flex-col gap-12">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
@@ -208,7 +185,6 @@ export function HomeProducts() {
           <CtaSecondary href="/shop">
             Go to Shop
           </CtaSecondary>
->>>>>>> origin/checkup-branch
         </div>
 
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -221,18 +197,9 @@ export function HomeProducts() {
 
         {allProducts.length > INITIAL_COUNT && (
           <div className="flex justify-center">
-<<<<<<< HEAD
-            <button
-              onClick={() => setShowAll(true)}
-              className="flex items-center gap-3 px-10 py-4 rounded-full border border-border text-sm font-bold uppercase tracking-widest text-muted hover:bg-white hover:text-black hover:border-white transition-all duration-300"
-            >
-              View More <ChevronDown className="w-4 h-4" />
-            </button>
-=======
             <CtaPrimary href="/shop" showArrow>
               Browse Full Shop
             </CtaPrimary>
->>>>>>> origin/checkup-branch
           </div>
         )}
       </div>
