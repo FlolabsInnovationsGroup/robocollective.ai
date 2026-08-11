@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --hostname 127.0.0.1",
-    "build": "next build --turbopack",
-    "start": "next start --hostname 127.0.0.1 --port 3000",
+    "dev": "node api.js && next dev --hostname 127.0.0.1",
+    "build": "node api.js && next build --turbopack",
+    "start": "node api.js && next start --hostname 127.0.0.1 --port 3000",
     "lint": "eslint"
   },
   "dependencies": {
