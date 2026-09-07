@@ -17,7 +17,7 @@ const defaultLandingData = {
     headingPrefix: "Exclusive Brands & Models",
     headingSuffix: "Explore Our Most Advanced Robots at RoboCollective.ai",
     lede:
-      "Buy robots for sale from trusted makers worldwide – delivered, professionally set up, and fully supported wherever you are. Explore industrial, service, and educational robots all in one place at RoboCollective.ai",
+      "Buy robots for sale from trusted makers worldwide, professionally delivered, set up, and fully supported wherever you are. Explore industrial, service, and educational robots all in one place at RoboCollective.ai",
   },
   services: [
     {

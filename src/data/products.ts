@@ -22,7 +22,11 @@ export interface ProductDetails {
     themeColor: string; // e.g. "emerald", "sky", "orange", "purple", "pink"
     features: ProductFeature[];
     specs: ProductSpec[];
+    specsIntro?: string;
 }
+
+// Shop listing (h1) and educational listing (g1) are the same G1 robot.
+const G1_PRODUCT_IDS = new Set(["g1", "h1"]);
 
 export const productsData: Record<string, ProductDetails> = {
     "g1": {
@@ -61,21 +65,34 @@ export const productsData: Record<string, ProductDetails> = {
             { label: "Sensors", value: "3D LiDAR + Intel RealSense D435i" },
             { label: "Configurations", value: "Base, Edu, Ultimate" },
             { label: "Primary Use", value: "Research, Education, Light Industry" }
-        ]
+        ],
+        specsIntro: "Engineered for high performance, the Unitree G1 defines the modern standard for affordable, robust humanoid research platforms.",
     }
-    // other products will fall back to a generated template
 };
+
+function themeFromCategory(categoryColor: string): string {
+    if (categoryColor.includes("sky")) return "sky";
+    if (categoryColor.includes("orange")) return "orange";
+    if (categoryColor.includes("purple")) return "purple";
+    if (categoryColor.includes("pink")) return "pink";
+    return "emerald";
+}
 
 // Generic factory for products not explicitly defined above
 export function getProductDetails(id: string, name: string, description: string, categoryName: string, categoryColor: string, price?: string): ProductDetails {
-    if (productsData[id]) return productsData[id];
-
-    // Default theme colors based on category
-    let themeColor = "emerald";
-    if (categoryColor.includes("sky")) themeColor = "sky";
-    if (categoryColor.includes("orange")) themeColor = "orange";
-    if (categoryColor.includes("purple")) themeColor = "purple";
-    if (categoryColor.includes("pink")) themeColor = "pink";
+    const knownId = productsData[id] ? id : (G1_PRODUCT_IDS.has(id) ? "g1" : undefined);
+    if (knownId && productsData[knownId]) {
+        const known = productsData[knownId];
+        return {
+            ...known,
+            id,
+            name,
+            description,
+            price: price ?? known.price,
+            badge: categoryName || known.badge,
+            themeColor: themeFromCategory(categoryColor),
+        };
+    }
 
     return {
         id,
@@ -84,7 +101,7 @@ export function getProductDetails(id: string, name: string, description: string,
         badge: categoryName,
         description,
         price,
-        themeColor,
+        themeColor: themeFromCategory(categoryColor),
         features: [
             {
                 title: "Precision Engineering",
@@ -105,13 +122,6 @@ export function getProductDetails(id: string, name: string, description: string,
                 highlight: "Reliable"
             }
         ],
-        specs: [
-            { label: "Build Material", value: "Aerospace-grade Aluminum / Carbon Fiber" },
-            { label: "Control Interface", value: "Wireless via App / API" },
-            { label: "Power System", value: "High-Capacity LiPo" },
-            { label: "Operating Temp", value: "-10°C to 45°C" },
-            { label: "Connectivity", value: "Wi-Fi, Bluetooth 5.0, Custom Radio" },
-            { label: "Warranty", value: "1 Year Standard" },
-        ]
+        specs: [],
     };
 }

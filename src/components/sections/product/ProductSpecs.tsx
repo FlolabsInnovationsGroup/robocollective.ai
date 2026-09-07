@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { ProductDetails } from "@/data/products";
 
 export function ProductSpecs({ product }: { product: ProductDetails }) {
+    if (!product.specs.length) return null;
+
     const gradientHeaderClass = product.themeColor === "emerald" ? "from-emerald-400 to-teal-600"
         : product.themeColor === "sky" ? "from-sky-400 to-blue-600"
             : product.themeColor === "orange" ? "from-orange-400 to-red-600"
@@ -24,7 +26,7 @@ export function ProductSpecs({ product }: { product: ProductDetails }) {
                     : "group-hover:text-pink-400";
 
     return (
-        <section id="specs" className="relative w-full py-24 bg-black border-t border-neutral-900">
+        <section id="specs" className="relative w-full py-24 bg-black border-t border-neutral-900 scroll-mt-28">
             <div className="site-container flex flex-col lg:flex-row gap-16">
 
                 {/* Header Column */}
@@ -39,9 +41,11 @@ export function ProductSpecs({ product }: { product: ProductDetails }) {
                             Technical <br /> Specifications
                         </h2>
                         <div className={`w-16 h-[2px] bg-gradient-to-r ${gradientHeaderClass} mb-8`} />
-                        <p className="text-neutral-400 leading-relaxed max-w-sm">
-                            Engineered for high performance, the Unitree G1 defines the modern standard for affordable, robust humanoid research platforms.
-                        </p>
+                        {product.specsIntro && (
+                            <p className="text-neutral-400 leading-relaxed max-w-sm">
+                                {product.specsIntro}
+                            </p>
+                        )}
                     </motion.div>
                 </div>
 

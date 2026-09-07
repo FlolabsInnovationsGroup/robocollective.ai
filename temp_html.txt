@@ -87,7 +87,7 @@
           <span data-hero-heading-suffix>Explore Our Most Advanced Robots at RoboCollective.ai</span>
         </h1>
         <p class="hero-lede" data-hero-lede>
-          Buy robots for sale from trusted makers worldwide – delivered, professionally set up, and fully supported wherever you are. Explore industrial, service, and educational robots all in one place at RoboCollective.ai
+          Buy robots for sale from trusted makers worldwide, professionally delivered, set up, and fully supported wherever you are. Explore industrial, service, and educational robots all in one place at RoboCollective.ai
         </p>
         <div class="hero-actions">
           <a class="button button--primary" href="#services" data-cta-action-primary>See our expertise</a>

@@ -178,7 +178,7 @@ export function ShopCategories() {
                         Full <span className="text-neutral-500">Catalog</span>
                     </h2>
                     <p className="text-neutral-400 w-full">
-                        Browse the entire shop below — every robotics solution in one place.
+                        Browse the entire shop below. Every robotics solution is in one place.
                     </p>
                 </div>
 

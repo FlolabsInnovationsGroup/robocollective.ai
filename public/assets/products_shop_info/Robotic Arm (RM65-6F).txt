@@ -13,7 +13,7 @@
 <p>The RM65-6F supports <strong>Wi-Fi, network port, Bluetooth, USB serial port, and RS485</strong> communication. Programming is available through <strong>drag-and-drop teaching, teaching pendant, API, and JSON</strong> control modes, making integration straightforward for both operators and developers.</p>
 
 <h3>Motion Performance</h3>
-<p>With joint motion ranges from <strong>±128° to ±360°</strong> across all six axes and maximum speeds of <strong>180°/s (J1–J2)</strong> and <strong>225°/s (J3–J6)</strong>, the RM65-6F balances speed and accuracy for demanding automation workflows.</p>
+<p>With joint motion ranges from <strong>±128° to ±360°</strong> across all six axes and maximum speeds of <strong>180°/s (J1-J2)</strong> and <strong>225°/s (J3-J6)</strong>, the RM65-6F balances speed and accuracy for demanding automation workflows.</p>
 
 <h3>Key Specifications</h3>
 <ul>
@@ -32,5 +32,5 @@
 <li><p>Communication mode: <strong>Wi-Fi / network port / Bluetooth / USB serial port / RS485</strong></p></li>
 <li><p>Control mode: <strong>Drag and drop teaching / Teaching pendant / API / JSON</strong></p></li>
 <li><p>Joint motion range: <strong>J1 ±178°, J2 ±130°, J3 ±135°, J4 ±178°, J5 ±128°, J6 ±360°</strong></p></li>
-<li><p>Joint maximum speed: <strong>J1–J2 180°/s, J3–J6 225°/s</strong></p></li>
+<li><p>Joint maximum speed: <strong>J1-J2 180°/s, J3-J6 225°/s</strong></p></li>
 </ul>

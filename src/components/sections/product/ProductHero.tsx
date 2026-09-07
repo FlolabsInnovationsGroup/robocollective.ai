@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Zap, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect, useRef, MouseEvent } from "react";
+import { useState, useEffect, MouseEvent } from "react";
 import { ProductDetails } from "@/data/products";
 import { markShopScrollRestorePending } from "@/lib/shopScrollRestoration";
 
@@ -112,8 +112,8 @@ const PRODUCT_DESCRIPTION_FILE: Record<string, string> = {
   i8:  "/assets/products_shop_info/Robotic Arm (ECO65-6F).txt",
   i9:  "/assets/products_shop_info/Robotic Arm (ECO65-B).txt",
   i10: "/assets/products_shop_info/Robotic Arm (GEN72-B).txt",
-  i11: "/assets/products_shop_info/Single Arm Compound Robot – Precision, Mobility, and Versatility.txt",
-  i12: "/assets/products_shop_info/Single Arm Compound Robot – Compact, Mobile, and Intelligent Automation.txt",
+  i11: "/assets/products_shop_info/Single Arm Compound Robot Precision, Mobility, and Versatility.txt",
+  i12: "/assets/products_shop_info/Single Arm Compound Robot Compact, Mobile, and Intelligent Automation.txt",
   i13: "/assets/products_shop_info/Single Arm Lifting Compound Robot.txt",
   i14: "/assets/products_shop_info/Dual Arm Compound Robot.txt",
   i15: "/assets/products_shop_info/Heavy Load AMR.txt",
@@ -267,58 +267,72 @@ function parseContent(raw: string): { videoId: string | null; html: string } {
 // ─── HTML Description (fetched client-side) ───────────────────────────────────
 function ProductDescription({ productId }: { productId: string }) {
   const [content, setContent] = useState<{ videoId: string | null; html: string } | null>(null);
+  const file = PRODUCT_DESCRIPTION_FILE[productId];
 
   useEffect(() => {
-    const file = PRODUCT_DESCRIPTION_FILE[productId];
     if (!file) return;
     fetch(file)
       .then(r => r.ok ? r.text() : null)
       .then(text => text && setContent(parseContent(text)))
       .catch(() => {});
-  }, [productId]);
+  }, [file]);
 
-  if (!content) return null;
+  if (!file) return null;
 
   return (
-    <section className="relative w-full py-16 bg-black">
-      <div className="site-container">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent mb-16" />
+    <section id={!content?.html ? "product-description" : undefined} className={`relative w-full bg-black scroll-mt-28 ${content ? "py-16" : ""}`}>
+      {content && (
+        <div className="site-container">
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent mb-16" />
 
-        {/* YouTube Embed */}
-        {content.videoId && (
-          <div className="w-full mb-16 rounded-2xl overflow-hidden aspect-video bg-neutral-900 border border-neutral-800">
-            <iframe
-              src={`https://www.youtube.com/embed/${content.videoId}`}
-              title="Product video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
+          {/* YouTube Embed */}
+          {content.videoId && (
+            <div className="w-full mb-16 rounded-2xl overflow-hidden aspect-video bg-neutral-900 border border-neutral-800">
+              <iframe
+                src={`https://www.youtube.com/embed/${content.videoId}`}
+                title="Product video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+          )}
+
+          {/* Rich HTML Content */}
+          {content.html && (
+            <div
+              id="product-description"
+              className="prose prose-lg prose-invert max-w-none scroll-mt-28
+                prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight
+                prose-h2:text-3xl prose-h2:text-white prose-h2:mb-4
+                prose-h3:text-xl prose-h3:text-neutral-200 prose-h3:mb-3
+                prose-p:text-neutral-300 prose-p:leading-relaxed
+                prose-strong:text-white prose-strong:font-bold
+                prose-ul:text-neutral-300 prose-li:marker:text-neutral-500
+                prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline"
+              dangerouslySetInnerHTML={{ __html: content.html }}
             />
-          </div>
-        )}
-
-        {/* Rich HTML Content */}
-        {content.html && (
-          <div
-            className="prose prose-lg prose-invert max-w-none
-              prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight
-              prose-h2:text-3xl prose-h2:text-white prose-h2:mb-4
-              prose-h3:text-xl prose-h3:text-neutral-200 prose-h3:mb-3
-              prose-p:text-neutral-300 prose-p:leading-relaxed
-              prose-strong:text-white prose-strong:font-bold
-              prose-ul:text-neutral-300 prose-li:marker:text-neutral-500
-              prose-a:text-sky-400 prose-a:no-underline hover:prose-a:underline"
-            dangerouslySetInnerHTML={{ __html: content.html }}
-          />
-        )}
-      </div>
+          )}
+        </div>
+      )}
     </section>
   );
+}
+
+function scrollToSection(event: MouseEvent<HTMLAnchorElement>, targetId: string) {
+  event.preventDefault();
+  const target = document.getElementById(targetId);
+  if (!target) return;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
 }
 
 // ─── Main ProductHero ─────────────────────────────────────────────────────────
 export function ProductHero({ product }: { product: ProductDetails }) {
   const images = PRODUCT_IMAGES[product.id] ?? [];
+  const hasLongDescription = Boolean(PRODUCT_DESCRIPTION_FILE[product.id]);
+  const detailsTargetId = hasLongDescription ? "product-description" : "specs";
+  const showDetailsButton = hasLongDescription || product.specs.length > 0;
 
   const themeShadowClass = product.themeColor === "emerald" ? "bg-emerald-500/10"
     : product.themeColor === "sky" ? "bg-sky-500/10"
@@ -426,9 +440,15 @@ export function ProductHero({ product }: { product: ProductDetails }) {
                   <span className="relative z-10">Request a Quote</span>
                   <div className="absolute inset-0 bg-white transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
                 </Link>
-                <Link href="#specs" className="inline-block px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm text-neutral-300 border border-neutral-700 hover:border-neutral-500 hover:text-white transition-colors text-center">
-                  View Full Specs
-                </Link>
+                {showDetailsButton && (
+                  <a
+                    href={`#${detailsTargetId}`}
+                    onClick={(event) => scrollToSection(event, detailsTargetId)}
+                    className="inline-block px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm text-neutral-300 border border-neutral-700 hover:border-neutral-500 hover:text-white transition-colors text-center"
+                  >
+                    View Full Specs
+                  </a>
+                )}
               </motion.div>
             </div>
 

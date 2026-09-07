@@ -13,7 +13,7 @@
 <p>The RM75-6F supports <strong>Wi-Fi, network port, Bluetooth, USB serial port, and RS485</strong> communication. Programming options include <strong>drag-and-drop teaching, teaching pendant, API, and JSON</strong> control modes for flexible deployment.</p>
 
 <h3>Motion Performance</h3>
-<p>Seven joints provide an extended motion envelope, with ranges from <strong>±128° to ±360°</strong> and maximum speeds of <strong>180°/s (J1–J2)</strong> and <strong>225°/s (J3–J7)</strong>. The extra degree of freedom enables smoother trajectories and access to confined workspaces.</p>
+<p>Seven joints provide an extended motion envelope, with ranges from <strong>±128° to ±360°</strong> and maximum speeds of <strong>180°/s (J1-J2)</strong> and <strong>225°/s (J3-J7)</strong>. The extra degree of freedom enables smoother trajectories and access to confined workspaces.</p>
 
 <h3>Key Specifications</h3>
 <ul>
@@ -31,5 +31,5 @@
 <li><p>Communication mode: <strong>Wi-Fi / network port / Bluetooth / USB serial port / RS485</strong></p></li>
 <li><p>Control mode: <strong>Drag and drop teaching / Teaching pendant / API / JSON</strong></p></li>
 <li><p>Joint motion range: <strong>J1 ±178°, J2 ±130°, J3 ±178°, J4 ±135°, J5 ±178°, J6 ±128°, J7 ±360°</strong></p></li>
-<li><p>Joint maximum speed: <strong>J1–J2 180°/s, J3–J7 225°/s</strong></p></li>
+<li><p>Joint maximum speed: <strong>J1-J2 180°/s, J3-J7 225°/s</strong></p></li>
 </ul>

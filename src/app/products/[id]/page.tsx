@@ -54,7 +54,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     return (
         <main className="product-page bg-black min-h-screen">
             <ProductHero product={productDetails} />
-            <ProductSpecs product={productDetails} />
+            {productDetails.specs.length > 0 && <ProductSpecs product={productDetails} />}
             <Footer />
         </main>
     );
