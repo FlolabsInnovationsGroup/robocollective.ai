@@ -199,6 +199,10 @@ html.light .via-black\/20 {
   --tw-gradient-via: rgb(255 255 255 / 0.35) var(--tw-gradient-via-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to);
 }
+html.light .via-black\/60 {
+  --tw-gradient-via: rgb(255 255 255 / 0.6) var(--tw-gradient-via-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to);
+}
 html.light .from-neutral-900 {
   --tw-gradient-from: #f5f5f5 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(245 245 245 / 0) var(--tw-gradient-to-position);
@@ -408,4 +412,25 @@ html.light .product-page .prose li {
 
 html.light .product-page .prose strong {
   color: #000000 !important;
+}
+
+.flolabs-carousel {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.flolabs-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.flolabs-slider {
+  touch-action: none;
+}
+
+.flolabs-slider:focus-visible {
+  outline: 2px solid #00dbff;
+  outline-offset: 6px;
 }

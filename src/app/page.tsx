@@ -1,4 +1,4 @@
-import { Hero, HomeProducts, CAIPO, Services, RentResell, Blog, Footer } from "@/components/sections";
+import { Hero, HomeProducts, FloLabsGroup, Services, RentResell, Blog, Footer } from "@/components/sections";
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       <HomeProducts />
       <Services />
       <RentResell />
-      <CAIPO />
+      <FloLabsGroup />
       <Blog />
       <Footer />
     </main>

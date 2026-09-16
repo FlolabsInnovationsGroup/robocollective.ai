@@ -25,9 +25,9 @@ const PRODUCT_IMAGES: Record<string, string[]> = {
   d13: ["/assets/products/frsky-receiver.png"],
   d14: ["/assets/products/set-of-body-shells-for-nimble.png","/assets/products/lighthouse-shells-kit-for-nimble_1.png","/assets/products/lighthouse-shells-kit-for-nimble_2.png","/assets/products/lighthouse-shells-kit-for-nimble_3.png"],
   // Humanoids
-  h1:  ["/assets/products/Humanoid_G1__BaseEDU__1.png","/assets/products/Humanoid G1 (BaseEDU)_2.png","/assets/products/Humanoid_G1__BaseEDU__3.png"],
+  h1:  ["/assets/products/Humanoid_G1_1.png","/assets/products/Humanoid_G1_2.jpg","/assets/products/Humanoid_G1_3.png"],
   h2:  ["/assets/products/Humanoid_H1_1.png","/assets/products/Humanoid_H1_2.jpg","/assets/products/Humanoid_H1_3.png","/assets/products/Humanoid_H1_4.png","/assets/products/Humanoid_H1_5.png","/assets/products/Humanoid_H1_6.png","/assets/products/Humanoid_H1_7.png"],
-  h3:  ["/assets/products/Humanoid_Oli_1.png","/assets/products/Humanoid Oli_2.jpg","/assets/products/Humanoid_Oli_3.png"],
+  h3:  ["/assets/products/Humanoid_Oli_1.png","/assets/products/Humanoid_Oli_2.jpg","/assets/products/Humanoid_Oli_3.png"],
   h4:  ["/assets/products/Humanoid_R1.png"],
   h5:  ["/assets/products/Humanoid_Mini_Hi_1.png","/assets/products/Humanoid_Mini_Hi_2.png"],
   // Robodogs
@@ -38,7 +38,7 @@ const PRODUCT_IMAGES: Record<string, string[]> = {
   r5:  ["/assets/products/Robodog__Go2Go2-W__1.png","/assets/products/Robodog__Go2Go2-W__2.png","/assets/products/Robodog__Go2Go2-W__3.png","/assets/products/Robodog__Go2Go2-W__4.png","/assets/products/Robodog__Go2Go2-W__5.png","/assets/products/Robodog__Go2Go2-W__6.png"],
   // Educational
   e1:  ["/assets/products/Mini_p_Bipedal_Robot_1.png","/assets/products/Mini_p_Bipedal_Robot_2.png","/assets/products/Mini_p_Bipedal_Robot_3.png"],
-  g1:  ["/assets/products/Humanoid_G1__BaseEDU__1.png","/assets/products/Humanoid G1 (BaseEDU)_2.png","/assets/products/Humanoid_G1__BaseEDU__3.png"],
+  g1:  ["/assets/products/Humanoid_G1_1.png","/assets/products/Humanoid_G1_2.jpg","/assets/products/Humanoid_G1_3.png"],
   // Industrial Arms
   i1:  ["/assets/products/Robotic_Arm__RM65-6F.png"],
   i2:  ["/assets/products/Robotic_Arm__RM65-B.png"],

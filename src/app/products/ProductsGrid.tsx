@@ -11,7 +11,7 @@ import { filterProductsBySearch } from "@/lib/productSearch";
 // Product images: short paths under public/images/products/ (e.g. /images/products/d1.png)
 const PRODUCT_IMAGE: Record<string, string> = {
     // ── Humanoid Robots ────────────────────────────
-    h1:  "/assets/products/Humanoid_G1__BaseEDU__1.png",
+    h1:  "/assets/products/Humanoid_G1_1.png",
     h2:  "/assets/products/Humanoid_H1_1.png",
     h3:  "/assets/products/Humanoid_Oli_1.png",
     h4:  "/assets/products/Humanoid_R1.png",
@@ -41,7 +41,7 @@ const PRODUCT_IMAGE: Record<string, string> = {
     d14: "/assets/products/set-of-body-shells-for-nimble.png",
   
     // ── Educational ────────────────────────────────
-    g1:  "/assets/products/Humanoid_G1__BaseEDU__1.png",
+    g1:  "/assets/products/Humanoid_G1_1.png",
     e1:  "/assets/products/Mini_p_Bipedal_Robot_1.png",
     e2:  "/assets/products/Robotic_Arm__RM65-6F.png",
   

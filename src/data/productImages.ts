@@ -21,7 +21,7 @@ export const productImages: Record<string, string | string[]> = {
   d13: "/assets/frsky-receiver-5656ab06-da6a-41ba-a965-8948e048b0ab.png",
   d14: "/assets/set-of-body-shells-for-nimble-939a1a0a-4736-4732-8cbe-a0b2639e071e.png",
   // Educational
-  g1: "/assets/Humanoid_G1__BaseEDU__1-6fdb27f5-8fa2-4d56-83ea-306562e14bf5.png",
+  g1: "/assets/products/Humanoid_G1_1.png",
   e1: "/assets/Base_Chassis_1-f264e3cb-555f-47cb-8d02-d61ac3010a19.png",
   e2: "/assets/Robotic_Arm__RM75-B-7ad7eea1-b0e6-488d-bc5a-4c45e11c5b09.png",
   // Industrial
@@ -52,6 +52,6 @@ export const bentoCategoryImages: Record<string, string> = {
   "Service Robots": "/assets/Delivery_Robot__closed_type__1-0510831e-fe8c-4c44-a0a4-f407af5cf18b.png",
   "AMRs & Chassis": "/assets/Base_Chassis_1-f264e3cb-555f-47cb-8d02-d61ac3010a19.png",
   "Industrial Arms": "/assets/Robotic_Arm__RM75-B-7ad7eea1-b0e6-488d-bc5a-4c45e11c5b09.png",
-  "Educational": "/assets/Humanoid_G1__BaseEDU__1-6fdb27f5-8fa2-4d56-83ea-306562e14bf5.png",
+  "Educational": "/assets/products/Humanoid_G1_1.png",
   "Accessories": "/assets/Camera__D435C-6fbb91be-4251-4c3e-90a7-2c76ce4409f7.png",
 };

@@ -1,19 +1,26 @@
 https://youtu.be/tfcQy6kNUU8?si=aeOm-cZPMG1Sl4yq
 
-Disinfects airborne viruses and bacteria with ultrasonic atomization technology. RoboCo's disinfectant series robots kills a broad-range of bacteria, achieving a sterilization rate of over 99.99%. CMA certification obtained from a third-party authority; CE certifications.
+<h2>Disinfectant Mini Robot</h2>
+<p>The <strong>RoboCo Disinfectant Mini Robot</strong> disinfects airborne viruses and bacteria with ultrasonic atomization technology. RoboCo's disinfectant series robots kill a broad range of bacteria, achieving a sterilization rate of over 99.99%. CMA certification obtained from a third-party authority; CE certifications.</p>
 
--Remote unmanned deployment
--Automatic charging
--Digital operation
--13L cleaning fluid capacity
--App operation
--Real-time monitoring, fault diagnosis and recovery
--Connection to IoT equipment lift, gates, door, etc.
+<h3>Features</h3>
+<ul>
+ 	<li>Remote unmanned deployment</li>
+ 	<li>Automatic charging</li>
+ 	<li>Digital operation</li>
+ 	<li>13L cleaning fluid capacity</li>
+ 	<li>App operation</li>
+ 	<li>Real-time monitoring, fault diagnosis and recovery</li>
+ 	<li>Connection to IoT equipment: lift, gates, door, etc.</li>
+</ul>
 
-Height: 770mm
-Net weight: 25kg
-Max speed: 1.2m/s
-Spraying range: 2m
-Battery endurance: up to 4hrs
-Charing time: 2hrs
-Disinfectant: HCIO, CIO2, H2O2
+<h3>Specifications</h3>
+<ul>
+ 	<li>Height: 770 mm</li>
+ 	<li>Net weight: 25 kg</li>
+ 	<li>Max speed: 1.2 m/s</li>
+ 	<li>Spraying range: 2 m</li>
+ 	<li>Battery endurance: up to 4 hrs</li>
+ 	<li>Charging time: 2 hrs</li>
+ 	<li>Disinfectant: HClO, ClO2, H2O2</li>
+</ul>

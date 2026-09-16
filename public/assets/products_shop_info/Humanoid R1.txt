@@ -1,10 +1,15 @@
 <iframe title="YouTube video player" src="https://www.youtube.com/embed/v1Q4Su54iho?si=I-jPIbHJMmaVUo2A" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+<h2>Unitree R1 Humanoid Robot</h2>
+<p>The <strong>Unitree R1</strong> is a compact, versatile humanoid platform for manipulation tasks and real-world deployment in structured environments. Its lightweight 25 kg frame, 8-core high-performance CPU, onboard speaker and microphone, and Wi-Fi/Bluetooth connectivity make it ready for research, education, and practical demonstrations.</p>
 
-Dimensions(mm): 1210 x 357 x 190
-Net weight: 25kg
-Power supply: Lithium battery
-Computing power: 8-core high-performance CPU
-Speaker/Microphone: Yes
-Wifi/Bluetooth: Yes
-Battery endurance: up to 1h
-Warranty period: 8 months
+<h3>Specifications</h3>
+<ul>
+ 	<li>Dimensions: 1210 x 357 x 190 mm</li>
+ 	<li>Net weight: 25 kg</li>
+ 	<li>Power supply: Lithium battery</li>
+ 	<li>Computing power: 8-core high-performance CPU</li>
+ 	<li>Speaker/Microphone: Yes</li>
+ 	<li>Wi-Fi/Bluetooth: Yes</li>
+ 	<li>Battery endurance: up to 1 h</li>
+ 	<li>Warranty period: 8 months</li>
+</ul>
