@@ -1,0 +1,18 @@
+[embed]https://www.youtube.com/watch?v=iI8UUu9g8iI[/embed]
+<h2>Unitree B2: The Ubiquitous All-around Assistant</h2>
+<p>Leading industrial intelligence in all scenarios. The Unitree B2 is the fastest running industrial-grade quadruped robot at <strong>6 m/s</strong>, with excellent terrain adaptability for stable travel on slippery or uneven surfaces.</p>
+
+<h3>Performance</h3>
+<ul>
+ 	<li>Excellent sustained stair climbing, effortlessly tackling steps.</li>
+ 	<li>170% increase in joint performance with <strong>360 Nm of torque</strong>.</li>
+ 	<li>Superior obstacle-crossing ability, easy to cross wood piles, 40 cm high platforms, and other obstacles.</li>
+ 	<li>100% increase in continuous walking with load greater than 40 kg.</li>
+ 	<li>Unloaded continuous walking endurance greater than 5 hours with more than 20 km mileage.</li>
+</ul>
+
+<h3>Wheeled and Legged Forms</h3>
+<p>Innovative structural design of the B2 realizes switching between <strong>legged and wheeled forms</strong> (optional).</p>
+
+<h3>Plug-in Battery</h3>
+<p>The B2 battery supports quick change and also supports autonomous charging solutions (optional), suitable for a wide range of solutions.</p>

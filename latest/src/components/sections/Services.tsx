@@ -1,0 +1,103 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Space_Grotesk } from 'next/font/google';
+
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
+
+const features = [
+    {
+        title: "Premium Robots",
+        description: "We offer high-quality robots and accessories built for real work.",
+        stripe: "bg-[#00DBFF]",
+        glow: "from-[#00DBFF]/20 to-transparent",
+    },
+    {
+        title: "Expert Support",
+        description: "Talk to a specialist. We'll help you compare models and plan deployment.",
+        stripe: "bg-purple-500",
+        glow: "from-purple-500/20 to-transparent",
+    },
+    {
+        title: "We Deliver To You",
+        description: "Global shipping, customs guidance, and on-site or remote setup.",
+        stripe: "bg-emerald-500",
+        glow: "from-emerald-500/20 to-transparent",
+    }
+];
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            type: "spring" as const,
+            stiffness: 100,
+            damping: 20,
+        },
+    },
+};
+
+export function Services() {
+    return (
+        <section id="services" className="py-24 bg-black relative border-t border-white/5">
+            <div className="site-container relative z-10">
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                >
+                    {features.map((feature) => (
+                        <motion.div
+                            key={feature.title}
+                            variants={itemVariants}
+                            whileHover="hover"
+                            initial="initial"
+                            className="relative group rounded-3xl p-8 pt-10 border border-white/5 bg-neutral-900/50 backdrop-blur-md overflow-hidden transition-all duration-500 hover:border-white/20 flex flex-col items-start"
+                        >
+                            <div
+                                aria-hidden
+                                className={`absolute top-0 left-0 right-0 h-1.5 ${feature.stripe}`}
+                            />
+
+                            {/* Radial Glow */}
+                            <motion.div
+                                variants={{
+                                    initial: { opacity: 0 },
+                                    hover: { opacity: 1 }
+                                }}
+                                transition={{ duration: 0.5 }}
+                                className={`absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] ${feature.glow} pointer-events-none z-0`}
+                            />
+
+                            {/* Background Pattern */}
+                            <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-10 mix-blend-overlay pointer-events-none z-0" />
+
+                            <div className="relative z-10">
+                                <h3 className={`${spaceGrotesk.className} text-2xl font-bold text-white mb-4 tracking-tight`}>
+                                    {feature.title}
+                                </h3>
+                                <p className="text-neutral-400 leading-relaxed">
+                                    {feature.description}
+                                </p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </div>
+        </section>
+    );
+}

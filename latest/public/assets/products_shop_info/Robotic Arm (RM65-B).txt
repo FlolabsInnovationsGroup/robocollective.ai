@@ -1,0 +1,34 @@
+[embed]https://www.youtube.com/watch?v=xOL2DRYLuO4[/embed]
+
+<h2>RM65-B Robotic Arm: Versatile 6-DOF Automation Platform</h2>
+<p>The <strong>RM65-B</strong>, a basic version of the 6-DOF robotic arm, is self-developed and produced by RealMan. The robotic arm integrating the controller weighs <strong>7.2 kg</strong> in total, with a payload of <strong>5 kg</strong>, a peak load of <strong>9 kg</strong>, and a working radius of <strong>610 mm</strong>.</p>
+
+<h3>Precision and Payload</h3>
+<p>With <strong>±0.05 mm repeatability</strong> and a <strong>5 kg payload</strong>, the RM65-B delivers consistent results for assembly, pick-and-place, and light industrial tasks. Its compact footprint and integrated controller make it easy to deploy in labs, production lines, and research environments.</p>
+
+<h3>Compact and Durable Build</h3>
+<p>Built from <strong>aluminum alloy</strong> with an <strong>IP54-rated body</strong>, the RM65-B is protected against dust and splashes. It runs on <strong>DC 24V</strong> with a maximum power consumption of <strong>200 W</strong> and a comprehensive consumption of <strong>100 W</strong>, keeping operating costs low.</p>
+
+<h3>Flexible Control and Connectivity</h3>
+<p>The RM65-B supports <strong>Wi-Fi, network port, Bluetooth, USB serial port, and RS485</strong> communication. Operators can program the arm using <strong>drag-and-drop teaching, teaching pendant, API, and JSON</strong> control modes for fast setup and seamless integration.</p>
+
+<h3>Motion Performance</h3>
+<p>With joint motion ranges from <strong>±128° to ±360°</strong> across all six axes and maximum speeds of <strong>180°/s (J1-J2)</strong> and <strong>225°/s (J3-J6)</strong>, the RM65-B offers responsive, accurate motion for a wide range of automation applications.</p>
+
+<h3>Key Specifications</h3>
+<ul>
+<li><p>Degree of freedom: <strong>6</strong></p></li>
+<li><p>Payload: <strong>5 kg</strong></p></li>
+<li><p>Body weight: <strong>7.2 kg</strong></p></li>
+<li><p>Repeatability: <strong>±0.05 mm</strong></p></li>
+<li><p>Working radius: <strong>610 mm</strong></p></li>
+<li><p>Power supply voltage: <strong>DC 24V</strong></p></li>
+<li><p>Power consumption: <strong>Maximum 200 W, comprehensive 100 W</strong></p></li>
+<li><p>Protection level: <strong>IP54 (robotic arm body)</strong></p></li>
+<li><p>Material: <strong>Aluminum alloy</strong></p></li>
+<li><p>Controller: <strong>Integrated</strong></p></li>
+<li><p>Communication mode: <strong>Wi-Fi / network port / Bluetooth / USB serial port / RS485</strong></p></li>
+<li><p>Control mode: <strong>Drag and drop teaching / Teaching pendant / API / JSON</strong></p></li>
+<li><p>Joint motion range: <strong>J1 ±178°, J2 ±130°, J3 ±135°, J4 ±178°, J5 ±128°, J6 ±360°</strong></p></li>
+<li><p>Joint maximum speed: <strong>J1-J2 180°/s, J3-J6 225°/s</strong></p></li>
+</ul>

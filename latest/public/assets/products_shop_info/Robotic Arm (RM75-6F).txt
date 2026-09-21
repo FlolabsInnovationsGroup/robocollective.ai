@@ -1,0 +1,35 @@
+[embed]https://www.youtube.com/watch?v=KPAI3PJAgTs[/embed]
+
+<h2>RM75-6F Robotic Arm: 7-DOF Force-Sensing Precision Manipulator</h2>
+<p>The <strong>RM75-6F</strong>, a 6-axis-force version of the 7-DOF robotic arm, is self-developed and produced by RealMan. The robotic arm integrating the controller weighs <strong>7.9 kg</strong> in total, with a payload of <strong>5 kg</strong> and a working radius of <strong>638.5 mm</strong>.</p>
+
+<h3>Extended Dexterity with Force Sensing</h3>
+<p>With <strong>7 degrees of freedom</strong> and integrated <strong>six-axis force sensing (200 N / 7 Nm)</strong>, the RM75-6F offers enhanced maneuverability for complex manipulation tasks. Force accuracy of <strong>&lt;0.1% FS</strong> enables delicate handling in assembly, research, and quality control applications.</p>
+
+<h3>Compact and Durable Build</h3>
+<p>Built from <strong>aluminum alloy</strong> with an <strong>IP54-rated body</strong>, the RM75-6F is designed for reliable operation in industrial and laboratory settings. Its integrated controller simplifies installation, and the arm runs on <strong>DC 24V</strong> with power consumption up to <strong>200 W</strong>.</p>
+
+<h3>Flexible Control and Connectivity</h3>
+<p>The RM75-6F supports <strong>Wi-Fi, network port, Bluetooth, USB serial port, and RS485</strong> communication. Programming options include <strong>drag-and-drop teaching, teaching pendant, API, and JSON</strong> control modes for flexible deployment.</p>
+
+<h3>Motion Performance</h3>
+<p>Seven joints provide an extended motion envelope, with ranges from <strong>±128° to ±360°</strong> and maximum speeds of <strong>180°/s (J1-J2)</strong> and <strong>225°/s (J3-J7)</strong>. The extra degree of freedom enables smoother trajectories and access to confined workspaces.</p>
+
+<h3>Key Specifications</h3>
+<ul>
+<li><p>Degree of freedom: <strong>7</strong></p></li>
+<li><p>Payload: <strong>5 kg</strong></p></li>
+<li><p>Body weight: <strong>7.9 kg</strong></p></li>
+<li><p>Working radius: <strong>638.5 mm</strong></p></li>
+<li><p>Six-axis force range: <strong>200 N / 7 Nm</strong></p></li>
+<li><p>Six-axis force accuracy: <strong>&lt;0.1% FS</strong></p></li>
+<li><p>Power supply voltage: <strong>DC 24V</strong></p></li>
+<li><p>Power consumption: <strong>Maximum ≤200 W, comprehensive ≤100 W</strong></p></li>
+<li><p>Protection level: <strong>IP54 (robotic arm body)</strong></p></li>
+<li><p>Material: <strong>Aluminum alloy</strong></p></li>
+<li><p>Controller: <strong>Integrated</strong></p></li>
+<li><p>Communication mode: <strong>Wi-Fi / network port / Bluetooth / USB serial port / RS485</strong></p></li>
+<li><p>Control mode: <strong>Drag and drop teaching / Teaching pendant / API / JSON</strong></p></li>
+<li><p>Joint motion range: <strong>J1 ±178°, J2 ±130°, J3 ±178°, J4 ±135°, J5 ±178°, J6 ±128°, J7 ±360°</strong></p></li>
+<li><p>Joint maximum speed: <strong>J1-J2 180°/s, J3-J7 225°/s</strong></p></li>
+</ul>
