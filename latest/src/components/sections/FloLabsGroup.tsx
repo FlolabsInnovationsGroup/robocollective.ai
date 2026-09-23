@@ -25,7 +25,7 @@ function ProjectCard({ project }: { project: FloLabsProject }) {
       <p className="text-neutral-400 text-sm leading-relaxed flex-1">{project.summary}</p>
 
       <div className="mt-6 flex justify-end">
-        <span className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-neutral-500 group-hover:text-[#00DBFF] transition-colors duration-300">
+        <span className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-neutral-300 group-hover:text-[#00DBFF] transition-colors duration-300">
           Visit site
           <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
         </span>
@@ -43,7 +43,6 @@ function ProjectCard({ project }: { project: FloLabsProject }) {
         target="_blank"
         rel="noopener noreferrer"
         data-flolabs-card
-        aria-label={`Visit ${project.name}`}
         className={className}
       >
         {content}
@@ -55,7 +54,6 @@ function ProjectCard({ project }: { project: FloLabsProject }) {
     <Link
       href={project.href}
       data-flolabs-card
-      aria-label={`Visit ${project.name}`}
       className={className}
     >
       {content}
@@ -70,6 +68,7 @@ export function FloLabsGroup() {
   const dragRef = useRef(false);
   const targetScrollRef = useRef(0);
   const rafRef = useRef<number | null>(null);
+  const scrollRafRef = useRef<number | null>(null);
   const reduceMotionRef = useRef(false);
 
   const syncThumb = useCallback(() => {
@@ -156,15 +155,18 @@ export function FloLabsGroup() {
     syncMotion();
     media.addEventListener("change", syncMotion);
 
-    syncThumb();
-    const frame = requestAnimationFrame(syncThumb);
-    const observer = new ResizeObserver(syncThumb);
+    const idleId = window.requestIdleCallback(() => syncThumb());
+
+    const observer = new ResizeObserver(() => {
+      requestAnimationFrame(syncThumb);
+    });
     observer.observe(scroller);
     window.addEventListener("resize", syncThumb);
 
     return () => {
       media.removeEventListener("change", syncMotion);
-      cancelAnimationFrame(frame);
+      window.cancelIdleCallback(idleId);
+      if (scrollRafRef.current != null) cancelAnimationFrame(scrollRafRef.current);
       stopTween();
       observer.disconnect();
       window.removeEventListener("resize", syncThumb);
@@ -251,7 +253,13 @@ export function FloLabsGroup() {
           <div
             id="flolabs-carousel"
             ref={scrollerRef}
-            onScroll={syncThumb}
+            onScroll={() => {
+              if (scrollRafRef.current != null) return;
+              scrollRafRef.current = requestAnimationFrame(() => {
+                scrollRafRef.current = null;
+                syncThumb();
+              });
+            }}
             onPointerDown={() => stopTween()}
             className="flolabs-carousel flex gap-6"
           >

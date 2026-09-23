@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "@/components/providers/ThemeProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], preload: false });
 
 const SUBTITLE =
     "Premium robotics, expert deployment support, and dedicated post-purchase service. Setting the standard for advanced hardware.";
@@ -297,7 +297,7 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-white/10 pt-6 text-center text-sm text-neutral-500">
+                <div className="border-t border-white/10 pt-6 text-center text-sm text-neutral-300">
                     <p>Live Long and Prosper.</p>
                 </div>
             </div>
