@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], preload: false });
+const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], preload: false });
 
 const posts = [
     {
@@ -57,7 +57,7 @@ export function Blog() {
                                 <div className={`${jetbrainsMono.className} flex items-center gap-4 text-xs font-medium uppercase tracking-widest text-[#00DBFF] mb-6`}>
                                     <span>{post.category}</span>
                                     <span className="w-1 h-1 rounded-full bg-white/20" />
-                                    <span className="text-neutral-500">{post.date}</span>
+                                    <span className="text-neutral-300">{post.date}</span>
                                 </div>
                                 <h3 className={`${spaceGrotesk.className} text-xl md:text-2xl font-bold mb-4 group-hover:text-[#00DBFF] transition-colors line-clamp-2`}>
                                     {post.title}

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Space_Grotesk } from 'next/font/google';
 
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], preload: false });
 
 const features = [
     {
