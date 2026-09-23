@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { CtaPrimary, CtaSecondary, YouTubeLiteEmbed } from "@/components/ui";
+import { CtaPrimary, CtaSecondary } from "@/components/ui/CtaButton";
+import { YouTubeLiteEmbed } from "@/components/ui/YouTubeLiteEmbed";
 
 const LUNAR_YEAR_VIDEO_ID = "mUmlv814aJo";
 
@@ -16,32 +16,17 @@ export function Hero() {
             <div className="relative z-20 site-container">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <div className="text-left">
-                        <motion.h1
-                            initial={{ opacity: 0, x: -30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[1.1] mb-6 uppercase"
-                        >
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[1.1] mb-6 uppercase">
                             The Future of Robotics.
                             <br />
                             <span className="text-[#00DBFF]">Available Today.</span>
-                        </motion.h1>
+                        </h1>
 
-                        <motion.p
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-lg md:text-xl text-neutral-300 w-full mb-10 font-medium leading-relaxed"
-                        >
+                        <p className="text-lg md:text-xl text-neutral-300 w-full mb-10 font-medium leading-relaxed">
                             Discover, deploy, and scale the world&apos;s most advanced robots. Expertly delivered and fully supported worldwide.
-                        </motion.p>
+                        </p>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                            className="flex flex-col sm:flex-row gap-4"
-                        >
+                        <div className="flex flex-col sm:flex-row gap-4">
                             <CtaPrimary href="/shop" showArrow>
                                 Explore Collection
                             </CtaPrimary>
@@ -49,25 +34,23 @@ export function Hero() {
                             <CtaSecondary href="/contact">
                                 Talk to an Expert
                             </CtaSecondary>
-                        </motion.div>
+                        </div>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 24 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                    >
+                    <div>
                         <YouTubeLiteEmbed
                             videoId={LUNAR_YEAR_VIDEO_ID}
                             title="Lunar New Year humanoid robot performance"
-                            poster="/assets/hero-lunar-year.jpg"
+                            poster="/assets/hero-lunar-year.webp"
+                            posterWidth={960}
+                            posterHeight={540}
                             posterAlt="Humanoid robots performing at the 2026 Lunar New Year Spring Festival Gala"
                             priority
                         />
-                        <p className="mt-3 text-xs font-medium tracking-widest uppercase text-neutral-500">
+                        <p className="mt-3 text-xs font-medium tracking-widest uppercase text-neutral-400">
                             Lunar New Year 2026 · Humanoid showcase
                         </p>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </section>
