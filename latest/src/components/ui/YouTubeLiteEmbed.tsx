@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
-import Image from "next/image";
 import { Play } from "lucide-react";
 
 const PRECONNECT_ORIGINS = [
@@ -23,6 +22,8 @@ type YouTubeLiteEmbedProps = {
     title: string;
     poster: string;
     posterAlt?: string;
+    posterWidth?: number;
+    posterHeight?: number;
     priority?: boolean;
     className?: string;
 };
@@ -32,6 +33,8 @@ export function YouTubeLiteEmbed({
     title,
     poster,
     posterAlt = "",
+    posterWidth = 1280,
+    posterHeight = 720,
     priority = false,
     className = "",
 }: YouTubeLiteEmbedProps) {
@@ -66,13 +69,15 @@ export function YouTubeLiteEmbed({
                     className="absolute inset-0 group text-left"
                     aria-label={`Play ${title}`}
                 >
-                    <Image
+                    <img
                         src={poster}
                         alt={posterAlt}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                        priority={priority}
+                        width={posterWidth}
+                        height={posterHeight}
+                        fetchPriority={priority ? "high" : "auto"}
+                        loading={priority ? "eager" : "lazy"}
+                        decoding={priority ? "auto" : "async"}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                     <span className="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors" />
                     <span className="absolute inset-0 flex items-center justify-center">

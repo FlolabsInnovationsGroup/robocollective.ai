@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, MouseEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef, PointerEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { CtaPrimary, CtaSecondary } from "@/components/ui";
@@ -24,16 +23,16 @@ const PRODUCT_IMAGE: Record<string, string> = {
   d13: "/assets/products/frsky-receiver.png",
   d14: "/assets/products/set-of-body-shells-for-nimble.png",
   // Humanoids
-  h1:  "/assets/products/Humanoid_G1_1.png",
-  h2:  "/assets/products/Humanoid_H1_1.png",
-  h3:  "/assets/products/Humanoid_Oli_1.png",
-  h4:  "/assets/products/Humanoid_R1.png",
-  h5:  "/assets/products/Humanoid_Mini_Hi_1.png",
+  h1:  "/assets/products/cards/Humanoid_G1_1.webp",
+  h2:  "/assets/products/cards/Humanoid_H1_1.webp",
+  h3:  "/assets/products/cards/Humanoid_Oli_1.webp",
+  h4:  "/assets/products/cards/Humanoid_R1.webp",
+  h5:  "/assets/products/cards/Humanoid_Mini_Hi_1.webp",
   // Robodogs
-  r1:  "/assets/products/Robodog_Go1_1.png",
-  r2:  "/assets/products/Robodog_B2.png",
-  r3:  "/assets/products/Robodog_AlienGo_1.png",
-  r4:  "/assets/products/Robodog__B2B2-W__1.png",
+  r1:  "/assets/products/cards/Robodog_Go1_1.webp",
+  r2:  "/assets/products/cards/Robodog_B2.webp",
+  r3:  "/assets/products/cards/Robodog_AlienGo_1.webp",
+  r4:  "/assets/products/cards/Robodog__B2B2-W__1.webp",
   r5:  "/assets/products/Robodog__Go2Go2-W__1.png",
   // Educational
   e1:  "/assets/products/Mini_p_Bipedal_Robot_1.png",
@@ -87,6 +86,18 @@ const PRODUCT_IMAGE: Record<string, string> = {
   sp1: "/assets/products/Tron_1_1.png",
 };
 
+const CARD_SIZE: Record<string, { width: number; height: number }> = {
+  h1: { width: 249, height: 256 },
+  h2: { width: 256, height: 256 },
+  h3: { width: 256, height: 191 },
+  h4: { width: 256, height: 256 },
+  h5: { width: 256, height: 256 },
+  r1: { width: 256, height: 256 },
+  r2: { width: 256, height: 256 },
+  r3: { width: 256, height: 256 },
+  r4: { width: 256, height: 256 },
+};
+
 const allProducts = Object.entries(catalogData).flatMap(([categoryId, subs]) =>
   subs.flatMap(sub =>
     sub.products.map(p => ({
@@ -95,6 +106,8 @@ const allProducts = Object.entries(catalogData).flatMap(([categoryId, subs]) =>
       subCategoryTitle: sub.title,
       colorClass: categories.find(c => c.id === categoryId)?.color ?? "",
       image: PRODUCT_IMAGE[p.id] ?? null,
+      imageWidth: CARD_SIZE[p.id]?.width ?? 256,
+      imageHeight: CARD_SIZE[p.id]?.height ?? 256,
     }))
   )
 );
@@ -104,29 +117,27 @@ const previewProducts = allProducts.slice(0, INITIAL_COUNT);
 
 function ProductCard({ product }: { product: typeof allProducts[0] }) {
   const cardRef = useRef<HTMLAnchorElement>(null);
+  const originRef = useRef({ left: 0, top: 0 });
   const productHref = `/products/${product.id}`;
 
-  const handleMouseMove = ({ clientX, clientY }: MouseEvent) => {
-    if (!cardRef.current) return;
-    const { left, top } = cardRef.current.getBoundingClientRect();
-    cardRef.current.style.setProperty("--mouse-x", `${clientX - left}px`);
-    cardRef.current.style.setProperty("--mouse-y", `${clientY - top}px`);
+  const cacheOrigin = (event: PointerEvent<HTMLAnchorElement>) => {
+    const { left, top } = event.currentTarget.getBoundingClientRect();
+    originRef.current = { left, top };
+  };
+
+  const handlePointerMove = (event: PointerEvent<HTMLAnchorElement>) => {
+    const { left, top } = originRef.current;
+    event.currentTarget.style.setProperty("--mouse-x", `${event.clientX - left}px`);
+    event.currentTarget.style.setProperty("--mouse-y", `${event.clientY - top}px`);
   };
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 20 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="h-full"
-    >
+    <div className="h-full">
       <Link
         ref={cardRef}
         href={productHref}
-        onMouseMove={handleMouseMove}
-        aria-label={`View details for ${product.name}`}
+        onPointerEnter={cacheOrigin}
+        onPointerMove={handlePointerMove}
         className="group w-full relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#0a0a0a] border border-neutral-800 p-6 hover:border-neutral-700 transition-colors duration-500 cursor-pointer h-full no-underline"
       >
         <div
@@ -136,8 +147,16 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
 
         <div className="relative z-10 flex flex-col h-full">
           {product.image ? (
-            <div className="w-full h-40 rounded-xl overflow-hidden mb-4 bg-neutral-900 flex-shrink-0">
-              <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
+            <div className="w-full h-40 rounded-xl overflow-hidden mb-4 bg-neutral-900 flex-shrink-0 flex items-center justify-center">
+              <img
+                src={product.image}
+                alt={product.name}
+                width={product.imageWidth}
+                height={product.imageHeight}
+                loading="lazy"
+                decoding="async"
+                className="max-h-full max-w-full object-contain"
+              />
             </div>
           ) : (
             <div className="flex items-start mb-4">
@@ -147,7 +166,7 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
             </div>
           )}
 
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full w-fit mb-3">
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-300 bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full w-fit mb-3">
             {product.subCategoryTitle}
           </span>
 
@@ -160,12 +179,12 @@ function ProductCard({ product }: { product: typeof allProducts[0] }) {
         </div>
 
         <div className="relative z-10 mt-6 flex justify-end">
-          <span className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-neutral-500 group-hover:text-white transition-colors duration-300">
+          <span className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-neutral-300 group-hover:text-white transition-colors duration-300">
             View Details <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </span>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }
 
@@ -187,13 +206,11 @@ export function HomeProducts() {
           </CtaSecondary>
         </div>
 
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence mode="popLayout">
-            {previewProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {previewProducts.map(product => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
 
         {allProducts.length > INITIAL_COUNT && (
           <div className="flex justify-center">

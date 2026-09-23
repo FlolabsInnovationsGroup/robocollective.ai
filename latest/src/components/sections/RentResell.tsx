@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Space_Grotesk } from 'next/font/google';
 import { CtaPrimary } from "@/components/ui";
 
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], preload: false });
 
 const cards = [
     {
@@ -12,7 +12,7 @@ const cards = [
         stripe: "bg-[#00DBFF]",
         glow: "bg-[radial-gradient(circle_at_top_right,rgba(0,219,255,0.15),transparent_50%)]",
         href: "/rent",
-        cta: "See more",
+        cta: "Explore robot rental",
         ctaClassName: "",
         initial: { opacity: 0, x: -50 },
         body: (
@@ -26,7 +26,7 @@ const cards = [
         stripe: "bg-emerald-500",
         glow: "bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.15),transparent_50%)]",
         href: "/resell",
-        cta: "See more",
+        cta: "Explore the resell program",
         ctaClassName: "!bg-emerald-500",
         initial: { opacity: 0, y: 30 },
         body: (
