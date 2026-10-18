@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Geist } from "next/font/google";
 
 import { Nav } from "@/components/ui/Nav";
+import { PreferredSourcePrompt } from "@/components/ui/PreferredSource";
 import { ScrollToTopButton } from "@/components/ui/ScrollToTopButton";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { THEME_STORAGE_KEY } from "@/lib/theme";
@@ -76,6 +77,11 @@ export default function RootLayout({
         </noscript>
         {/* End Google Tag Manager (noscript) */}
 
+        <Script
+          src="https://news.google.com/swg/js/v1/publisher.js"
+          strategy="afterInteractive"
+        />
+
         <Script id="google-tag-manager" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}
         </Script>
@@ -85,6 +91,7 @@ export default function RootLayout({
 
           {children}
 
+          <PreferredSourcePrompt />
           <ScrollToTopButton />
         </ThemeProvider>
       </body>
