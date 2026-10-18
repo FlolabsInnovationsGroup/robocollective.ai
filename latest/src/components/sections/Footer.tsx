@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "@/components/providers/ThemeProvider";
+import { PreferredSourceButton } from "@/components/ui/PreferredSource";
 
 const inter = Inter({ subsets: ["latin"], preload: false });
 
@@ -249,6 +250,7 @@ export function Footer() {
                                     </a>
                                 ))}
                             </div>
+                            <PreferredSourceButton />
                         </div>
                     </div>
 
