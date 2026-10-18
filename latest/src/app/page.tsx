@@ -4,6 +4,7 @@ import { HomeProducts } from "@/components/sections/HomeProducts";
 import { Services } from "@/components/sections/Services";
 import { RentResell } from "@/components/sections/RentResell";
 import { FloLabsGroup } from "@/components/sections/FloLabsGroup";
+import { SharedPurpose } from "@/components/sections/SharedPurpose";
 import { Blog } from "@/components/sections/Blog";
 import { Footer } from "@/components/sections/Footer";
 
@@ -18,6 +19,7 @@ export default function Home() {
       <HomeProducts />
       <Services />
       <RentResell />
+      <SharedPurpose />
       <FloLabsGroup />
       <Blog />
       <Footer />

@@ -1,6 +1,7 @@
 export * from './Hero';
 export * from './BentoProducts';
 export * from './FloLabsGroup';
+export * from './SharedPurpose';
 export * from './Services';
 export * from './RentResell';
 export * from './Blog';
